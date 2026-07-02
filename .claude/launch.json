@@ -1,0 +1,19 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "session-explorer",
+      "runtimeExecutable": "streamlit",
+      "runtimeArgs": [
+        "run",
+        "src/ableton_session_state_explorer/app.py",
+        "--server.headless",
+        "true",
+        "--server.port",
+        "8599"
+      ],
+      "port": 8599,
+      "autoPort": false
+    }
+  ]
+}
