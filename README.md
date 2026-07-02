@@ -1,2 +1,198 @@
-# AbletonSessionStateExplorer
+# Ableton Session State Explorer v0
 
+**Interpretable DAW-state graphs for human-centered AI-assisted music production.**
+
+A research prototype built for a preliminary PhD application to the Music
+Technology Group (Universitat Pompeu Fabra), in collaboration with Steinberg.
+
+DAW sessions contain rich production knowledge — routing decisions, device
+chains, clip/scene structure, gain staging — yet most AI music systems only
+see audio, text, or isolated parameters. This prototype demonstrates that
+Ableton-style session state can be represented as structured, typed data;
+converted into an interpretable graph; linked to audio descriptors extracted
+from stems or mixdowns; and used to generate *explainable* production
+recommendations that preserve producer agency.
+
+> **Scope statement.** This prototype does not attempt full Ableton Live Set
+> reconstruction, proprietary session introspection, or autonomous mixing. It
+> demonstrates how Ableton-style DAW-state elements can be represented,
+> inspected, exported where supported, and used for explainable production
+> assistance.
+
+![Screenshot placeholder — session graph view](docs/screenshots/graph_view.png)
+*(Screenshots live in `docs/screenshots/`.)*
+
+## What this prototype does
+
+- Defines a **typed Ableton-style session model** (tracks, clips, scenes,
+  devices, device parameters, sends, return tracks, master track) with pydantic.
+- Converts session state into a **directed, typed DAW-state graph** (NetworkX)
+  with node/edge types, per-node metadata, and graph-level statistics.
+- Ships a built-in demo session, **“Indie Vocal Production Sketch”**, with
+  intentional workflow quirks for the recommendation engine to detect.
+- Extracts **audio descriptors** from uploaded stems, loops, or mixdowns
+  (librosa; optional pyloudnorm LUFS) and associates them with tracks/clips.
+- Generates **rule-based, explainable recommendations** — each with an
+  explanation, a suggested action, an explicit caveat, a confidence value, and
+  the graph nodes it reasons about.
+- Renders an **interactive graph visualization** (PyVis, Plotly fallback) with
+  node-type filters and per-track focus.
+- Exports session state, graph, descriptors, and recommendations as
+  **transparent JSON**, individually or as a complete bundle.
+- Optionally attempts an **Ableton-compatible export** via a clean adapter
+  with graceful fallback to a documented mock export.
+- Includes an **experimental `.als` inspector** (gzip/XML surface inspection)
+  to illustrate partial observability — explicitly *not* a Live Set parser.
+- Computes a **session fingerprint** and structural similarity between two
+  session JSON files.
+
+## What this prototype does not do
+
+- It does not parse `.als` files into the session model.
+- It does not fabricate `.als` files (no supported public export path exists).
+- It does not require Ableton Live to be installed, and uses no proprietary
+  Ableton internals.
+- It does not mix, master, or modify audio.
+- The recommendation engine is a **heuristic prototype**, not an AI mixer; it
+  never claims a session is "wrong."
+
+## Installation
+
+Requires Python 3.10+.
+
+```bash
+git clone <this-repo>
+cd AbletonSessionStateExplorer
+pip install -r requirements.txt
+```
+
+## Usage
+
+```bash
+streamlit run src/ableton_session_state_explorer/app.py
+```
+
+Headless CLI:
+
+```bash
+PYTHONPATH=src python -m ableton_session_state_explorer export-demo --out exports/demo
+PYTHONPATH=src python -m ableton_session_state_explorer inspect-als path/to/set.als
+```
+
+Tests:
+
+```bash
+python -m pytest
+```
+
+## Operating modes
+
+1. **Built-in demo session** — loads *Indie Vocal Production Sketch*
+   (6 tracks, 3 scenes, 12 clips, 22 devices, 2 return tracks, master chain).
+   Fully self-contained; no audio or Ableton install needed.
+2. **Session JSON upload** — validates your session against the documented
+   schema (see [data/examples/example_session.json](data/examples/example_session.json))
+   and runs the same graph → descriptors → recommendations pipeline.
+3. **Experimental `.als` inspector** — cautious gzip/XML surface inspection of
+   an uploaded Live Set: root tag, tag frequencies, counts of track-like /
+   device-like / clip-like elements. Not a parser; never feeds the graph.
+4. **Optional Ableton export** — the adapter probes for a public Live Set
+   export library; when none is available (the normal case), it writes a
+   transparent mock export (`project_state.json`, `session_graph.json`,
+   `README_EXPORT_LIMITATIONS.md`).
+
+## Graph schema overview
+
+**Node types:** `project`, `scene`, `track`, `clip`, `midi_clip`,
+`audio_file`, `device`, `parameter`, `send`, `return_track`, `master_track`.
+
+**Edge types:** `contains_scene`, `contains_track`, `contains_clip`,
+`clip_in_scene`, `uses_audio_file`, `has_device`, `has_parameter`, `sends_to`,
+`routes_to_master`, `group_contains`, `has_return`, `has_master`.
+
+Every node carries `id`, `label`, `type`, and relevant metadata (track role,
+device family, clip length, etc.). Graph metadata includes track/clip/device/
+parameter/send/return counts, graph density, and a count of uncertain or
+placeholder elements — partial observability is represented, not hidden.
+
+Export bundle shape:
+
+```json
+{
+  "schema_version": "0.1.0",
+  "project": { "...": "typed session state" },
+  "graph": { "nodes": [], "edges": [], "metadata": {} },
+  "descriptors": [],
+  "recommendations": [],
+  "warnings": [],
+  "export_metadata": { "mode": "graph_only", "ableton_export_available": false }
+}
+```
+
+## Recommendation examples
+
+On the demo session, the engine produces (among others):
+
+- **“Return tracks are defined but not used.”** — returns exist, no sends
+  target them; flagged as a possible unfinished routing structure.
+- **“Consider routing ambience through shared return tracks.”** — multiple
+  tracks carry individual reverbs/echo while send routing is idle.
+- **“Vocal track may benefit from a clearer corrective chain.”** — a
+  vocal-like track shows no EQ/dynamics/de-essing stage.
+- **“Dense device chain detected.”** — a track exceeds six devices.
+- **“Master limiter detected without loudness context.”** — limiter on the
+  master, but no mixdown descriptors to interpret it.
+- **“Potential level imbalance detected.”** — one uploaded file's RMS is far
+  above the session median (descriptor-driven).
+
+Every recommendation uses non-prescriptive language ("Consider…", "This may
+indicate…") and carries an explicit caveat. These are heuristics, not rules.
+
+## Audio descriptor extraction
+
+For each uploaded WAV / AIFF / FLAC / MP3 (backend permitting): duration,
+sample rate, RMS mean/std, peak amplitude, spectral centroid / bandwidth /
+rolloff means, zero-crossing rate, onset strength, estimated tempo, a
+crest-factor dynamic-range approximation, and — if `pyloudnorm` is installed —
+integrated loudness (LUFS). Essentia is used opportunistically if present but
+is never required.
+
+## Ableton export limitations
+
+As of mid-2026, Ableton's public developer tooling for Live 12.3 is the
+**Extensions SDK** (TypeScript/JavaScript, runs inside Live) — a copy is
+vendored in `extensions-sdk-1.0.0-beta.0/` for reference. It does not provide
+offline Live Set authoring from Python, and no official Live Set export
+package exists on PyPI. The adapter in
+[ableton_export_adapter.py](src/ableton_session_state_explorer/ableton_export_adapter.py)
+probes for candidate export modules so a future official package can be
+adopted without code changes; until then it produces a documented mock export.
+We deliberately do not hand-craft `.als` files — fabricating a proprietary
+format would overstate compatibility.
+
+## Relationship to the PhD proposal
+
+The prototype operationalizes the proposal's core claim: DAW-state, treated as
+a **partially observable typed graph**, is a viable substrate for
+human-centered AI-assisted production research. It makes session structure
+(tracks, routing, device chains) a first-class research object; links symbolic
+session state to acoustic evidence via descriptors; and shows that
+recommendations can be *explainable by construction* — each one cites the
+graph nodes it reasons over and states its own limits. The `.als` inspector
+and export adapter demonstrate honest engagement with the boundary between
+public tooling and proprietary formats. See
+[docs/research_context.md](docs/research_context.md).
+
+## Roadmap
+
+- Learned (rather than keyword) track-role and device-family classification.
+- Automation and parameter-modulation edges in the graph.
+- Graph-level ML: session-state embeddings, next-action prediction,
+  counterfactual "what changed between versions" diffs.
+- Adoption of an official Live Set export path if/when one becomes public.
+- User studies on recommendation trust, explanation quality, and agency.
+- Cross-DAW abstraction (the model is Ableton-style, not Ableton-bound).
+
+## License
+
+MIT — see [LICENSE](LICENSE).

@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ableton-session-state-explorer"
+version = "0.1.0"
+description = "Interpretable DAW-state graphs for human-centered AI-assisted music production research (Ableton-style session prototype)"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Zachary Scheffler" }]
+keywords = [
+    "music-production",
+    "daw",
+    "ableton",
+    "graph",
+    "music-information-retrieval",
+    "explainability",
+]
+dependencies = [
+    "streamlit>=1.30",
+    "networkx>=3.0",
+    "pydantic>=2.0",
+    "pandas>=2.0",
+    "numpy>=1.24",
+    "pyvis>=0.3.2",
+    "plotly>=5.18",
+    "librosa>=0.10",
+    "soundfile>=0.12",
+]
+
+[project.optional-dependencies]
+loudness = ["pyloudnorm>=0.1.1"]
+dev = ["pytest>=7.0"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

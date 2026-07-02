@@ -1,0 +1,20 @@
+# Core
+streamlit>=1.30
+networkx>=3.0
+pydantic>=2.0
+pandas>=2.0
+numpy>=1.24
+
+# Graph visualization
+pyvis>=0.3.2
+plotly>=5.18
+
+# Audio descriptors
+librosa>=0.10
+soundfile>=0.12
+
+# Optional loudness analysis (app degrades gracefully without it)
+pyloudnorm>=0.1.1
+
+# Tests
+pytest>=7.0
