@@ -25,8 +25,14 @@ recommendations that preserve producer agency.
 > inspected, exported where supported, and used for explainable production
 > assistance.
 
-![Screenshot placeholder — session graph view](docs/screenshots/graph_view.png)
-*(Screenshots live in `docs/screenshots/`.)*
+![DAW-state graph of the demo session](docs/screenshots/03_graph_default.png)
+
+*Production-structure view (tracks, sends, returns, master only):*
+
+![Production structure only](docs/screenshots/04_graph_structure_only.png)
+
+*(All screenshots live in `docs/screenshots/` — session summary, graph views,
+tables, explainable recommendations, and the experimental prediction section.)*
 
 ## What this prototype does
 
