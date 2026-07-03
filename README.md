@@ -1,9 +1,15 @@
-# Ableton Session State Explorer v0
+# Session State Explorer v0
+
+[![tests](https://github.com/colonelkernel/AbletonSessionStateExplorer/actions/workflows/tests.yml/badge.svg)](https://github.com/colonelkernel/AbletonSessionStateExplorer/actions/workflows/tests.yml)
 
 **Interpretable DAW-state graphs for human-centered AI-assisted music production.**
 
 A research prototype built for a preliminary PhD application to the Music
 Technology Group (Universitat Pompeu Fabra), in collaboration with Steinberg.
+The session model is **DAW-agnostic by design** — this prototype instantiates
+it in an Ableton-style dialect (built-in demo session), and
+[docs/cubase_mapping.md](docs/cubase_mapping.md) records the direct mapping to
+Cubase / VST3 concepts.
 
 DAW sessions contain rich production knowledge — routing decisions, device
 chains, clip/scene structure, gain staging — yet most AI music systems only
@@ -45,6 +51,9 @@ recommendations that preserve producer agency.
   to illustrate partial observability — explicitly *not* a Live Set parser.
 - Computes a **session fingerprint** and structural similarity between two
   session JSON files.
+- Includes a **learned DAW-state prediction baseline** (experimental): masked
+  device-family prediction trained on a seeded synthetic session corpus, with
+  predicted-but-absent chain stages surfaced as data-grounded suggestions.
 
 ## What this prototype does not do
 
@@ -115,6 +124,11 @@ device family, clip length, etc.). Graph metadata includes track/clip/device/
 parameter/send/return counts, graph density, and a count of uncertain or
 placeholder elements — partial observability is represented, not hidden.
 
+Sessions declare their DAW dialect via the `metadata.daw_dialect` convention
+(`"ableton-style"`, `"cubase-style"`, or `"generic"`); see
+[docs/cubase_mapping.md](docs/cubase_mapping.md) for the Cubase/VST3 reading
+of each concept.
+
 Export bundle shape:
 
 ```json
@@ -154,8 +168,31 @@ For each uploaded WAV / AIFF / FLAC / MP3 (backend permitting): duration,
 sample rate, RMS mean/std, peak amplitude, spectral centroid / bandwidth /
 rolloff means, zero-crossing rate, onset strength, estimated tempo, a
 crest-factor dynamic-range approximation, and — if `pyloudnorm` is installed —
-integrated loudness (LUFS). Essentia is used opportunistically if present but
-is never required.
+integrated loudness (LUFS). When **Essentia** is installed, two extra
+descriptors are computed per file (spectral complexity mean and
+danceability); Essentia is exercised when present but never required.
+
+## DAW-state prediction (experimental)
+
+Section 9 of the app demonstrates the *prediction* pathway of the research
+framing with an honest, small-scale baseline
+([prediction.py](src/ableton_session_state_explorer/prediction.py)):
+
+- A **seeded synthetic corpus** of sessions is generated from role-conditioned
+  device-chain priors (the priors are the ground truth of the synthetic world;
+  the model's job is to recover them from samples).
+- An **interpretable conditional model** (role/type-conditioned family
+  frequencies with pairwise co-occurrence lift — every score decomposes into
+  named counts) is trained on 80% of the corpus and evaluated on the held-out
+  20% at **masked device-family prediction**: hide one device, predict its
+  family from the track's role, type, and remaining chain.
+- Typical held-out results (seed 42): **hit@1 ≈ 0.62, hit@3 ≈ 0.95**, vs. a
+  global-frequency baseline at hit@1 ≈ 0.55, hit@3 ≈ 0.86.
+- Predicted-but-absent chain stages on the loaded session are surfaced as
+  data-grounded suggestions in the same explainable format as the heuristic
+  rules — and every one is caveated as **trained on synthetic data**: this is
+  a proof-of-concept for DAW-state prediction, not real-world mixing
+  knowledge.
 
 ## Ableton export limitations
 
@@ -185,10 +222,15 @@ public tooling and proprietary formats. See
 
 ## Roadmap
 
+- Train the chain-prediction baseline on real session corpora (the current
+  synthetic corpus is a benchmark harness, not production knowledge).
 - Learned (rather than keyword) track-role and device-family classification.
 - Automation and parameter-modulation edges in the graph.
 - Graph-level ML: session-state embeddings, next-action prediction,
   counterfactual "what changed between versions" diffs.
+- A `cubase-style` session instantiation per
+  [docs/cubase_mapping.md](docs/cubase_mapping.md) (Track Archive XML as the
+  cautious import surface).
 - Adoption of an official Live Set export path if/when one becomes public.
 - User studies on recommendation trust, explanation quality, and agency.
 - Cross-DAW abstraction (the model is Ableton-style, not Ableton-bound).

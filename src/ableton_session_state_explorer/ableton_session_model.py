@@ -330,6 +330,7 @@ def build_demo_session() -> ProjectState:
         ],
         metadata={
             "source": "built-in demo",
+            "daw_dialect": "ableton-style",
             "intentional_heuristic_issues": [
                 "individual reverbs/echo on tracks instead of shared returns",
                 "return tracks defined but no sends assigned",

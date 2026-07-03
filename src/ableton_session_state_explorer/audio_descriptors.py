@@ -33,10 +33,11 @@ except ImportError:  # pragma: no cover - optional dependency
     PYLOUDNORM_AVAILABLE = False
 
 try:  # Essentia is a bonus, never required
-    import essentia.standard  # noqa: F401
+    import essentia.standard as essentia_standard
 
     ESSENTIA_AVAILABLE = True
 except ImportError:  # pragma: no cover - optional dependency
+    essentia_standard = None
     ESSENTIA_AVAILABLE = False
 
 SUPPORTED_EXTENSIONS = (".wav", ".aiff", ".aif", ".flac", ".mp3", ".ogg")
@@ -55,6 +56,34 @@ def _estimate_tempo(y: np.ndarray, sr: int) -> Optional[float]:
         return round(value, 2) if value > 0 else None
     except Exception:
         return None
+
+
+def _add_essentia_descriptors(result: AudioDescriptorSet, y: np.ndarray, sr: int) -> None:
+    """Compute extra descriptors with Essentia when it is installed.
+
+    Failures degrade to a warning on the descriptor set; Essentia is never
+    required for the core pipeline.
+    """
+    audio = np.ascontiguousarray(y, dtype=np.float32)
+    try:
+        danceability, _ = essentia_standard.Danceability(sampleRate=sr)(audio)
+        result.danceability = round(float(danceability), 4)
+    except Exception as exc:
+        result.warnings.append(f"Essentia danceability failed: {exc}")
+    try:
+        windowing = essentia_standard.Windowing(type="hann")
+        spectrum = essentia_standard.Spectrum()
+        complexity = essentia_standard.SpectralComplexity(sampleRate=sr)
+        values = [
+            complexity(spectrum(windowing(frame)))
+            for frame in essentia_standard.FrameGenerator(
+                audio, frameSize=2048, hopSize=1024
+            )
+        ]
+        if values:
+            result.spectral_complexity_mean = round(float(np.mean(values)), 4)
+    except Exception as exc:
+        result.warnings.append(f"Essentia spectral complexity failed: {exc}")
 
 
 def extract_descriptors(
@@ -147,5 +176,8 @@ def extract_descriptors(
         warnings.append(
             "pyloudnorm not installed; integrated loudness (LUFS) not computed."
         )
+
+    if ESSENTIA_AVAILABLE:
+        _add_essentia_descriptors(result, y, sr)
 
     return result

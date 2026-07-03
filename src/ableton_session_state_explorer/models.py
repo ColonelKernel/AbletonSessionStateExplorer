@@ -157,6 +157,9 @@ class AudioDescriptorSet(BaseModel):
     estimated_tempo: Optional[float] = None
     dynamic_range_db: Optional[float] = None
     integrated_loudness_lufs: Optional[float] = None
+    # Extra descriptors computed only when Essentia is installed.
+    spectral_complexity_mean: Optional[float] = None
+    danceability: Optional[float] = None
     warnings: list[str] = Field(default_factory=list)
 
 

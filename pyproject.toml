@@ -32,6 +32,7 @@ dependencies = [
 
 [project.optional-dependencies]
 loudness = ["pyloudnorm>=0.1.1"]
+essentia = ["essentia"]
 dev = ["pytest>=7.0"]
 
 [tool.setuptools.packages.find]

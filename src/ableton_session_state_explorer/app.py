@@ -47,6 +47,11 @@ from ableton_session_state_explorer.graph_builder import (
     graph_to_dict,
 )
 from ableton_session_state_explorer.models import validate_project_dict
+from ableton_session_state_explorer.prediction import (
+    predict_chain_gaps,
+    prediction_table,
+    train_and_evaluate,
+)
 from ableton_session_state_explorer.recommendations import generate_recommendations
 from ableton_session_state_explorer.utils import to_pretty_json
 from ableton_session_state_explorer.visualization import (
@@ -57,7 +62,7 @@ from ableton_session_state_explorer.visualization import (
 )
 
 st.set_page_config(
-    page_title="Ableton Session State Explorer v0",
+    page_title="Session State Explorer v0",
     page_icon="🎛️",
     layout="wide",
 )
@@ -66,9 +71,10 @@ st.set_page_config(
 # Header
 # ---------------------------------------------------------------------------
 
-st.title("Ableton Session State Explorer v0")
+st.title("Session State Explorer v0")
 st.caption(
-    "Interpretable DAW-state graphs for AI-assisted music production research"
+    "Interpretable DAW-state graphs for AI-assisted music production research "
+    "— DAW-agnostic core, Ableton-style demo session"
 )
 
 st.session_state.setdefault("descriptors", [])
@@ -613,6 +619,67 @@ with cmp_col:
             )
         except (json.JSONDecodeError, ValidationError) as exc:
             st.error(f"Could not read comparison session: {exc}")
+
+# ---------------------------------------------------------------------------
+# DAW-state prediction (experimental)
+# ---------------------------------------------------------------------------
+
+st.header("9 · DAW-state prediction (experimental)")
+
+st.warning(
+    "**Synthetic-data proof-of-concept.** The model below is trained on a "
+    "seeded synthetic session corpus generated from role-conditioned "
+    "device-chain priors — not on real productions. It demonstrates the "
+    "*prediction* pathway of the research framing (masked device-family "
+    "prediction from session context), not real-world mixing knowledge."
+)
+
+
+@st.cache_resource
+def _trained_chain_model():
+    return train_and_evaluate()
+
+
+chain_model, chain_metrics = _trained_chain_model()
+
+metric_cols = st.columns(4)
+metric_cols[0].metric(
+    "Model hit@1", f"{chain_metrics['model_hit_at_1']:.0%}",
+    help="Masked device-family prediction accuracy on held-out synthetic sessions.",
+)
+metric_cols[1].metric(
+    "Model hit@3", f"{chain_metrics['model_hit_at_3']:.0%}")
+metric_cols[2].metric(
+    "Frequency baseline hit@1", f"{chain_metrics['baseline_hit_at_1']:.0%}")
+metric_cols[3].metric(
+    "Held-out examples", chain_metrics["n_examples"])
+st.caption(
+    f"Trained on {chain_metrics['n_train_sessions']} synthetic sessions, "
+    f"evaluated on {chain_metrics['n_test_sessions']} held-out sessions. "
+    "The model conditions on track role, track type, and chain context; the "
+    "baseline ranks families by global frequency."
+)
+
+st.subheader("Predicted vs observed chain families")
+st.dataframe(pd.DataFrame(prediction_table(project, chain_model)), use_container_width=True)
+
+predicted_gaps = predict_chain_gaps(project, chain_model)
+if predicted_gaps:
+    st.subheader("Data-grounded chain suggestions")
+    for gap in predicted_gaps:
+        with st.expander(f"🧪 {gap.title}", expanded=False):
+            st.markdown(
+                f"**Severity:** {gap.severity} · **Confidence:** {gap.confidence:.0%}"
+            )
+            st.write(gap.explanation)
+            st.markdown(f"**Suggested action:** {gap.suggested_action}")
+            st.caption(f"Caveat: {gap.caveat}")
+            st.markdown(
+                "**Related graph nodes:** "
+                + ", ".join(f"`{n}`" for n in gap.related_node_ids)
+            )
+else:
+    st.info("No predicted chain gaps above the probability threshold.")
 
 # ---------------------------------------------------------------------------
 # Research framing

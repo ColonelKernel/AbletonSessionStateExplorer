@@ -16,5 +16,9 @@ soundfile>=0.12
 # Optional loudness analysis (app degrades gracefully without it)
 pyloudnorm>=0.1.1
 
+# Optional extra descriptors (spectral complexity, danceability);
+# the app degrades gracefully without it
+# essentia
+
 # Tests
 pytest>=7.0

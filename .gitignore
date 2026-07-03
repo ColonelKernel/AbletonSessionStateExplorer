@@ -25,3 +25,7 @@ Thumbs.db
 # Editors
 .idea/
 .vscode/
+
+# Application materials stay private (kept on disk, out of version control)
+docs/application/
+docs/demo/
