@@ -29,3 +29,7 @@ Thumbs.db
 # Application materials stay private (kept on disk, out of version control)
 docs/application/
 docs/demo/
+
+# Live extension build artifacts
+extension/session-state-exporter/node_modules/
+extension/session-state-exporter/dist/

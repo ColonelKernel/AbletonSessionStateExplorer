@@ -186,5 +186,31 @@ def validate_project_dict(payload: dict[str, Any]) -> ProjectState:
     """Validate a raw dict against the ProjectState schema.
 
     Raises pydantic.ValidationError with readable messages on failure.
+
+    Sessions from external producers (e.g. the Session State Exporter Live
+    extension) legitimately arrive without ``device_family`` or track
+    ``role`` — those are explorer-side heuristics, not DAW facts. Missing
+    values are backfilled here with the keyword classifiers so the
+    recommendation rules and graph metadata behave identically for uploaded
+    and built-in sessions. Explicit (dialect-supplied) values are never
+    overwritten.
     """
-    return ProjectState.model_validate(payload)
+    from .utils import classify_device_family, classify_track_role
+
+    project = ProjectState.model_validate(payload)
+
+    def _fill_devices(devices: list[DeviceState]) -> None:
+        for device in devices:
+            if device.device_family is None:
+                device.device_family = classify_device_family(device.name)
+
+    for track in project.tracks:
+        if track.role is None:
+            track.role = classify_track_role(track.name)
+        _fill_devices(track.devices)
+    for return_track in project.return_tracks:
+        _fill_devices(return_track.devices)
+    if project.master_track is not None:
+        _fill_devices(project.master_track.devices)
+
+    return project

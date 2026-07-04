@@ -56,6 +56,9 @@ tables, explainable recommendations, and the experimental prediction section.)*
 - Includes **experimental surface inspectors** for Ableton `.als` files
   (gzip/XML) and Cubase Track Archive `.xml` files (class-attribute counting)
   to illustrate partial observability — explicitly *not* a Live Set parser.
+- Bridges to **real Ableton Live sessions** via a bundled Live extension
+  built on the public Extensions SDK — export any open Set as schema JSON
+  from inside Live, upload it, and run the full pipeline on it.
 - Ships **two built-in demo dialects**: the Ableton-style *Indie Vocal
   Production Sketch* (session grid, intentional workflow quirks) and the
   Cubase-style *Alt-Pop Mix Bus* (linear arranger, wired FX-channel sends,
@@ -213,13 +216,31 @@ framing with an honest, small-scale baseline
   a proof-of-concept for DAW-state prediction, not real-world mixing
   knowledge.
 
+## Real sessions via the Ableton Extensions SDK
+
+The repo includes **Session State Exporter**
+([extension/session-state-exporter](extension/session-state-exporter/README.md)),
+a Live extension built on Ableton's public Extensions SDK (vendored in
+`extensions-sdk-1.0.0-beta.0/`). Running inside Live 12.3+, it walks the
+current Set through the official data model — tracks, session and
+arrangement clips, device chains (recursing racks), parameters, active
+sends, returns, main chain, scenes, tempo, scale — and writes JSON in this
+app's schema. Load the file via **Upload session JSON** and the full
+pipeline (graph, recommendations, diff, prediction) runs on a *real*
+session.
+
+The export is honest about partial observability: what API 1.0.0 does not
+expose (track colors, device on/off, dB-calibrated mixer values, the Set
+name) is recorded as absent, with raw observations preserved in
+`raw_source`. Track roles and device families are backfilled by the
+explorer's keyword classifiers on upload — they are research heuristics,
+not DAW facts.
+
 ## Ableton export limitations
 
-As of mid-2026, Ableton's public developer tooling for Live 12.3 is the
-**Extensions SDK** (TypeScript/JavaScript, runs inside Live) — a copy is
-vendored in `extensions-sdk-1.0.0-beta.0/` for reference. It does not provide
-offline Live Set authoring from Python, and no official Live Set export
-package exists on PyPI. The adapter in
+The SDK bridge above is **inbound** (Live → explorer). In the outbound
+direction, the SDK does not provide offline Live Set authoring from Python,
+and no official Live Set export package exists on PyPI. The adapter in
 [ableton_export_adapter.py](src/ableton_session_state_explorer/ableton_export_adapter.py)
 probes for candidate export modules so a future official package can be
 adopted without code changes; until then it produces a documented mock export.
