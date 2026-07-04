@@ -29,6 +29,39 @@ def _send_targets(track: TrackState, project: ProjectState) -> Counter:
     )
 
 
+def _parameter_changes(
+    owner_label: str, old_devices, new_devices
+) -> list[dict]:
+    """Parameter value changes between devices matched by unique name.
+
+    Only devices whose name appears exactly once on each side are compared —
+    duplicated names give no reliable instance identity.
+    """
+    old_by_name = Counter(d.name for d in old_devices)
+    new_by_name = Counter(d.name for d in new_devices)
+    changes: list[dict] = []
+    for name in sorted(set(old_by_name) & set(new_by_name)):
+        if old_by_name[name] != 1 or new_by_name[name] != 1:
+            continue
+        old_device = next(d for d in old_devices if d.name == name)
+        new_device = next(d for d in new_devices if d.name == name)
+        old_params = {p.name: p for p in old_device.parameters}
+        new_params = {p.name: p for p in new_device.parameters}
+        for param_name in sorted(set(old_params) & set(new_params)):
+            if old_params[param_name].value != new_params[param_name].value:
+                changes.append(
+                    {
+                        "owner": owner_label,
+                        "device": name,
+                        "parameter": param_name,
+                        "base": old_params[param_name].value,
+                        "revised": new_params[param_name].value,
+                        "unit": new_params[param_name].unit,
+                    }
+                )
+    return changes
+
+
 def diff_projects(base: ProjectState, revised: ProjectState) -> dict:
     """Compute a structural diff and a human-readable narrative."""
     narrative: list[str] = []
@@ -117,6 +150,27 @@ def diff_projects(base: ProjectState, revised: ProjectState) -> dict:
     for name in returns_removed:
         narrative.append(f"Return track removed: '{name}'.")
 
+    parameter_changes: list[dict] = []
+    for key in sorted(set(base_tracks) & set(revised_tracks)):
+        old, new = base_tracks[key], revised_tracks[key]
+        parameter_changes.extend(
+            _parameter_changes(new.name, old.devices, new.devices)
+        )
+    if base.master_track is not None and revised.master_track is not None:
+        parameter_changes.extend(
+            _parameter_changes(
+                base.master_track.name,
+                base.master_track.devices,
+                revised.master_track.devices,
+            )
+        )
+    for change in parameter_changes:
+        unit = f" {change['unit']}" if change["unit"] else ""
+        narrative.append(
+            f"'{change['owner']}' · {change['device']}: {change['parameter']} "
+            f"{change['base']} → {change['revised']}{unit}."
+        )
+
     def _master_devices(project: ProjectState) -> Counter:
         if project.master_track is None:
             return Counter()
@@ -152,11 +206,13 @@ def diff_projects(base: ProjectState, revised: ProjectState) -> dict:
         "returns_removed": returns_removed,
         "master_devices_added": master_added,
         "master_devices_removed": master_removed,
+        "parameter_changes": parameter_changes,
         "graph_stats": stats,
         "narrative": narrative,
         "caveats": [
             "Tracks are matched by name; a renamed track appears as a "
             "removal plus an addition.",
-            "Parameter-level changes are not diffed in v0.1.",
+            "Parameter changes are diffed only for devices whose name is "
+            "unique within their chain on both sides.",
         ],
     }

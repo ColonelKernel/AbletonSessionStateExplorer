@@ -54,6 +54,30 @@ def test_diff_counts_graph_growth_from_sends():
     assert result["narrative"]
 
 
+def test_parameter_change_is_detected():
+    result = diff_projects(build_demo_session(), build_demo_session_revision())
+    ratio_changes = [
+        c for c in result["parameter_changes"]
+        if c["device"] == "Compressor" and c["parameter"] == "Ratio"
+    ]
+    assert ratio_changes == [
+        {
+            "owner": "Lead Vocal",
+            "device": "Compressor",
+            "parameter": "Ratio",
+            "base": 4.0,
+            "revised": 3.0,
+            "unit": ":1",
+        }
+    ]
+    assert any("Ratio 4.0 → 3.0" in line for line in result["narrative"])
+
+
+def test_identical_sessions_have_no_parameter_changes():
+    result = diff_projects(build_demo_session(), build_demo_session())
+    assert result["parameter_changes"] == []
+
+
 def test_track_rename_appears_as_remove_plus_add():
     base = build_demo_session()
     revised = build_demo_session()

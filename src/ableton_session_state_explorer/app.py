@@ -35,6 +35,9 @@ from ableton_session_state_explorer.cubase_session_model import (
 )
 from ableton_session_state_explorer.session_diff import diff_projects
 from ableton_session_state_explorer.als_inspector import inspect_als_bytes
+from ableton_session_state_explorer.track_archive_inspector import (
+    inspect_track_archive_bytes,
+)
 from ableton_session_state_explorer.audio_descriptors import (
     LIBROSA_AVAILABLE,
     extract_descriptors,
@@ -91,7 +94,7 @@ st.session_state.setdefault("project", None)
 
 MODE_DEMO = "Built-in demo session"
 MODE_UPLOAD = "Upload session JSON"
-MODE_ALS = "Experimental .als inspector"
+MODE_ALS = "Experimental inspectors (.als / Track Archive)"
 
 with st.sidebar:
     st.header("Mode")
@@ -115,7 +118,8 @@ recommendation engine to find.
 documented schema and runs the same pipeline.
 
 **{MODE_ALS}** — attempts gzip/XML surface inspection of an Ableton `.als`
-file to illustrate partial observability. It is *not* a Live Set parser.
+file or a Cubase Track Archive `.xml` to illustrate partial observability on
+both DAW sides. Neither is a parser.
 """
     )
 
@@ -227,6 +231,45 @@ else:  # MODE_ALS
             "Download inspection summary (JSON)",
             data=to_pretty_json(report),
             file_name="als_inspection.json",
+            mime="application/json",
+        )
+
+    st.subheader("Cubase Track Archive inspector")
+    st.caption(
+        "The Steinberg-side twin of the `.als` inspector: Track Archives are "
+        "XML with semantics in `class` attributes (e.g. `MAudioTrackEvent`). "
+        "Surface counts only — not a parser."
+    )
+    uploaded_archive = st.file_uploader(
+        "Upload a Cubase Track Archive (.xml)", type=["xml"], key="trackarchive"
+    )
+    if uploaded_archive is not None:
+        ta_report = inspect_track_archive_bytes(
+            uploaded_archive.getvalue(), uploaded_archive.name
+        )
+        ta_a, ta_b, ta_c, ta_d = st.columns(4)
+        ta_a.metric("Track-like elements", ta_report["track_like_elements"])
+        ta_b.metric("Event-like elements", ta_report["event_like_elements"])
+        ta_c.metric("Plugin-like elements", ta_report["plugin_like_elements"])
+        ta_d.metric("Distinct tags", ta_report.get("total_distinct_tags", 0))
+        st.write(f"**Root tag:** `{ta_report['root_tag']}`")
+        for warning in ta_report["warnings"]:
+            st.caption(f"⚠️ {warning}")
+        if ta_report["class_frequency"]:
+            st.subheader("Class frequency (top 50)")
+            st.dataframe(
+                pd.DataFrame(
+                    sorted(
+                        ta_report["class_frequency"].items(), key=lambda kv: -kv[1]
+                    ),
+                    columns=["class", "count"],
+                ),
+                use_container_width=True,
+            )
+        st.download_button(
+            "Download archive inspection summary (JSON)",
+            data=to_pretty_json(ta_report),
+            file_name="track_archive_inspection.json",
             mime="application/json",
         )
     project = None
@@ -781,6 +824,13 @@ if revised_project is not None:
                     for c in diff_result["track_changes"]
                 ]
             ),
+            use_container_width=True,
+        )
+
+    if diff_result["parameter_changes"]:
+        st.subheader("Parameter changes")
+        st.dataframe(
+            pd.DataFrame(diff_result["parameter_changes"]),
             use_container_width=True,
         )
 

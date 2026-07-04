@@ -361,9 +361,15 @@ def build_demo_session_revision() -> ProjectState:
     bgv = next(t for t in project.tracks if t.id == "track-6")
     guitar = next(t for t in project.tracks if t.id == "track-3")
 
-    # Lead Vocal: add the missing de-esser, move ambience to the shared return.
+    # Lead Vocal: add the missing de-esser, move ambience to the shared return,
+    # and ease the compressor now that sibilance is handled upstream.
     lead.devices = [d for d in lead.devices if d.name != "Reverb"]
     lead.devices.append(_device("device-23", lead.id, 2, "De-Esser"))
+    for device in lead.devices:
+        if device.name == "Compressor":
+            for param in device.parameters:
+                if param.name == "Ratio":
+                    param.value = 3.0
     lead.sends.append(
         SendState(
             id="send-1", source_track_id=lead.id, target_return_id="return-1",
@@ -403,6 +409,8 @@ def build_demo_session_revision() -> ProjectState:
             "Backing vocal chain gains EQ and compression (rule 2).",
             "Per-track Reverb/Echo removed; ambience consolidated onto the "
             "shared returns via sends (rules 1 and 3).",
+            "Lead vocal compressor ratio eased 4:1 → 3:1 with sibilance "
+            "handled by the de-esser.",
         ],
     }
     project.metadata.pop("intentional_heuristic_issues", None)

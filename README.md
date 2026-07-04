@@ -53,7 +53,8 @@ tables, explainable recommendations, and the experimental prediction section.)*
   **transparent JSON**, individually or as a complete bundle.
 - Optionally attempts an **Ableton-compatible export** via a clean adapter
   with graceful fallback to a documented mock export.
-- Includes an **experimental `.als` inspector** (gzip/XML surface inspection)
+- Includes **experimental surface inspectors** for Ableton `.als` files
+  (gzip/XML) and Cubase Track Archive `.xml` files (class-attribute counting)
   to illustrate partial observability — explicitly *not* a Live Set parser.
 - Ships **two built-in demo dialects**: the Ableton-style *Indie Vocal
   Production Sketch* (session grid, intentional workflow quirks) and the
@@ -100,7 +101,10 @@ Headless CLI:
 
 ```bash
 PYTHONPATH=src python -m ableton_session_state_explorer export-demo --out exports/demo
+PYTHONPATH=src python -m ableton_session_state_explorer export-demo --dialect cubase
+PYTHONPATH=src python -m ableton_session_state_explorer diff-demo
 PYTHONPATH=src python -m ableton_session_state_explorer inspect-als path/to/set.als
+PYTHONPATH=src python -m ableton_session_state_explorer inspect-track-archive path/to/tracks.xml
 ```
 
 Tests:
@@ -244,10 +248,9 @@ public tooling and proprietary formats. See
 - Graph-level ML: session-state embeddings, next-action prediction,
   counterfactual "what changed between versions" diffs.
 - A Cubase Track Archive XML importer as the cautious `cubase-style` import
-  surface (the built-in Cubase-style demo session covers the representation;
-  importing real archives is the next step per
-  [docs/cubase_mapping.md](docs/cubase_mapping.md)).
-- Parameter-level session diffs (v0.1 diffs devices, sends, returns, tempo).
+  surface (v0.1 ships a surface **inspector** for Track Archives, parallel to
+  the `.als` inspector; importing into the graph pipeline is the next step
+  per [docs/cubase_mapping.md](docs/cubase_mapping.md)).
 - Adoption of an official Live Set export path if/when one becomes public.
 - User studies on recommendation trust, explanation quality, and agency.
 - Cross-DAW abstraction (the model is Ableton-style, not Ableton-bound).

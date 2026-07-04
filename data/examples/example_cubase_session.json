@@ -1,0 +1,608 @@
+{
+  "schema_version": "0.1.0",
+  "project_name": "Alt-Pop Mix Bus (Cubase-style)",
+  "tempo": 104.0,
+  "time_signature": "4/4",
+  "scenes": [],
+  "tracks": [
+    {
+      "id": "c-track-1",
+      "index": 0,
+      "name": "Drums",
+      "track_type": "audio",
+      "role": "Drums",
+      "color": "#C44536",
+      "volume_db": -3.5,
+      "pan": 0.0,
+      "mute": null,
+      "solo": null,
+      "armed": null,
+      "clips": [
+        {
+          "id": "c-clip-1",
+          "track_id": "c-track-1",
+          "scene_id": null,
+          "name": "Drums 01",
+          "clip_type": "audio",
+          "start_time_beats": 0.0,
+          "length_beats": 128.0,
+          "loop_start_beats": null,
+          "loop_end_beats": null,
+          "warp_enabled": null,
+          "audio_file": "audio/drums_01.wav",
+          "midi_note_count": null,
+          "raw_source": {}
+        }
+      ],
+      "devices": [
+        {
+          "id": "c-device-1",
+          "track_id": "c-track-1",
+          "index": 0,
+          "name": "Frequency",
+          "device_type": "audio_effect",
+          "device_family": "EQ",
+          "enabled": true,
+          "preset_name": null,
+          "parameters": [
+            {
+              "id": "c-device-1-param-1",
+              "device_id": "c-device-1",
+              "name": "Band 1 Freq",
+              "value": 50.0,
+              "normalized_value": null,
+              "unit": "Hz",
+              "is_automated": false,
+              "is_visible_to_host": true
+            }
+          ],
+          "raw_source": {}
+        },
+        {
+          "id": "c-device-2",
+          "track_id": "c-track-1",
+          "index": 1,
+          "name": "Compressor",
+          "device_type": "audio_effect",
+          "device_family": "Dynamics",
+          "enabled": true,
+          "preset_name": null,
+          "parameters": [
+            {
+              "id": "c-device-2-param-1",
+              "device_id": "c-device-2",
+              "name": "Ratio",
+              "value": 3.0,
+              "normalized_value": null,
+              "unit": ":1",
+              "is_automated": false,
+              "is_visible_to_host": true
+            }
+          ],
+          "raw_source": {}
+        },
+        {
+          "id": "c-device-3",
+          "track_id": "c-track-1",
+          "index": 2,
+          "name": "Magneto II",
+          "device_type": "audio_effect",
+          "device_family": "Saturation",
+          "enabled": true,
+          "preset_name": null,
+          "parameters": [
+            {
+              "id": "c-device-3-param-1",
+              "device_id": "c-device-3",
+              "name": "Saturation",
+              "value": 40.0,
+              "normalized_value": null,
+              "unit": "%",
+              "is_automated": false,
+              "is_visible_to_host": true
+            }
+          ],
+          "raw_source": {}
+        }
+      ],
+      "sends": [],
+      "group_id": null,
+      "raw_source": {}
+    },
+    {
+      "id": "c-track-2",
+      "index": 1,
+      "name": "Bass",
+      "track_type": "audio",
+      "role": "Bass",
+      "color": "#6B3FA0",
+      "volume_db": -5.0,
+      "pan": 0.0,
+      "mute": null,
+      "solo": null,
+      "armed": null,
+      "clips": [
+        {
+          "id": "c-clip-2",
+          "track_id": "c-track-2",
+          "scene_id": null,
+          "name": "Bass 01",
+          "clip_type": "audio",
+          "start_time_beats": 16.0,
+          "length_beats": 112.0,
+          "loop_start_beats": null,
+          "loop_end_beats": null,
+          "warp_enabled": null,
+          "audio_file": "audio/bass_01.wav",
+          "midi_note_count": null,
+          "raw_source": {}
+        }
+      ],
+      "devices": [
+        {
+          "id": "c-device-4",
+          "track_id": "c-track-2",
+          "index": 0,
+          "name": "Frequency",
+          "device_type": "audio_effect",
+          "device_family": "EQ",
+          "enabled": true,
+          "preset_name": null,
+          "parameters": [],
+          "raw_source": {}
+        },
+        {
+          "id": "c-device-5",
+          "track_id": "c-track-2",
+          "index": 1,
+          "name": "VintageCompressor",
+          "device_type": "audio_effect",
+          "device_family": "Dynamics",
+          "enabled": true,
+          "preset_name": null,
+          "parameters": [],
+          "raw_source": {}
+        }
+      ],
+      "sends": [],
+      "group_id": null,
+      "raw_source": {}
+    },
+    {
+      "id": "c-track-3",
+      "index": 2,
+      "name": "Gtr Wide",
+      "track_type": "audio",
+      "role": "Guitar",
+      "color": "#2E86AB",
+      "volume_db": -7.0,
+      "pan": -0.25,
+      "mute": null,
+      "solo": null,
+      "armed": null,
+      "clips": [
+        {
+          "id": "c-clip-3",
+          "track_id": "c-track-3",
+          "scene_id": null,
+          "name": "Gtr L+R",
+          "clip_type": "audio",
+          "start_time_beats": 32.0,
+          "length_beats": 96.0,
+          "loop_start_beats": null,
+          "loop_end_beats": null,
+          "warp_enabled": null,
+          "audio_file": "audio/gtr_wide.wav",
+          "midi_note_count": null,
+          "raw_source": {}
+        }
+      ],
+      "devices": [
+        {
+          "id": "c-device-6",
+          "track_id": "c-track-3",
+          "index": 0,
+          "name": "Frequency",
+          "device_type": "audio_effect",
+          "device_family": "EQ",
+          "enabled": true,
+          "preset_name": null,
+          "parameters": [],
+          "raw_source": {}
+        },
+        {
+          "id": "c-device-7",
+          "track_id": "c-track-3",
+          "index": 1,
+          "name": "Squasher",
+          "device_type": "audio_effect",
+          "device_family": "Dynamics",
+          "enabled": true,
+          "preset_name": null,
+          "parameters": [],
+          "raw_source": {}
+        }
+      ],
+      "sends": [
+        {
+          "id": "c-send-1",
+          "source_track_id": "c-track-3",
+          "target_return_id": "c-fx-2",
+          "send_name": "FX 2 \u2014 PingPongDelay",
+          "level_db": -15.0,
+          "enabled": true
+        }
+      ],
+      "group_id": null,
+      "raw_source": {}
+    },
+    {
+      "id": "c-track-4",
+      "index": 3,
+      "name": "Synth Pad",
+      "track_type": "midi",
+      "role": "Keys",
+      "color": "#3FB07F",
+      "volume_db": -9.0,
+      "pan": 0.1,
+      "mute": null,
+      "solo": null,
+      "armed": null,
+      "clips": [
+        {
+          "id": "c-clip-4",
+          "track_id": "c-track-4",
+          "scene_id": null,
+          "name": "Pad Part",
+          "clip_type": "midi",
+          "start_time_beats": 0.0,
+          "length_beats": 128.0,
+          "loop_start_beats": null,
+          "loop_end_beats": null,
+          "warp_enabled": null,
+          "audio_file": null,
+          "midi_note_count": 96,
+          "raw_source": {}
+        }
+      ],
+      "devices": [
+        {
+          "id": "c-device-8",
+          "track_id": "c-track-4",
+          "index": 0,
+          "name": "Retrologue",
+          "device_type": "instrument",
+          "device_family": "Instrument",
+          "enabled": true,
+          "preset_name": null,
+          "parameters": [
+            {
+              "id": "c-device-8-param-1",
+              "device_id": "c-device-8",
+              "name": "Osc 1 Shape",
+              "value": 0.5,
+              "normalized_value": null,
+              "unit": "",
+              "is_automated": false,
+              "is_visible_to_host": true
+            }
+          ],
+          "raw_source": {}
+        },
+        {
+          "id": "c-device-9",
+          "track_id": "c-track-4",
+          "index": 1,
+          "name": "StudioChorus",
+          "device_type": "audio_effect",
+          "device_family": "Modulation",
+          "enabled": true,
+          "preset_name": null,
+          "parameters": [],
+          "raw_source": {}
+        }
+      ],
+      "sends": [
+        {
+          "id": "c-send-2",
+          "source_track_id": "c-track-4",
+          "target_return_id": "c-fx-1",
+          "send_name": "FX 1 \u2014 REVerence",
+          "level_db": -18.0,
+          "enabled": true
+        }
+      ],
+      "group_id": null,
+      "raw_source": {}
+    },
+    {
+      "id": "c-track-5",
+      "index": 4,
+      "name": "Lead Vox",
+      "track_type": "audio",
+      "role": "Vocal",
+      "color": "#D4A017",
+      "volume_db": -2.5,
+      "pan": 0.0,
+      "mute": null,
+      "solo": null,
+      "armed": null,
+      "clips": [
+        {
+          "id": "c-clip-5",
+          "track_id": "c-track-5",
+          "scene_id": null,
+          "name": "Lead Vox Comp",
+          "clip_type": "audio",
+          "start_time_beats": 16.0,
+          "length_beats": 112.0,
+          "loop_start_beats": null,
+          "loop_end_beats": null,
+          "warp_enabled": null,
+          "audio_file": "audio/lead_vox_comp.wav",
+          "midi_note_count": null,
+          "raw_source": {}
+        }
+      ],
+      "devices": [
+        {
+          "id": "c-device-10",
+          "track_id": "c-track-5",
+          "index": 0,
+          "name": "StudioEQ",
+          "device_type": "audio_effect",
+          "device_family": "EQ",
+          "enabled": true,
+          "preset_name": null,
+          "parameters": [
+            {
+              "id": "c-device-10-param-1",
+              "device_id": "c-device-10",
+              "name": "HP Freq",
+              "value": 85.0,
+              "normalized_value": null,
+              "unit": "Hz",
+              "is_automated": false,
+              "is_visible_to_host": true
+            }
+          ],
+          "raw_source": {}
+        },
+        {
+          "id": "c-device-11",
+          "track_id": "c-track-5",
+          "index": 1,
+          "name": "DeEsser",
+          "device_type": "audio_effect",
+          "device_family": "Dynamics",
+          "enabled": true,
+          "preset_name": null,
+          "parameters": [
+            {
+              "id": "c-device-11-param-1",
+              "device_id": "c-device-11",
+              "name": "Reduction",
+              "value": 4.0,
+              "normalized_value": null,
+              "unit": "dB",
+              "is_automated": false,
+              "is_visible_to_host": true
+            }
+          ],
+          "raw_source": {}
+        },
+        {
+          "id": "c-device-12",
+          "track_id": "c-track-5",
+          "index": 2,
+          "name": "Tube Compressor",
+          "device_type": "audio_effect",
+          "device_family": "Dynamics",
+          "enabled": true,
+          "preset_name": null,
+          "parameters": [],
+          "raw_source": {}
+        }
+      ],
+      "sends": [
+        {
+          "id": "c-send-3",
+          "source_track_id": "c-track-5",
+          "target_return_id": "c-fx-1",
+          "send_name": "FX 1 \u2014 REVerence",
+          "level_db": -12.0,
+          "enabled": true
+        }
+      ],
+      "group_id": null,
+      "raw_source": {}
+    },
+    {
+      "id": "c-track-6",
+      "index": 5,
+      "name": "Vox Doubles",
+      "track_type": "audio",
+      "role": "Vocal",
+      "color": "#C97B3D",
+      "volume_db": -10.0,
+      "pan": 0.0,
+      "mute": null,
+      "solo": null,
+      "armed": null,
+      "clips": [
+        {
+          "id": "c-clip-6",
+          "track_id": "c-track-6",
+          "scene_id": null,
+          "name": "Doubles Chorus",
+          "clip_type": "audio",
+          "start_time_beats": 64.0,
+          "length_beats": 64.0,
+          "loop_start_beats": null,
+          "loop_end_beats": null,
+          "warp_enabled": null,
+          "audio_file": "audio/vox_doubles.wav",
+          "midi_note_count": null,
+          "raw_source": {}
+        }
+      ],
+      "devices": [
+        {
+          "id": "c-device-13",
+          "track_id": "c-track-6",
+          "index": 0,
+          "name": "StudioEQ",
+          "device_type": "audio_effect",
+          "device_family": "EQ",
+          "enabled": true,
+          "preset_name": null,
+          "parameters": [],
+          "raw_source": {}
+        },
+        {
+          "id": "c-device-14",
+          "track_id": "c-track-6",
+          "index": 1,
+          "name": "Compressor",
+          "device_type": "audio_effect",
+          "device_family": "Dynamics",
+          "enabled": true,
+          "preset_name": null,
+          "parameters": [],
+          "raw_source": {}
+        }
+      ],
+      "sends": [
+        {
+          "id": "c-send-4",
+          "source_track_id": "c-track-6",
+          "target_return_id": "c-fx-1",
+          "send_name": "FX 1 \u2014 REVerence",
+          "level_db": -10.0,
+          "enabled": true
+        }
+      ],
+      "group_id": null,
+      "raw_source": {}
+    }
+  ],
+  "return_tracks": [
+    {
+      "id": "c-fx-1",
+      "index": 0,
+      "name": "FX 1 \u2014 REVerence",
+      "devices": [
+        {
+          "id": "c-device-15",
+          "track_id": "c-fx-1",
+          "index": 0,
+          "name": "REVerence",
+          "device_type": "audio_effect",
+          "device_family": "Ambience",
+          "enabled": true,
+          "preset_name": null,
+          "parameters": [
+            {
+              "id": "c-device-15-param-1",
+              "device_id": "c-device-15",
+              "name": "Reverb Time",
+              "value": 2.4,
+              "normalized_value": null,
+              "unit": "s",
+              "is_automated": false,
+              "is_visible_to_host": true
+            }
+          ],
+          "raw_source": {}
+        }
+      ],
+      "volume_db": 0.0
+    },
+    {
+      "id": "c-fx-2",
+      "index": 1,
+      "name": "FX 2 \u2014 PingPongDelay",
+      "devices": [
+        {
+          "id": "c-device-16",
+          "track_id": "c-fx-2",
+          "index": 0,
+          "name": "PingPongDelay",
+          "device_type": "audio_effect",
+          "device_family": "Ambience",
+          "enabled": true,
+          "preset_name": null,
+          "parameters": [
+            {
+              "id": "c-device-16-param-1",
+              "device_id": "c-device-16",
+              "name": "Delay",
+              "value": 0.375,
+              "normalized_value": null,
+              "unit": "beats",
+              "is_automated": false,
+              "is_visible_to_host": true
+            }
+          ],
+          "raw_source": {}
+        }
+      ],
+      "volume_db": 0.0
+    }
+  ],
+  "master_track": {
+    "id": "c-master-1",
+    "name": "Stereo Out",
+    "devices": [
+      {
+        "id": "c-device-17",
+        "track_id": "c-master-1",
+        "index": 0,
+        "name": "Limiter",
+        "device_type": "audio_effect",
+        "device_family": "Dynamics",
+        "enabled": true,
+        "preset_name": null,
+        "parameters": [
+          {
+            "id": "c-device-17-param-1",
+            "device_id": "c-device-17",
+            "name": "Output",
+            "value": -0.3,
+            "normalized_value": null,
+            "unit": "dB",
+            "is_automated": false,
+            "is_visible_to_host": true
+          }
+        ],
+        "raw_source": {}
+      },
+      {
+        "id": "c-device-18",
+        "track_id": "c-master-1",
+        "index": 1,
+        "name": "SuperVision",
+        "device_type": "audio_effect",
+        "device_family": "Utility",
+        "enabled": true,
+        "preset_name": null,
+        "parameters": [],
+        "raw_source": {}
+      }
+    ],
+    "volume_db": 0.0
+  },
+  "warnings": [
+    "This is a hand-authored demo session, not an imported Cubase project.",
+    "Clip audio file paths are placeholders; no audio is bundled."
+  ],
+  "metadata": {
+    "source": "built-in demo",
+    "daw_dialect": "cubase-style",
+    "dialect_notes": [
+      "No scenes: Cubase uses a linear Arranger, so clips carry start_time_beats instead of scene assignments.",
+      "Return tracks read as FX Channel Tracks; sends are wired, as is idiomatic in Cubase.",
+      "device_family is supplied explicitly by the dialect rather than keyword-classified (e.g. REVerence, Magneto II)."
+    ]
+  }
+}
