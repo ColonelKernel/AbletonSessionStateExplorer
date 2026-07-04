@@ -55,6 +55,15 @@ tables, explainable recommendations, and the experimental prediction section.)*
   with graceful fallback to a documented mock export.
 - Includes an **experimental `.als` inspector** (gzip/XML surface inspection)
   to illustrate partial observability — explicitly *not* a Live Set parser.
+- Ships **two built-in demo dialects**: the Ableton-style *Indie Vocal
+  Production Sketch* (session grid, intentional workflow quirks) and the
+  Cubase-style *Alt-Pop Mix Bus* (linear arranger, wired FX-channel sends,
+  dialect-supplied device families such as REVerence and Magneto II) — the
+  same model, the same pipeline, two DAW paradigms.
+- Computes a **session diff** between two versions of a session — devices,
+  sends, returns, tempo, graph-size deltas — with a human-readable narrative.
+  The built-in *Revision 2* enacts the demo's recommendations, closing the
+  loop: recommendation → action → verifiable state change.
 - Computes a **session fingerprint** and structural similarity between two
   session JSON files.
 - Includes a **learned DAW-state prediction baseline** (experimental): masked
@@ -234,9 +243,11 @@ public tooling and proprietary formats. See
 - Automation and parameter-modulation edges in the graph.
 - Graph-level ML: session-state embeddings, next-action prediction,
   counterfactual "what changed between versions" diffs.
-- A `cubase-style` session instantiation per
-  [docs/cubase_mapping.md](docs/cubase_mapping.md) (Track Archive XML as the
-  cautious import surface).
+- A Cubase Track Archive XML importer as the cautious `cubase-style` import
+  surface (the built-in Cubase-style demo session covers the representation;
+  importing real archives is the next step per
+  [docs/cubase_mapping.md](docs/cubase_mapping.md)).
+- Parameter-level session diffs (v0.1 diffs devices, sends, returns, tempo).
 - Adoption of an official Live Set export path if/when one becomes public.
 - User studies on recommendation trust, explanation quality, and agency.
 - Cross-DAW abstraction (the model is Ableton-style, not Ableton-bound).

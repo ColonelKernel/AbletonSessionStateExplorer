@@ -343,6 +343,72 @@ def build_demo_session() -> ProjectState:
     )
 
 
+def build_demo_session_revision() -> ProjectState:
+    """Build 'Revision 2' of the demo session — the v0 recommendations enacted.
+
+    The revision applies exactly the workflow changes the heuristic rules
+    suggested on the original: corrective stages on the vocal chains,
+    per-track ambience consolidated onto the shared returns, and sends wired.
+    Diffing it against :func:`build_demo_session` therefore demonstrates the
+    full loop — recommendation, action, verifiable state change.
+    """
+    from .models import SendState  # local import to keep module header tidy
+
+    project = build_demo_session().model_copy(deep=True)
+    project.project_name = f"{DEMO_SESSION_NAME} — Revision 2"
+
+    lead = next(t for t in project.tracks if t.id == "track-5")
+    bgv = next(t for t in project.tracks if t.id == "track-6")
+    guitar = next(t for t in project.tracks if t.id == "track-3")
+
+    # Lead Vocal: add the missing de-esser, move ambience to the shared return.
+    lead.devices = [d for d in lead.devices if d.name != "Reverb"]
+    lead.devices.append(_device("device-23", lead.id, 2, "De-Esser"))
+    lead.sends.append(
+        SendState(
+            id="send-1", source_track_id=lead.id, target_return_id="return-1",
+            send_name="A — Reverb Return", level_db=-12.0, enabled=True,
+        )
+    )
+
+    # Backing Vocals: give the chain corrective stages, route ambience out.
+    bgv.devices = [d for d in bgv.devices if d.name != "Reverb"]
+    bgv.devices.insert(0, _device("device-24", bgv.id, 0, "EQ Eight"))
+    bgv.devices.insert(1, _device("device-25", bgv.id, 1, "Compressor"))
+    bgv.sends.append(
+        SendState(
+            id="send-2", source_track_id=bgv.id, target_return_id="return-1",
+            send_name="A — Reverb Return", level_db=-10.0, enabled=True,
+        )
+    )
+
+    # Guitar: replace the insert Echo with a send to the delay return.
+    guitar.devices = [d for d in guitar.devices if d.name != "Echo"]
+    guitar.sends.append(
+        SendState(
+            id="send-3", source_track_id=guitar.id, target_return_id="return-2",
+            send_name="B — Delay Return", level_db=-15.0, enabled=True,
+        )
+    )
+
+    for track in (lead, bgv, guitar):
+        for i, device in enumerate(track.devices):
+            device.index = i
+
+    project.metadata = {
+        **project.metadata,
+        "revision_of": DEMO_SESSION_NAME,
+        "revision_notes": [
+            "De-esser added to the lead vocal chain (rule 2).",
+            "Backing vocal chain gains EQ and compression (rule 2).",
+            "Per-track Reverb/Echo removed; ambience consolidated onto the "
+            "shared returns via sends (rules 1 and 3).",
+        ],
+    }
+    project.metadata.pop("intentional_heuristic_issues", None)
+    return project
+
+
 # ---------------------------------------------------------------------------
 # Session fingerprint
 # ---------------------------------------------------------------------------

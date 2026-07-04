@@ -26,9 +26,14 @@ from ableton_session_state_explorer.ableton_export_adapter import (
 )
 from ableton_session_state_explorer.ableton_session_model import (
     build_demo_session,
+    build_demo_session_revision,
     compare_fingerprints,
     compute_session_fingerprint,
 )
+from ableton_session_state_explorer.cubase_session_model import (
+    build_cubase_demo_session,
+)
+from ableton_session_state_explorer.session_diff import diff_projects
 from ableton_session_state_explorer.als_inspector import inspect_als_bytes
 from ableton_session_state_explorer.audio_descriptors import (
     LIBROSA_AVAILABLE,
@@ -120,10 +125,31 @@ file to illustrate partial observability. It is *not* a Live Set parser.
 
 st.header("1 · Session")
 
+DEMO_BUILDERS = {
+    "Indie Vocal Production Sketch (Ableton-style)": build_demo_session,
+    "Alt-Pop Mix Bus (Cubase-style)": build_cubase_demo_session,
+}
+
 if mode == MODE_DEMO:
-    if st.session_state.project is None or st.session_state.get("mode") != MODE_DEMO:
-        st.session_state.project = build_demo_session()
+    demo_choice = st.selectbox(
+        "Demo session",
+        list(DEMO_BUILDERS),
+        help=(
+            "Two dialect instantiations of the same DAW-agnostic session "
+            "model. The Ableton-style demo carries intentional workflow "
+            "quirks; the Cubase-style demo shows FX-channel routing, a "
+            "linear arranger (no scenes), and dialect-supplied device "
+            "families. See docs/cubase_mapping.md."
+        ),
+    )
+    if (
+        st.session_state.project is None
+        or st.session_state.get("mode") != MODE_DEMO
+        or st.session_state.get("demo_choice") != demo_choice
+    ):
+        st.session_state.project = DEMO_BUILDERS[demo_choice]()
         st.session_state.mode = MODE_DEMO
+        st.session_state.demo_choice = demo_choice
     project = st.session_state.project
 
     with st.expander("Edit demo session basics", expanded=False):
@@ -680,6 +706,93 @@ if predicted_gaps:
             )
 else:
     st.info("No predicted chain gaps above the probability threshold.")
+
+# ---------------------------------------------------------------------------
+# Session diff
+# ---------------------------------------------------------------------------
+
+st.header("10 · Session diff (experimental)")
+
+st.markdown(
+    "Compare the loaded session against another version to see **what "
+    "changed** at the level producers act on — devices, sends, returns, "
+    "tempo. The built-in *Revision 2* enacts exactly the changes the "
+    "recommendation engine suggested on the Ableton-style demo, closing the "
+    "loop: recommendation → action → verifiable state change."
+)
+
+DIFF_BUILTIN = "Built-in: Indie Vocal Production Sketch — Revision 2"
+DIFF_UPLOAD = "Upload a session JSON to compare"
+
+diff_source = st.radio(
+    "Compare against", [DIFF_BUILTIN, DIFF_UPLOAD], horizontal=True
+)
+
+revised_project = None
+if diff_source == DIFF_BUILTIN:
+    revised_project = build_demo_session_revision()
+else:
+    diff_upload = st.file_uploader(
+        "Session JSON for comparison (this app's schema)",
+        type=["json"],
+        key="diff-upload",
+    )
+    if diff_upload is not None:
+        try:
+            diff_payload = json.load(diff_upload)
+            if "project" in diff_payload and "schema_version" in diff_payload:
+                diff_payload = diff_payload["project"]
+            revised_project = validate_project_dict(diff_payload)
+        except (json.JSONDecodeError, ValidationError) as exc:
+            st.error(f"Could not load comparison session: {exc}")
+
+if revised_project is not None:
+    diff_result = diff_projects(project, revised_project)
+
+    st.subheader("Narrative")
+    for line in diff_result["narrative"]:
+        st.markdown(f"- {line}")
+
+    stats = diff_result["graph_stats"]
+    stat_cols = st.columns(2)
+    stat_cols[0].metric(
+        "Graph nodes",
+        stats["revised_nodes"],
+        delta=stats["revised_nodes"] - stats["base_nodes"],
+    )
+    stat_cols[1].metric(
+        "Graph edges",
+        stats["revised_edges"],
+        delta=stats["revised_edges"] - stats["base_edges"],
+    )
+
+    if diff_result["track_changes"]:
+        st.subheader("Changed tracks")
+        st.dataframe(
+            pd.DataFrame(
+                [
+                    {
+                        "track": c["track"],
+                        "devices added": ", ".join(c["devices_added"]) or "—",
+                        "devices removed": ", ".join(c["devices_removed"]) or "—",
+                        "sends added": ", ".join(c["sends_added"]) or "—",
+                        "sends removed": ", ".join(c["sends_removed"]) or "—",
+                    }
+                    for c in diff_result["track_changes"]
+                ]
+            ),
+            use_container_width=True,
+        )
+
+    for caveat in diff_result["caveats"]:
+        st.caption(f"Caveat: {caveat}")
+
+    st.download_button(
+        "Download diff JSON",
+        data=to_pretty_json(diff_result),
+        file_name="session_diff.json",
+        mime="application/json",
+    )
 
 # ---------------------------------------------------------------------------
 # Research framing
