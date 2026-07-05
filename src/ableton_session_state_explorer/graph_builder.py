@@ -137,6 +137,7 @@ def build_session_graph(project_state: ProjectState) -> nx.DiGraph:
             pan=track.pan,
             mute=track.mute,
             solo=track.solo,
+            track_color=track.color,
         )
         graph.add_edge(PROJECT_NODE_ID, track.id, type="contains_track")
 

@@ -225,7 +225,7 @@ else:  # MODE_ALS
                     sorted(report["tag_frequency"].items(), key=lambda kv: -kv[1]),
                     columns=["tag", "count"],
                 ),
-                use_container_width=True,
+                width="stretch",
             )
         st.download_button(
             "Download inspection summary (JSON)",
@@ -264,7 +264,7 @@ else:  # MODE_ALS
                     ),
                     columns=["class", "count"],
                 ),
-                use_container_width=True,
+                width="stretch",
             )
         st.download_button(
             "Download archive inspection summary (JSON)",
@@ -420,10 +420,9 @@ display_graph = filter_graph(
 
 legend_html = " ".join(
     f'<span style="display:inline-block;margin:2px 8px 2px 0;">'
-    f'<span style="display:inline-block;width:11px;height:11px;'
-    f'border-radius:50%;background:{color};margin-right:4px;"></span>'
+    f'<span style="color:{color};margin-right:4px;">{glyph}</span>'
     f"{label}</span>"
-    for label, color in legend_entries()
+    for label, color, glyph in legend_entries()
 )
 st.markdown(legend_html, unsafe_allow_html=True)
 
@@ -438,9 +437,9 @@ if PYVIS_AVAILABLE:
         st.components.v1.html(html, height=660, scrolling=False)
     except Exception as exc:
         st.warning(f"PyVis rendering failed ({exc}); falling back to Plotly.")
-        st.plotly_chart(build_plotly_figure(display_graph), use_container_width=True)
+        st.plotly_chart(build_plotly_figure(display_graph), width="stretch")
 else:
-    st.plotly_chart(build_plotly_figure(display_graph), use_container_width=True)
+    st.plotly_chart(build_plotly_figure(display_graph), width="stretch")
 
 # ---------------------------------------------------------------------------
 # Tables
@@ -473,7 +472,7 @@ with tab_tracks:
                 for t in project.tracks
             ]
         ),
-        use_container_width=True,
+        width="stretch",
     )
 
 with tab_clips:
@@ -492,7 +491,7 @@ with tab_clips:
         )
         if clips
         else pd.DataFrame(),
-        use_container_width=True,
+        width="stretch",
     )
 
 with tab_devices:
@@ -510,7 +509,7 @@ with tab_devices:
         )
         if devices
         else pd.DataFrame(),
-        use_container_width=True,
+        width="stretch",
     )
 
 with tab_sends:
@@ -527,7 +526,7 @@ with tab_sends:
                     for s in sends
                 ]
             ),
-            use_container_width=True,
+            width="stretch",
         )
     else:
         st.info("No sends defined in this session.")
@@ -544,7 +543,7 @@ with tab_returns:
                     for rt in project.return_tracks
                 ]
             ),
-            use_container_width=True,
+            width="stretch",
         )
     else:
         st.info("No return tracks defined.")
@@ -553,7 +552,7 @@ with tab_descriptors:
     if descriptors:
         st.dataframe(
             pd.DataFrame([d.model_dump(exclude={"warnings"}) for d in descriptors]),
-            use_container_width=True,
+            width="stretch",
         )
     else:
         st.info("No descriptors yet — upload audio in section 2.")
@@ -571,7 +570,7 @@ with tab_recs:
                     for r in recommendations
                 ]
             ),
-            use_container_width=True,
+            width="stretch",
         )
     else:
         st.info("No recommendations triggered.")
@@ -584,11 +583,15 @@ st.header("6 · Explainable recommendations")
 
 SEVERITY_ICON = {"info": "ℹ️", "suggestion": "💡", "warning": "⚠️"}
 
-if not recommendations:
-    st.info("No heuristic rules triggered on this session.")
-for rec in recommendations:
-    icon = SEVERITY_ICON.get(rec.severity, "💡")
-    with st.expander(f"{icon} {rec.title}", expanded=True):
+
+def render_recommendation_card(rec, *, icon: str | None = None, expanded: bool = True):
+    """Single renderer for every recommendation-shaped card in the app.
+
+    `icon` overrides the severity icon — used to mark provenance (e.g. 🧪
+    for suggestions learned from the synthetic corpus).
+    """
+    resolved_icon = icon or SEVERITY_ICON.get(rec.severity, "💡")
+    with st.expander(f"{resolved_icon} {rec.title}", expanded=expanded):
         st.markdown(
             f"**Severity:** {rec.severity} · **Confidence:** {rec.confidence:.0%}"
         )
@@ -599,6 +602,12 @@ for rec in recommendations:
         if len(rec.related_node_ids) > 12:
             related += f" … (+{len(rec.related_node_ids) - 12} more)"
         st.markdown(f"**Related graph nodes:** {related}")
+
+
+if not recommendations:
+    st.info("No heuristic rules triggered on this session.")
+for rec in recommendations:
+    render_recommendation_card(rec)
 
 # ---------------------------------------------------------------------------
 # Export
@@ -730,23 +739,13 @@ st.caption(
 )
 
 st.subheader("Predicted vs observed chain families")
-st.dataframe(pd.DataFrame(prediction_table(project, chain_model)), use_container_width=True)
+st.dataframe(pd.DataFrame(prediction_table(project, chain_model)), width="stretch")
 
 predicted_gaps = predict_chain_gaps(project, chain_model)
 if predicted_gaps:
     st.subheader("Data-grounded chain suggestions")
     for gap in predicted_gaps:
-        with st.expander(f"🧪 {gap.title}", expanded=False):
-            st.markdown(
-                f"**Severity:** {gap.severity} · **Confidence:** {gap.confidence:.0%}"
-            )
-            st.write(gap.explanation)
-            st.markdown(f"**Suggested action:** {gap.suggested_action}")
-            st.caption(f"Caveat: {gap.caveat}")
-            st.markdown(
-                "**Related graph nodes:** "
-                + ", ".join(f"`{n}`" for n in gap.related_node_ids)
-            )
+        render_recommendation_card(gap, icon="🧪", expanded=False)
 else:
     st.info("No predicted chain gaps above the probability threshold.")
 
@@ -824,21 +823,21 @@ if revised_project is not None:
                     for c in diff_result["track_changes"]
                 ]
             ),
-            use_container_width=True,
+            width="stretch",
         )
 
     if diff_result["parameter_changes"]:
         st.subheader("Parameter changes")
         st.dataframe(
             pd.DataFrame(diff_result["parameter_changes"]),
-            use_container_width=True,
+            width="stretch",
         )
 
     for caveat in diff_result["caveats"]:
         st.caption(f"Caveat: {caveat}")
 
     st.download_button(
-        "Download diff JSON",
+        "Download diff (JSON)",
         data=to_pretty_json(diff_result),
         file_name="session_diff.json",
         mime="application/json",

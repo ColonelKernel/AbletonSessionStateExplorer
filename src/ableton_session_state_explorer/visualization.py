@@ -31,10 +31,34 @@ NODE_STYLE: dict[str, dict] = {
 
 DEFAULT_STYLE = {"color": "#999999", "shape": "dot", "size": 12, "legend": "Other"}
 
+# Renderer chrome tokens, shared by the PyVis and Plotly renderers so the
+# fallback cannot drift from the primary.
+GRAPH_CHROME = {
+    "background": "#111111",
+    "font": "#EEEEEE",
+    "edge": "#666666",
+    "node_outline": "#333333",
+}
 
-def legend_entries() -> list[tuple[str, str]]:
-    """(label, color) pairs for the UI legend."""
-    return [(style["legend"], style["color"]) for style in NODE_STYLE.values()]
+# Unicode glyphs matching each node shape, so the legend preserves the
+# shape channel of the color+shape dual encoding.
+SHAPE_GLYPH = {
+    "star": "★",
+    "diamond": "◆",
+    "dot": "●",
+    "square": "■",
+    "triangle": "▲",
+    "triangleDown": "▼",
+    "box": "▬",
+}
+
+
+def legend_entries() -> list[tuple[str, str, str]]:
+    """(label, color, shape glyph) triples for the UI legend."""
+    return [
+        (style["legend"], style["color"], SHAPE_GLYPH.get(style["shape"], "●"))
+        for style in NODE_STYLE.values()
+    ]
 
 
 def _node_tooltip(node_id: str, data: dict) -> str:
@@ -55,8 +79,8 @@ def build_pyvis_html(graph: nx.DiGraph, height: str = "640px") -> str:
         height=height,
         width="100%",
         directed=True,
-        bgcolor="#111111",
-        font_color="#EEEEEE",
+        bgcolor=GRAPH_CHROME["background"],
+        font_color=GRAPH_CHROME["font"],
         notebook=False,
         cdn_resources="in_line",
     )
@@ -64,13 +88,23 @@ def build_pyvis_html(graph: nx.DiGraph, height: str = "640px") -> str:
 
     for node_id, data in graph.nodes(data=True):
         style = NODE_STYLE.get(data.get("type", ""), DEFAULT_STYLE)
+        # Track nodes carry the session's own track color as a border tint,
+        # on top of the type color that keeps the visual taxonomy readable.
+        track_color = data.get("track_color")
+        if track_color:
+            color = {"background": style["color"], "border": track_color}
+            border_width = 3
+        else:
+            color = style["color"]
+            border_width = 1
         network.add_node(
             node_id,
             label=data.get("label", node_id),
             title=_node_tooltip(node_id, data),
-            color=style["color"],
+            color=color,
             shape=style["shape"],
             size=style["size"],
+            borderWidth=border_width,
         )
 
     for source, target, data in graph.edges(data=True):
@@ -78,7 +112,7 @@ def build_pyvis_html(graph: nx.DiGraph, height: str = "640px") -> str:
             source,
             target,
             title=data.get("type", ""),
-            color="#666666",
+            color=GRAPH_CHROME["edge"],
             arrows="to",
         )
 
@@ -100,10 +134,10 @@ def build_plotly_figure(graph: nx.DiGraph):
 
     edge_trace = go.Scatter(
         x=edge_x, y=edge_y, mode="lines",
-        line=dict(width=0.6, color="#888888"), hoverinfo="none",
+        line=dict(width=0.6, color=GRAPH_CHROME["edge"]), hoverinfo="none",
     )
 
-    node_x, node_y, texts, colors, sizes = [], [], [], [], []
+    node_x, node_y, texts, colors, sizes, outlines = [], [], [], [], [], []
     for node_id, data in graph.nodes(data=True):
         x, y = positions[node_id]
         node_x.append(x)
@@ -112,10 +146,11 @@ def build_plotly_figure(graph: nx.DiGraph):
         style = NODE_STYLE.get(data.get("type", ""), DEFAULT_STYLE)
         colors.append(style["color"])
         sizes.append(style["size"])
+        outlines.append(data.get("track_color") or GRAPH_CHROME["node_outline"])
 
     node_trace = go.Scatter(
         x=node_x, y=node_y, mode="markers",
-        marker=dict(color=colors, size=sizes, line=dict(width=1, color="#333333")),
+        marker=dict(color=colors, size=sizes, line=dict(width=1, color=outlines)),
         hovertext=texts, hoverinfo="text",
     )
 
