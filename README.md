@@ -58,7 +58,9 @@ tables, explainable recommendations, and the experimental prediction section.)*
   to illustrate partial observability — explicitly *not* a Live Set parser.
 - Bridges to **real Ableton Live sessions** via a bundled Live extension
   built on the public Extensions SDK — export any open Set as schema JSON
-  from inside Live, upload it, and run the full pipeline on it.
+  from inside Live, upload it, and run the full pipeline on it. Verified
+  end-to-end in Live 12.4.5 beta on a real Set (screenshots `09`–`11` in
+  `docs/screenshots/`).
 - Ships **two built-in demo dialects**: the Ableton-style *Indie Vocal
   Production Sketch* (session grid, intentional workflow quirks) and the
   Cubase-style *Alt-Pop Mix Bus* (linear arranger, wired FX-channel sends,

@@ -53,7 +53,10 @@ the extension console and shown in the progress dialog).
 
 ## Status
 
-Typechecked and bundled against the vendored SDK in CI conditions; exercised
-end-to-end only where a Live 12.3+ beta with Extensions support is
-available. The Extensions SDK is beta software; this exporter is a research
-bridge, not a product.
+**Verified end-to-end in Ableton Live 12.4.5 beta**: packaged as `.ablx`,
+installed via Live's Extensions settings page, invoked from a track context
+menu on a real Live Set, and the resulting JSON (110 KB, 276 graph nodes)
+validated and ran through the explorer's full pipeline — graph,
+recommendations, tables. Screenshots of the real-session run are in
+[docs/screenshots/](../../docs/screenshots/) (`09`–`11`). The Extensions SDK
+is beta software; this exporter is a research bridge, not a product.
