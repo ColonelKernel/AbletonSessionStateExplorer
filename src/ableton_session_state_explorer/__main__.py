@@ -2,6 +2,8 @@
 
     python -m ableton_session_state_explorer export-demo --out exports/demo
     python -m ableton_session_state_explorer export-demo --dialect cubase
+    python -m ableton_session_state_explorer export-canonical session.json --out exports/session
+    python -m ableton_session_state_explorer export-canonical set.als --out exports/set
     python -m ableton_session_state_explorer diff-demo
     python -m ableton_session_state_explorer inspect-als path/to/set.als
     python -m ableton_session_state_explorer inspect-track-archive path/to/tracks.xml
@@ -55,6 +57,23 @@ def _cmd_export_demo(out_dir: Path, dialect: str) -> int:
     return 0
 
 
+def _cmd_export_canonical(input_path: Path, out_dir: Path, source_kind: str) -> int:
+    from .canonical_export import export_als_surface, export_bundle
+
+    if not input_path.exists():
+        print(f"File not found: {input_path}", file=sys.stderr)
+        return 1
+    if input_path.suffix.lower() == ".als":
+        paths = export_als_surface(input_path, out_dir)
+        print("Degraded .als surface bundle (no session-state decode):")
+    else:
+        paths = export_bundle(input_path, out_dir, source_kind=source_kind)  # type: ignore[arg-type]
+        print(f"Canonical bundle ({source_kind}):")
+    for name, path in paths.items():
+        print(f"  {name}: {path}")
+    return 0
+
+
 def _cmd_diff_demo() -> int:
     result = diff_projects(build_demo_session(), build_demo_session_revision())
     print(to_pretty_json(result))
@@ -92,6 +111,27 @@ def main(argv: list[str] | None = None) -> int:
         help="Which built-in demo dialect to export",
     )
 
+    canonical_parser = subparsers.add_parser(
+        "export-canonical",
+        help=(
+            "Export a session JSON (or, degraded, an .als file) as the "
+            "5-file canonical v0.2 snapshot bundle"
+        ),
+    )
+    canonical_parser.add_argument("input_path", type=Path)
+    canonical_parser.add_argument(
+        "--out", type=Path, default=Path("exports/canonical")
+    )
+    canonical_parser.add_argument(
+        "--source",
+        choices=["extension_json", "session_json"],
+        default="session_json",
+        help=(
+            "How the JSON was captured: extension_json (Session State "
+            "Exporter extension) or session_json (hand-authored/manual)"
+        ),
+    )
+
     subparsers.add_parser(
         "diff-demo",
         help="Diff the built-in demo against its Revision 2 (JSON to stdout)",
@@ -111,6 +151,8 @@ def main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
     if args.command == "export-demo":
         return _cmd_export_demo(args.out, args.dialect)
+    if args.command == "export-canonical":
+        return _cmd_export_canonical(args.input_path, args.out, args.source)
     if args.command == "diff-demo":
         return _cmd_diff_demo()
     if args.command == "inspect-als":

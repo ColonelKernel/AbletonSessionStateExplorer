@@ -1,0 +1,222 @@
+{
+  "read": {
+    "structure": {
+      "fields": {
+        "tracks": {
+          "applicability": "APPLICABLE",
+          "support": "FULL",
+          "capture_method": "extension_json",
+          "source_stability": "SUPPORTED_INTEGRATION",
+          "tested_daw_version": "12.4.5 beta",
+          "validation_status": "TESTED"
+        },
+        "scenes": {
+          "applicability": "APPLICABLE",
+          "support": "FULL",
+          "capture_method": "extension_json",
+          "source_stability": "SUPPORTED_INTEGRATION",
+          "tested_daw_version": "12.4.5 beta",
+          "validation_status": "TESTED"
+        },
+        "clips": {
+          "applicability": "APPLICABLE",
+          "support": "FULL",
+          "capture_method": "extension_json",
+          "source_stability": "SUPPORTED_INTEGRATION",
+          "tested_daw_version": "12.4.5 beta",
+          "validation_status": "TESTED"
+        },
+        "group_membership": {
+          "applicability": "APPLICABLE",
+          "support": "FULL",
+          "capture_method": "extension_json",
+          "source_stability": "SUPPORTED_INTEGRATION",
+          "tested_daw_version": "12.4.5 beta",
+          "validation_status": "TESTED"
+        },
+        "set_name": {
+          "applicability": "APPLICABLE",
+          "support": "NONE",
+          "capture_method": "extension_json",
+          "source_stability": "SUPPORTED_INTEGRATION",
+          "tested_daw_version": "12.4.5 beta",
+          "validation_status": "TESTED"
+        }
+      }
+    },
+    "channel": {
+      "fields": {
+        "mute": {
+          "applicability": "APPLICABLE",
+          "support": "FULL",
+          "capture_method": "extension_json",
+          "source_stability": "SUPPORTED_INTEGRATION",
+          "tested_daw_version": "12.4.5 beta",
+          "validation_status": "TESTED"
+        },
+        "solo": {
+          "applicability": "APPLICABLE",
+          "support": "FULL",
+          "capture_method": "extension_json",
+          "source_stability": "SUPPORTED_INTEGRATION",
+          "tested_daw_version": "12.4.5 beta",
+          "validation_status": "TESTED"
+        },
+        "armed": {
+          "applicability": "APPLICABLE",
+          "support": "FULL",
+          "capture_method": "extension_json",
+          "source_stability": "SUPPORTED_INTEGRATION",
+          "tested_daw_version": "12.4.5 beta",
+          "validation_status": "TESTED"
+        },
+        "volume_db": {
+          "applicability": "APPLICABLE",
+          "support": "NONE",
+          "capture_method": "extension_json",
+          "source_stability": "SUPPORTED_INTEGRATION",
+          "tested_daw_version": "12.4.5 beta",
+          "validation_status": "TESTED"
+        },
+        "pan": {
+          "applicability": "APPLICABLE",
+          "support": "NONE",
+          "capture_method": "extension_json",
+          "source_stability": "SUPPORTED_INTEGRATION",
+          "tested_daw_version": "12.4.5 beta",
+          "validation_status": "TESTED"
+        },
+        "color": {
+          "applicability": "APPLICABLE",
+          "support": "NONE",
+          "capture_method": "extension_json",
+          "source_stability": "SUPPORTED_INTEGRATION",
+          "tested_daw_version": "12.4.5 beta",
+          "validation_status": "TESTED"
+        }
+      }
+    },
+    "routing": {
+      "fields": {
+        "sends": {
+          "applicability": "APPLICABLE",
+          "support": "FULL",
+          "capture_method": "extension_json",
+          "source_stability": "SUPPORTED_INTEGRATION",
+          "tested_daw_version": "12.4.5 beta",
+          "validation_status": "TESTED"
+        },
+        "return_tracks": {
+          "applicability": "APPLICABLE",
+          "support": "FULL",
+          "capture_method": "extension_json",
+          "source_stability": "SUPPORTED_INTEGRATION",
+          "tested_daw_version": "12.4.5 beta",
+          "validation_status": "TESTED"
+        },
+        "main_chain": {
+          "applicability": "APPLICABLE",
+          "support": "FULL",
+          "capture_method": "extension_json",
+          "source_stability": "SUPPORTED_INTEGRATION",
+          "tested_daw_version": "12.4.5 beta",
+          "validation_status": "TESTED"
+        }
+      }
+    },
+    "processing": {
+      "fields": {
+        "device_chains": {
+          "applicability": "APPLICABLE",
+          "support": "FULL",
+          "capture_method": "extension_json",
+          "source_stability": "SUPPORTED_INTEGRATION",
+          "tested_daw_version": "12.4.5 beta",
+          "validation_status": "TESTED"
+        },
+        "rack_recursion": {
+          "applicability": "APPLICABLE",
+          "support": "FULL",
+          "capture_method": "extension_json",
+          "source_stability": "SUPPORTED_INTEGRATION",
+          "tested_daw_version": "12.4.5 beta",
+          "validation_status": "TESTED"
+        },
+        "device_enabled": {
+          "applicability": "APPLICABLE",
+          "support": "NONE",
+          "capture_method": "extension_json",
+          "source_stability": "SUPPORTED_INTEGRATION",
+          "tested_daw_version": "12.4.5 beta",
+          "validation_status": "TESTED"
+        }
+      }
+    },
+    "parameters": {
+      "fields": {
+        "parameter_names": {
+          "applicability": "APPLICABLE",
+          "support": "FULL",
+          "capture_method": "extension_json",
+          "source_stability": "SUPPORTED_INTEGRATION",
+          "tested_daw_version": "12.4.5 beta",
+          "validation_status": "TESTED"
+        },
+        "parameter_values": {
+          "applicability": "APPLICABLE",
+          "support": "PARTIAL",
+          "capture_method": "extension_json",
+          "source_stability": "SUPPORTED_INTEGRATION",
+          "tested_daw_version": "12.4.5 beta",
+          "validation_status": "TESTED"
+        }
+      }
+    },
+    "automation": {
+      "fields": {
+        "automation_state": {
+          "applicability": "APPLICABLE",
+          "support": "NONE",
+          "capture_method": "extension_json",
+          "source_stability": "SUPPORTED_INTEGRATION",
+          "tested_daw_version": "12.4.5 beta",
+          "validation_status": "TESTED"
+        }
+      }
+    }
+  },
+  "write": {},
+  "live_observation": {
+    "session": {
+      "fields": {
+        "current_set_snapshot": {
+          "applicability": "APPLICABLE",
+          "support": "PARTIAL",
+          "capture_method": "extension_json",
+          "source_stability": "SUPPORTED_INTEGRATION",
+          "tested_daw_version": "12.4.5 beta",
+          "validation_status": "TESTED"
+        },
+        "transport_state": {
+          "applicability": "APPLICABLE",
+          "support": "NONE",
+          "capture_method": "extension_json",
+          "source_stability": "SUPPORTED_INTEGRATION",
+          "tested_daw_version": "12.4.5 beta",
+          "validation_status": "TESTED"
+        }
+      }
+    }
+  },
+  "render": {},
+  "manifest_version": "0.2.0",
+  "daw": "ableton_live",
+  "daw_version": "12.4.5 beta",
+  "adapter": "ableton-session-state-explorer",
+  "adapter_version": "0.1.0",
+  "notes": [
+    "Read pathway: the Session State Exporter Live extension (official Extensions SDK 1.0.0-beta) — SUPPORTED_INTEGRATION.",
+    "Hand-authored session_json uploads use the same schema but are MANUAL-stability captures; the bundle's provenance records carry that distinction.",
+    "Write and render are NONE: no offline Live Set authoring path exists, and fabricating .als files would overstate compatibility."
+  ]
+}

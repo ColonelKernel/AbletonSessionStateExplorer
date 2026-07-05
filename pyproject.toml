@@ -33,6 +33,13 @@ dependencies = [
 [project.optional-dependencies]
 loudness = ["pyloudnorm>=0.1.1"]
 essentia = ["essentia"]
+# The canonical-export adapter (src/.../canonical_export/) needs the shared
+# v0.2 contract package, which is not on PyPI. Install it from the analyzer
+# repo, either editable:
+#   pip install -e <SessionStateExplorer>/packages/canonical_snapshot
+# or pinned by tag:
+#   pip install "canonical-snapshot @ git+https://github.com/ColonelKernel/SessionStateExplorer@schema-v0.2.0#subdirectory=packages/canonical_snapshot"
+canonical = ["canonical-snapshot>=0.2,<0.3"]
 dev = ["pytest>=7.0"]
 
 [tool.setuptools.packages.find]

@@ -1,0 +1,21 @@
+{
+  "adapter_id": "ableton-extension",
+  "daw": "ableton_live",
+  "capture_modes": [
+    "session_json"
+  ],
+  "read": "SUPPORTED_INTEGRATION — Session State Exporter Live extension (Extensions SDK 1.0.0-beta): structure, channel booleans, routing, device chains fully; parameter values capped at 64 per device; automation and dB mixer values hidden.",
+  "write": "NONE — no offline Live Set authoring path exists.",
+  "live_observation": "PARTIAL — the extension observes the current Live Set on demand from inside Live; no continuous or transport state.",
+  "render": "NONE.",
+  "known_limitations": [
+    "Track colors are not exposed by Extensions API 1.0.0; exported as null.",
+    "Device on/off (enabled) state is not exposed by Extensions API 1.0.0.",
+    "Automation state is not exported: it exists in the Live Set but is hidden from this pathway.",
+    "Mixer values are not dB-calibrated: the API exposes raw parameter values, not calibrated volume/pan in dB.",
+    "The Live Set name is not exposed; project naming comes from the export context.",
+    "Parameter value round-trips are capped at 64 per device (the cap is recorded in raw_source when hit).",
+    ".als files are surface-inspected only (gzip/XML tag counting); this adapter never decodes a Live Set into session state.",
+    "Track roles and device families are explorer-side keyword heuristics backfilled on upload — research metadata, never DAW facts."
+  ]
+}
