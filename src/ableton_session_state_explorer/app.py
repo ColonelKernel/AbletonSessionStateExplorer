@@ -434,7 +434,7 @@ st.caption(
 if PYVIS_AVAILABLE:
     try:
         html = build_pyvis_html(display_graph)
-        st.components.v1.html(html, height=660, scrolling=False)
+        st.iframe(html, height=660, width="stretch")
     except Exception as exc:
         st.warning(f"PyVis rendering failed ({exc}); falling back to Plotly.")
         st.plotly_chart(build_plotly_figure(display_graph), width="stretch")
