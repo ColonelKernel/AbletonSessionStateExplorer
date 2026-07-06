@@ -22,7 +22,13 @@ from pathlib import Path
 
 import pytest
 
-from ableton_session_state_explorer.ableton_session_model import (
+# The canonical-export adapter depends on the shared contract package, which
+# lives in the analyzer repo and is installed only in dev environments. Skip
+# cleanly when it is absent (matches the sibling repos' guarded-optional
+# dependency policy) so CI without it stays green.
+pytest.importorskip("canonical_snapshot")
+
+from ableton_session_state_explorer.ableton_session_model import (  # noqa: E402
     build_demo_session,
     build_demo_session_revision,
 )
