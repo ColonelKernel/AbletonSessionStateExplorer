@@ -1,0 +1,823 @@
+{
+  "dialect": "ableton",
+  "model_name": "ProjectState",
+  "model": {
+    "schema_version": "0.1.0",
+    "project_name": "Indie Vocal Production Sketch",
+    "tempo": 96.0,
+    "time_signature": "4/4",
+    "scenes": [
+      {
+        "id": "scene-1",
+        "index": 0,
+        "name": "Intro",
+        "tempo": null
+      },
+      {
+        "id": "scene-2",
+        "index": 1,
+        "name": "Verse",
+        "tempo": null
+      },
+      {
+        "id": "scene-3",
+        "index": 2,
+        "name": "Chorus",
+        "tempo": null
+      }
+    ],
+    "tracks": [
+      {
+        "id": "track-1",
+        "index": 0,
+        "name": "Drums",
+        "track_type": "audio",
+        "role": "Drums",
+        "color": "#E5573F",
+        "volume_db": -3.0,
+        "pan": 0.0,
+        "mute": null,
+        "solo": null,
+        "armed": null,
+        "clips": [
+          {
+            "id": "clip-1",
+            "track_id": "track-1",
+            "scene_id": "scene-1",
+            "name": "Drums Intro",
+            "clip_type": "audio",
+            "start_time_beats": null,
+            "length_beats": 16.0,
+            "loop_start_beats": null,
+            "loop_end_beats": null,
+            "warp_enabled": true,
+            "audio_file": "audio/drums_intro.wav",
+            "midi_note_count": null,
+            "raw_source": {}
+          },
+          {
+            "id": "clip-2",
+            "track_id": "track-1",
+            "scene_id": "scene-2",
+            "name": "Drums Verse",
+            "clip_type": "audio",
+            "start_time_beats": null,
+            "length_beats": 32.0,
+            "loop_start_beats": null,
+            "loop_end_beats": null,
+            "warp_enabled": true,
+            "audio_file": "audio/drums_verse.wav",
+            "midi_note_count": null,
+            "raw_source": {}
+          },
+          {
+            "id": "clip-3",
+            "track_id": "track-1",
+            "scene_id": "scene-3",
+            "name": "Drums Chorus",
+            "clip_type": "audio",
+            "start_time_beats": null,
+            "length_beats": 32.0,
+            "loop_start_beats": null,
+            "loop_end_beats": null,
+            "warp_enabled": true,
+            "audio_file": "audio/drums_chorus.wav",
+            "midi_note_count": null,
+            "raw_source": {}
+          }
+        ],
+        "devices": [
+          {
+            "id": "device-1",
+            "track_id": "track-1",
+            "index": 0,
+            "name": "EQ Eight",
+            "device_type": "audio_effect",
+            "device_family": "EQ",
+            "enabled": true,
+            "preset_name": null,
+            "parameters": [
+              {
+                "id": "device-1-param-1",
+                "device_id": "device-1",
+                "name": "Low Cut Freq",
+                "value": 45.0,
+                "normalized_value": null,
+                "unit": "Hz",
+                "is_automated": false,
+                "is_visible_to_host": true
+              }
+            ],
+            "raw_source": {}
+          },
+          {
+            "id": "device-2",
+            "track_id": "track-1",
+            "index": 1,
+            "name": "Compressor",
+            "device_type": "audio_effect",
+            "device_family": "Dynamics",
+            "enabled": true,
+            "preset_name": null,
+            "parameters": [
+              {
+                "id": "device-2-param-1",
+                "device_id": "device-2",
+                "name": "Ratio",
+                "value": 4.0,
+                "normalized_value": null,
+                "unit": ":1",
+                "is_automated": false,
+                "is_visible_to_host": true
+              },
+              {
+                "id": "device-2-param-2",
+                "device_id": "device-2",
+                "name": "Threshold",
+                "value": -18.0,
+                "normalized_value": null,
+                "unit": "dB",
+                "is_automated": false,
+                "is_visible_to_host": true
+              }
+            ],
+            "raw_source": {}
+          },
+          {
+            "id": "device-3",
+            "track_id": "track-1",
+            "index": 2,
+            "name": "Glue Compressor",
+            "device_type": "audio_effect",
+            "device_family": "Dynamics",
+            "enabled": true,
+            "preset_name": null,
+            "parameters": [
+              {
+                "id": "device-3-param-1",
+                "device_id": "device-3",
+                "name": "Makeup",
+                "value": 2.0,
+                "normalized_value": null,
+                "unit": "dB",
+                "is_automated": false,
+                "is_visible_to_host": true
+              }
+            ],
+            "raw_source": {}
+          },
+          {
+            "id": "device-4",
+            "track_id": "track-1",
+            "index": 3,
+            "name": "Saturator",
+            "device_type": "audio_effect",
+            "device_family": "Saturation",
+            "enabled": true,
+            "preset_name": null,
+            "parameters": [
+              {
+                "id": "device-4-param-1",
+                "device_id": "device-4",
+                "name": "Drive",
+                "value": 6.0,
+                "normalized_value": null,
+                "unit": "dB",
+                "is_automated": false,
+                "is_visible_to_host": true
+              }
+            ],
+            "raw_source": {}
+          },
+          {
+            "id": "device-5",
+            "track_id": "track-1",
+            "index": 4,
+            "name": "Gate",
+            "device_type": "audio_effect",
+            "device_family": "Dynamics",
+            "enabled": true,
+            "preset_name": null,
+            "parameters": [],
+            "raw_source": {}
+          },
+          {
+            "id": "device-6",
+            "track_id": "track-1",
+            "index": 5,
+            "name": "Utility",
+            "device_type": "audio_effect",
+            "device_family": "Utility",
+            "enabled": true,
+            "preset_name": null,
+            "parameters": [
+              {
+                "id": "device-6-param-1",
+                "device_id": "device-6",
+                "name": "Gain",
+                "value": 0.0,
+                "normalized_value": null,
+                "unit": "dB",
+                "is_automated": false,
+                "is_visible_to_host": true
+              }
+            ],
+            "raw_source": {}
+          },
+          {
+            "id": "device-7",
+            "track_id": "track-1",
+            "index": 6,
+            "name": "Limiter",
+            "device_type": "audio_effect",
+            "device_family": "Dynamics",
+            "enabled": true,
+            "preset_name": null,
+            "parameters": [],
+            "raw_source": {}
+          }
+        ],
+        "sends": [],
+        "group_id": null,
+        "raw_source": {}
+      },
+      {
+        "id": "track-2",
+        "index": 1,
+        "name": "Bass",
+        "track_type": "audio",
+        "role": "Bass",
+        "color": "#7A3FE5",
+        "volume_db": -4.5,
+        "pan": 0.0,
+        "mute": null,
+        "solo": null,
+        "armed": null,
+        "clips": [
+          {
+            "id": "clip-4",
+            "track_id": "track-2",
+            "scene_id": "scene-2",
+            "name": "Bass Verse",
+            "clip_type": "audio",
+            "start_time_beats": null,
+            "length_beats": 32.0,
+            "loop_start_beats": null,
+            "loop_end_beats": null,
+            "warp_enabled": true,
+            "audio_file": "audio/bass_verse.wav",
+            "midi_note_count": null,
+            "raw_source": {}
+          },
+          {
+            "id": "clip-5",
+            "track_id": "track-2",
+            "scene_id": "scene-3",
+            "name": "Bass Chorus",
+            "clip_type": "audio",
+            "start_time_beats": null,
+            "length_beats": 32.0,
+            "loop_start_beats": null,
+            "loop_end_beats": null,
+            "warp_enabled": true,
+            "audio_file": "audio/bass_chorus.wav",
+            "midi_note_count": null,
+            "raw_source": {}
+          }
+        ],
+        "devices": [
+          {
+            "id": "device-8",
+            "track_id": "track-2",
+            "index": 0,
+            "name": "EQ Eight",
+            "device_type": "audio_effect",
+            "device_family": "EQ",
+            "enabled": true,
+            "preset_name": null,
+            "parameters": [],
+            "raw_source": {}
+          },
+          {
+            "id": "device-9",
+            "track_id": "track-2",
+            "index": 1,
+            "name": "Compressor",
+            "device_type": "audio_effect",
+            "device_family": "Dynamics",
+            "enabled": true,
+            "preset_name": null,
+            "parameters": [
+              {
+                "id": "device-9-param-1",
+                "device_id": "device-9",
+                "name": "Ratio",
+                "value": 3.0,
+                "normalized_value": null,
+                "unit": ":1",
+                "is_automated": false,
+                "is_visible_to_host": true
+              }
+            ],
+            "raw_source": {}
+          },
+          {
+            "id": "device-10",
+            "track_id": "track-2",
+            "index": 2,
+            "name": "Saturator",
+            "device_type": "audio_effect",
+            "device_family": "Saturation",
+            "enabled": true,
+            "preset_name": null,
+            "parameters": [],
+            "raw_source": {}
+          }
+        ],
+        "sends": [],
+        "group_id": null,
+        "raw_source": {}
+      },
+      {
+        "id": "track-3",
+        "index": 2,
+        "name": "Guitar",
+        "track_type": "audio",
+        "role": "Guitar",
+        "color": "#3FA0E5",
+        "volume_db": -6.0,
+        "pan": -0.2,
+        "mute": null,
+        "solo": null,
+        "armed": null,
+        "clips": [
+          {
+            "id": "clip-6",
+            "track_id": "track-3",
+            "scene_id": "scene-2",
+            "name": "Guitar Verse",
+            "clip_type": "audio",
+            "start_time_beats": null,
+            "length_beats": 32.0,
+            "loop_start_beats": null,
+            "loop_end_beats": null,
+            "warp_enabled": false,
+            "audio_file": "audio/guitar_verse.wav",
+            "midi_note_count": null,
+            "raw_source": {}
+          },
+          {
+            "id": "clip-7",
+            "track_id": "track-3",
+            "scene_id": "scene-3",
+            "name": "Guitar Chorus",
+            "clip_type": "audio",
+            "start_time_beats": null,
+            "length_beats": 32.0,
+            "loop_start_beats": null,
+            "loop_end_beats": null,
+            "warp_enabled": false,
+            "audio_file": "audio/guitar_chorus.wav",
+            "midi_note_count": null,
+            "raw_source": {}
+          }
+        ],
+        "devices": [
+          {
+            "id": "device-11",
+            "track_id": "track-3",
+            "index": 0,
+            "name": "EQ Eight",
+            "device_type": "audio_effect",
+            "device_family": "EQ",
+            "enabled": true,
+            "preset_name": null,
+            "parameters": [],
+            "raw_source": {}
+          },
+          {
+            "id": "device-12",
+            "track_id": "track-3",
+            "index": 1,
+            "name": "Echo",
+            "device_type": "audio_effect",
+            "device_family": "Ambience",
+            "enabled": true,
+            "preset_name": null,
+            "parameters": [
+              {
+                "id": "device-12-param-1",
+                "device_id": "device-12",
+                "name": "Feedback",
+                "value": 35.0,
+                "normalized_value": null,
+                "unit": "%",
+                "is_automated": false,
+                "is_visible_to_host": true
+              }
+            ],
+            "raw_source": {}
+          }
+        ],
+        "sends": [],
+        "group_id": null,
+        "raw_source": {}
+      },
+      {
+        "id": "track-4",
+        "index": 3,
+        "name": "Synth Keys",
+        "track_type": "midi",
+        "role": "Keys",
+        "color": "#3FE5A0",
+        "volume_db": -8.0,
+        "pan": 0.15,
+        "mute": null,
+        "solo": null,
+        "armed": null,
+        "clips": [
+          {
+            "id": "clip-8",
+            "track_id": "track-4",
+            "scene_id": "scene-1",
+            "name": "Keys Intro Pad",
+            "clip_type": "midi",
+            "start_time_beats": null,
+            "length_beats": 16.0,
+            "loop_start_beats": null,
+            "loop_end_beats": null,
+            "warp_enabled": null,
+            "audio_file": null,
+            "midi_note_count": 24,
+            "raw_source": {}
+          },
+          {
+            "id": "clip-9",
+            "track_id": "track-4",
+            "scene_id": "scene-3",
+            "name": "Keys Chorus Stabs",
+            "clip_type": "midi",
+            "start_time_beats": null,
+            "length_beats": 32.0,
+            "loop_start_beats": null,
+            "loop_end_beats": null,
+            "warp_enabled": null,
+            "audio_file": null,
+            "midi_note_count": 64,
+            "raw_source": {}
+          }
+        ],
+        "devices": [
+          {
+            "id": "device-13",
+            "track_id": "track-4",
+            "index": 0,
+            "name": "Wavetable",
+            "device_type": "instrument",
+            "device_family": "Instrument",
+            "enabled": true,
+            "preset_name": null,
+            "parameters": [
+              {
+                "id": "device-13-param-1",
+                "device_id": "device-13",
+                "name": "Osc 1 Position",
+                "value": 0.4,
+                "normalized_value": null,
+                "unit": "",
+                "is_automated": false,
+                "is_visible_to_host": true
+              }
+            ],
+            "raw_source": {}
+          },
+          {
+            "id": "device-14",
+            "track_id": "track-4",
+            "index": 1,
+            "name": "Chorus",
+            "device_type": "audio_effect",
+            "device_family": "Modulation",
+            "enabled": true,
+            "preset_name": null,
+            "parameters": [],
+            "raw_source": {}
+          }
+        ],
+        "sends": [],
+        "group_id": null,
+        "raw_source": {}
+      },
+      {
+        "id": "track-5",
+        "index": 4,
+        "name": "Lead Vocal",
+        "track_type": "audio",
+        "role": "Vocal",
+        "color": "#E5C33F",
+        "volume_db": -2.0,
+        "pan": 0.0,
+        "mute": null,
+        "solo": null,
+        "armed": null,
+        "clips": [
+          {
+            "id": "clip-10",
+            "track_id": "track-5",
+            "scene_id": "scene-2",
+            "name": "Lead Vox Verse",
+            "clip_type": "audio",
+            "start_time_beats": null,
+            "length_beats": 32.0,
+            "loop_start_beats": null,
+            "loop_end_beats": null,
+            "warp_enabled": true,
+            "audio_file": "audio/lead_vox_verse.wav",
+            "midi_note_count": null,
+            "raw_source": {}
+          },
+          {
+            "id": "clip-11",
+            "track_id": "track-5",
+            "scene_id": "scene-3",
+            "name": "Lead Vox Chorus",
+            "clip_type": "audio",
+            "start_time_beats": null,
+            "length_beats": 32.0,
+            "loop_start_beats": null,
+            "loop_end_beats": null,
+            "warp_enabled": true,
+            "audio_file": "audio/lead_vox_chorus.wav",
+            "midi_note_count": null,
+            "raw_source": {}
+          }
+        ],
+        "devices": [
+          {
+            "id": "device-15",
+            "track_id": "track-5",
+            "index": 0,
+            "name": "EQ Eight",
+            "device_type": "audio_effect",
+            "device_family": "EQ",
+            "enabled": true,
+            "preset_name": null,
+            "parameters": [
+              {
+                "id": "device-15-param-1",
+                "device_id": "device-15",
+                "name": "High Pass Freq",
+                "value": 90.0,
+                "normalized_value": null,
+                "unit": "Hz",
+                "is_automated": false,
+                "is_visible_to_host": true
+              }
+            ],
+            "raw_source": {}
+          },
+          {
+            "id": "device-16",
+            "track_id": "track-5",
+            "index": 1,
+            "name": "Compressor",
+            "device_type": "audio_effect",
+            "device_family": "Dynamics",
+            "enabled": true,
+            "preset_name": null,
+            "parameters": [
+              {
+                "id": "device-16-param-1",
+                "device_id": "device-16",
+                "name": "Ratio",
+                "value": 4.0,
+                "normalized_value": null,
+                "unit": ":1",
+                "is_automated": false,
+                "is_visible_to_host": true
+              }
+            ],
+            "raw_source": {}
+          },
+          {
+            "id": "device-17",
+            "track_id": "track-5",
+            "index": 2,
+            "name": "Reverb",
+            "device_type": "audio_effect",
+            "device_family": "Ambience",
+            "enabled": true,
+            "preset_name": null,
+            "parameters": [
+              {
+                "id": "device-17-param-1",
+                "device_id": "device-17",
+                "name": "Decay Time",
+                "value": 2.1,
+                "normalized_value": null,
+                "unit": "s",
+                "is_automated": false,
+                "is_visible_to_host": true
+              }
+            ],
+            "raw_source": {}
+          }
+        ],
+        "sends": [],
+        "group_id": null,
+        "raw_source": {}
+      },
+      {
+        "id": "track-6",
+        "index": 5,
+        "name": "Backing Vocals",
+        "track_type": "audio",
+        "role": "Vocal",
+        "color": "#E58C3F",
+        "volume_db": -9.0,
+        "pan": 0.3,
+        "mute": null,
+        "solo": null,
+        "armed": null,
+        "clips": [
+          {
+            "id": "clip-12",
+            "track_id": "track-6",
+            "scene_id": "scene-3",
+            "name": "BGV Chorus",
+            "clip_type": "audio",
+            "start_time_beats": null,
+            "length_beats": 32.0,
+            "loop_start_beats": null,
+            "loop_end_beats": null,
+            "warp_enabled": true,
+            "audio_file": "audio/bgv_chorus.wav",
+            "midi_note_count": null,
+            "raw_source": {}
+          }
+        ],
+        "devices": [
+          {
+            "id": "device-18",
+            "track_id": "track-6",
+            "index": 0,
+            "name": "Reverb",
+            "device_type": "audio_effect",
+            "device_family": "Ambience",
+            "enabled": true,
+            "preset_name": null,
+            "parameters": [
+              {
+                "id": "device-18-param-1",
+                "device_id": "device-18",
+                "name": "Decay Time",
+                "value": 3.4,
+                "normalized_value": null,
+                "unit": "s",
+                "is_automated": false,
+                "is_visible_to_host": true
+              }
+            ],
+            "raw_source": {}
+          }
+        ],
+        "sends": [],
+        "group_id": null,
+        "raw_source": {}
+      }
+    ],
+    "return_tracks": [
+      {
+        "id": "return-1",
+        "index": 0,
+        "name": "Reverb Return",
+        "devices": [
+          {
+            "id": "device-19",
+            "track_id": "return-1",
+            "index": 0,
+            "name": "Reverb",
+            "device_type": "audio_effect",
+            "device_family": "Ambience",
+            "enabled": true,
+            "preset_name": null,
+            "parameters": [
+              {
+                "id": "device-19-param-1",
+                "device_id": "device-19",
+                "name": "Decay Time",
+                "value": 2.8,
+                "normalized_value": null,
+                "unit": "s",
+                "is_automated": false,
+                "is_visible_to_host": true
+              }
+            ],
+            "raw_source": {}
+          }
+        ],
+        "volume_db": 0.0
+      },
+      {
+        "id": "return-2",
+        "index": 1,
+        "name": "Delay Return",
+        "devices": [
+          {
+            "id": "device-20",
+            "track_id": "return-2",
+            "index": 0,
+            "name": "Echo",
+            "device_type": "audio_effect",
+            "device_family": "Ambience",
+            "enabled": true,
+            "preset_name": null,
+            "parameters": [
+              {
+                "id": "device-20-param-1",
+                "device_id": "device-20",
+                "name": "Sync Rate",
+                "value": 0.375,
+                "normalized_value": null,
+                "unit": "beats",
+                "is_automated": false,
+                "is_visible_to_host": true
+              }
+            ],
+            "raw_source": {}
+          }
+        ],
+        "volume_db": 0.0
+      }
+    ],
+    "master_track": {
+      "id": "master-1",
+      "name": "Master",
+      "devices": [
+        {
+          "id": "device-21",
+          "track_id": "master-1",
+          "index": 0,
+          "name": "Glue Compressor",
+          "device_type": "audio_effect",
+          "device_family": "Dynamics",
+          "enabled": true,
+          "preset_name": null,
+          "parameters": [
+            {
+              "id": "device-21-param-1",
+              "device_id": "device-21",
+              "name": "Makeup",
+              "value": 1.0,
+              "normalized_value": null,
+              "unit": "dB",
+              "is_automated": false,
+              "is_visible_to_host": true
+            }
+          ],
+          "raw_source": {}
+        },
+        {
+          "id": "device-22",
+          "track_id": "master-1",
+          "index": 1,
+          "name": "Limiter",
+          "device_type": "audio_effect",
+          "device_family": "Dynamics",
+          "enabled": true,
+          "preset_name": null,
+          "parameters": [
+            {
+              "id": "device-22-param-1",
+              "device_id": "device-22",
+              "name": "Ceiling",
+              "value": -0.3,
+              "normalized_value": null,
+              "unit": "dB",
+              "is_automated": false,
+              "is_visible_to_host": true
+            }
+          ],
+          "raw_source": {}
+        }
+      ],
+      "volume_db": 0.0
+    },
+    "warnings": [
+      "This is a hand-authored demo session, not an imported Live Set.",
+      "Clip audio file paths are placeholders; no audio is bundled."
+    ],
+    "metadata": {
+      "source": "built-in demo",
+      "daw_dialect": "ableton-style",
+      "intentional_heuristic_issues": [
+        "individual reverbs/echo on tracks instead of shared returns",
+        "return tracks defined but no sends assigned",
+        "backing vocal track has no corrective devices",
+        "lead vocal chain has no de-esser-like device",
+        "drum track has a dense (7-device) chain",
+        "master limiter present without loudness/mixdown context"
+      ]
+    }
+  }
+}

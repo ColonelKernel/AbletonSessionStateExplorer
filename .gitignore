@@ -14,8 +14,10 @@ venv/
 # Streamlit
 .streamlit/secrets.toml
 
-# Exports and scratch output
-exports/
+# Exports and scratch output (the frozen canonical example bundle is
+# version-controlled deliberately: it is the adapter's contract fixture)
+exports/*
+!exports/example_session/
 *.als.bak
 
 # OS

@@ -1,0 +1,2753 @@
+{
+  "schema_version": "0.2.0",
+  "snapshot_id": "ableton_live:indie_vocal_production_sketch:a015dc52abab",
+  "created_at": "2026-07-02T13:57:36+00:00",
+  "source": {
+    "daw": "ableton_live",
+    "daw_version": null,
+    "adapter": "ableton-session-state-explorer",
+    "adapter_version": "0.1.0",
+    "capture_modes": [
+      "session_json"
+    ]
+  },
+  "project": "ableton_live:project",
+  "entities": [
+    {
+      "id": "ableton_live:project",
+      "entity_type": "PROJECT",
+      "name": "Indie Vocal Production Sketch",
+      "semantic_roles": [],
+      "properties": {
+        "tempo": 96.0,
+        "time_signature": "4/4"
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "project",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001"
+      },
+      "availability": {}
+    },
+    {
+      "id": "ableton:track-1",
+      "entity_type": "TRACK",
+      "name": "Drums",
+      "semantic_roles": [
+        "drum_source"
+      ],
+      "properties": {
+        "index": 0,
+        "color": "#E5573F"
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "audio",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001",
+        "semantic_roles": "prov:0002"
+      },
+      "availability": {}
+    },
+    {
+      "id": "ableton:track-1:channel",
+      "entity_type": "CHANNEL",
+      "name": "Drums",
+      "semantic_roles": [],
+      "properties": {
+        "volume_db": -3.0,
+        "pan": 0.0
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "audio",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001"
+      },
+      "availability": {}
+    },
+    {
+      "id": "ableton:track-2",
+      "entity_type": "TRACK",
+      "name": "Bass",
+      "semantic_roles": [
+        "bass_source"
+      ],
+      "properties": {
+        "index": 1,
+        "color": "#7A3FE5"
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "audio",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001",
+        "semantic_roles": "prov:0002"
+      },
+      "availability": {}
+    },
+    {
+      "id": "ableton:track-2:channel",
+      "entity_type": "CHANNEL",
+      "name": "Bass",
+      "semantic_roles": [],
+      "properties": {
+        "volume_db": -4.5,
+        "pan": 0.0
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "audio",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001"
+      },
+      "availability": {}
+    },
+    {
+      "id": "ableton:track-3",
+      "entity_type": "TRACK",
+      "name": "Guitar",
+      "semantic_roles": [
+        "guitar_source"
+      ],
+      "properties": {
+        "index": 2,
+        "color": "#3FA0E5"
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "audio",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001",
+        "semantic_roles": "prov:0002"
+      },
+      "availability": {}
+    },
+    {
+      "id": "ableton:track-3:channel",
+      "entity_type": "CHANNEL",
+      "name": "Guitar",
+      "semantic_roles": [],
+      "properties": {
+        "volume_db": -6.0,
+        "pan": -0.2
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "audio",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001"
+      },
+      "availability": {}
+    },
+    {
+      "id": "ableton:track-4",
+      "entity_type": "TRACK",
+      "name": "Synth Keys",
+      "semantic_roles": [
+        "keys_source"
+      ],
+      "properties": {
+        "index": 3,
+        "color": "#3FE5A0"
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "midi",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001",
+        "semantic_roles": "prov:0002"
+      },
+      "availability": {}
+    },
+    {
+      "id": "ableton:track-4:channel",
+      "entity_type": "CHANNEL",
+      "name": "Synth Keys",
+      "semantic_roles": [],
+      "properties": {
+        "volume_db": -8.0,
+        "pan": 0.15
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "midi",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001"
+      },
+      "availability": {}
+    },
+    {
+      "id": "ableton:track-5",
+      "entity_type": "TRACK",
+      "name": "Lead Vocal",
+      "semantic_roles": [
+        "vocal_source"
+      ],
+      "properties": {
+        "index": 4,
+        "color": "#E5C33F"
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "audio",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001",
+        "semantic_roles": "prov:0002"
+      },
+      "availability": {}
+    },
+    {
+      "id": "ableton:track-5:channel",
+      "entity_type": "CHANNEL",
+      "name": "Lead Vocal",
+      "semantic_roles": [],
+      "properties": {
+        "volume_db": -2.0,
+        "pan": 0.0
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "audio",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001"
+      },
+      "availability": {}
+    },
+    {
+      "id": "ableton:track-6",
+      "entity_type": "TRACK",
+      "name": "Backing Vocals",
+      "semantic_roles": [
+        "vocal_source"
+      ],
+      "properties": {
+        "index": 5,
+        "color": "#E58C3F"
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "audio",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001",
+        "semantic_roles": "prov:0002"
+      },
+      "availability": {}
+    },
+    {
+      "id": "ableton:track-6:channel",
+      "entity_type": "CHANNEL",
+      "name": "Backing Vocals",
+      "semantic_roles": [],
+      "properties": {
+        "volume_db": -9.0,
+        "pan": 0.3
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "audio",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001"
+      },
+      "availability": {}
+    },
+    {
+      "id": "ableton:return-1",
+      "entity_type": "CHANNEL",
+      "name": "Reverb Return",
+      "semantic_roles": [
+        "effect_return"
+      ],
+      "properties": {
+        "index": 0,
+        "volume_db": 0.0
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "return",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001",
+        "semantic_roles": "prov:0003"
+      },
+      "availability": {}
+    },
+    {
+      "id": "ableton:return-2",
+      "entity_type": "CHANNEL",
+      "name": "Delay Return",
+      "semantic_roles": [
+        "effect_return"
+      ],
+      "properties": {
+        "index": 1,
+        "volume_db": 0.0
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "return",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001",
+        "semantic_roles": "prov:0003"
+      },
+      "availability": {}
+    },
+    {
+      "id": "ableton:master-1",
+      "entity_type": "CHANNEL",
+      "name": "Master",
+      "semantic_roles": [
+        "main_output"
+      ],
+      "properties": {
+        "index": 0,
+        "volume_db": 0.0
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "master",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001"
+      },
+      "availability": {}
+    },
+    {
+      "id": "ableton:device-1",
+      "entity_type": "PROCESSOR",
+      "name": "EQ Eight",
+      "semantic_roles": [],
+      "properties": {
+        "family": "EQ",
+        "kind": "audio_effect",
+        "enabled": true,
+        "chain": "main"
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "audio_effect",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001",
+        "family": "prov:0002"
+      },
+      "availability": {}
+    },
+    {
+      "id": "ableton:device-1-param-1",
+      "entity_type": "PARAMETER",
+      "name": "Low Cut Freq",
+      "semantic_roles": [],
+      "properties": {
+        "value": 45.0,
+        "unit": "Hz",
+        "is_automated": false,
+        "is_visible_to_host": true
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "parameter",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001"
+      },
+      "availability": {}
+    },
+    {
+      "id": "ableton:device-2",
+      "entity_type": "PROCESSOR",
+      "name": "Compressor",
+      "semantic_roles": [],
+      "properties": {
+        "family": "Dynamics",
+        "kind": "audio_effect",
+        "enabled": true,
+        "chain": "main"
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "audio_effect",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001",
+        "family": "prov:0002"
+      },
+      "availability": {}
+    },
+    {
+      "id": "ableton:device-2-param-1",
+      "entity_type": "PARAMETER",
+      "name": "Ratio",
+      "semantic_roles": [],
+      "properties": {
+        "value": 4.0,
+        "unit": ":1",
+        "is_automated": false,
+        "is_visible_to_host": true
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "parameter",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001"
+      },
+      "availability": {}
+    },
+    {
+      "id": "ableton:device-2-param-2",
+      "entity_type": "PARAMETER",
+      "name": "Threshold",
+      "semantic_roles": [],
+      "properties": {
+        "value": -18.0,
+        "unit": "dB",
+        "is_automated": false,
+        "is_visible_to_host": true
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "parameter",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001"
+      },
+      "availability": {}
+    },
+    {
+      "id": "ableton:device-3",
+      "entity_type": "PROCESSOR",
+      "name": "Glue Compressor",
+      "semantic_roles": [],
+      "properties": {
+        "family": "Dynamics",
+        "kind": "audio_effect",
+        "enabled": true,
+        "chain": "main"
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "audio_effect",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001",
+        "family": "prov:0002"
+      },
+      "availability": {}
+    },
+    {
+      "id": "ableton:device-3-param-1",
+      "entity_type": "PARAMETER",
+      "name": "Makeup",
+      "semantic_roles": [],
+      "properties": {
+        "value": 2.0,
+        "unit": "dB",
+        "is_automated": false,
+        "is_visible_to_host": true
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "parameter",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001"
+      },
+      "availability": {}
+    },
+    {
+      "id": "ableton:device-4",
+      "entity_type": "PROCESSOR",
+      "name": "Saturator",
+      "semantic_roles": [],
+      "properties": {
+        "family": "Saturation",
+        "kind": "audio_effect",
+        "enabled": true,
+        "chain": "main"
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "audio_effect",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001",
+        "family": "prov:0002"
+      },
+      "availability": {}
+    },
+    {
+      "id": "ableton:device-4-param-1",
+      "entity_type": "PARAMETER",
+      "name": "Drive",
+      "semantic_roles": [],
+      "properties": {
+        "value": 6.0,
+        "unit": "dB",
+        "is_automated": false,
+        "is_visible_to_host": true
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "parameter",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001"
+      },
+      "availability": {}
+    },
+    {
+      "id": "ableton:device-5",
+      "entity_type": "PROCESSOR",
+      "name": "Gate",
+      "semantic_roles": [],
+      "properties": {
+        "family": "Dynamics",
+        "kind": "audio_effect",
+        "enabled": true,
+        "chain": "main"
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "audio_effect",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001",
+        "family": "prov:0002"
+      },
+      "availability": {}
+    },
+    {
+      "id": "ableton:device-6",
+      "entity_type": "PROCESSOR",
+      "name": "Utility",
+      "semantic_roles": [],
+      "properties": {
+        "family": "Utility",
+        "kind": "audio_effect",
+        "enabled": true,
+        "chain": "main"
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "audio_effect",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001",
+        "family": "prov:0002"
+      },
+      "availability": {}
+    },
+    {
+      "id": "ableton:device-6-param-1",
+      "entity_type": "PARAMETER",
+      "name": "Gain",
+      "semantic_roles": [],
+      "properties": {
+        "value": 0.0,
+        "unit": "dB",
+        "is_automated": false,
+        "is_visible_to_host": true
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "parameter",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001"
+      },
+      "availability": {}
+    },
+    {
+      "id": "ableton:device-7",
+      "entity_type": "PROCESSOR",
+      "name": "Limiter",
+      "semantic_roles": [],
+      "properties": {
+        "family": "Dynamics",
+        "kind": "audio_effect",
+        "enabled": true,
+        "chain": "main"
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "audio_effect",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001",
+        "family": "prov:0002"
+      },
+      "availability": {}
+    },
+    {
+      "id": "ableton:device-8",
+      "entity_type": "PROCESSOR",
+      "name": "EQ Eight",
+      "semantic_roles": [],
+      "properties": {
+        "family": "EQ",
+        "kind": "audio_effect",
+        "enabled": true,
+        "chain": "main"
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "audio_effect",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001",
+        "family": "prov:0002"
+      },
+      "availability": {}
+    },
+    {
+      "id": "ableton:device-9",
+      "entity_type": "PROCESSOR",
+      "name": "Compressor",
+      "semantic_roles": [],
+      "properties": {
+        "family": "Dynamics",
+        "kind": "audio_effect",
+        "enabled": true,
+        "chain": "main"
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "audio_effect",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001",
+        "family": "prov:0002"
+      },
+      "availability": {}
+    },
+    {
+      "id": "ableton:device-9-param-1",
+      "entity_type": "PARAMETER",
+      "name": "Ratio",
+      "semantic_roles": [],
+      "properties": {
+        "value": 3.0,
+        "unit": ":1",
+        "is_automated": false,
+        "is_visible_to_host": true
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "parameter",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001"
+      },
+      "availability": {}
+    },
+    {
+      "id": "ableton:device-10",
+      "entity_type": "PROCESSOR",
+      "name": "Saturator",
+      "semantic_roles": [],
+      "properties": {
+        "family": "Saturation",
+        "kind": "audio_effect",
+        "enabled": true,
+        "chain": "main"
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "audio_effect",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001",
+        "family": "prov:0002"
+      },
+      "availability": {}
+    },
+    {
+      "id": "ableton:device-11",
+      "entity_type": "PROCESSOR",
+      "name": "EQ Eight",
+      "semantic_roles": [],
+      "properties": {
+        "family": "EQ",
+        "kind": "audio_effect",
+        "enabled": true,
+        "chain": "main"
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "audio_effect",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001",
+        "family": "prov:0002"
+      },
+      "availability": {}
+    },
+    {
+      "id": "ableton:device-12",
+      "entity_type": "PROCESSOR",
+      "name": "Echo",
+      "semantic_roles": [],
+      "properties": {
+        "family": "Ambience",
+        "kind": "audio_effect",
+        "enabled": true,
+        "chain": "main"
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "audio_effect",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001",
+        "family": "prov:0002"
+      },
+      "availability": {}
+    },
+    {
+      "id": "ableton:device-12-param-1",
+      "entity_type": "PARAMETER",
+      "name": "Feedback",
+      "semantic_roles": [],
+      "properties": {
+        "value": 35.0,
+        "unit": "%",
+        "is_automated": false,
+        "is_visible_to_host": true
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "parameter",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001"
+      },
+      "availability": {}
+    },
+    {
+      "id": "ableton:device-13",
+      "entity_type": "PROCESSOR",
+      "name": "Wavetable",
+      "semantic_roles": [],
+      "properties": {
+        "family": "Instrument",
+        "kind": "instrument",
+        "enabled": true,
+        "chain": "main"
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "instrument",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001",
+        "family": "prov:0002"
+      },
+      "availability": {}
+    },
+    {
+      "id": "ableton:device-13-param-1",
+      "entity_type": "PARAMETER",
+      "name": "Osc 1 Position",
+      "semantic_roles": [],
+      "properties": {
+        "value": 0.4,
+        "unit": "",
+        "is_automated": false,
+        "is_visible_to_host": true
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "parameter",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001"
+      },
+      "availability": {}
+    },
+    {
+      "id": "ableton:device-14",
+      "entity_type": "PROCESSOR",
+      "name": "Chorus",
+      "semantic_roles": [],
+      "properties": {
+        "family": "Modulation",
+        "kind": "audio_effect",
+        "enabled": true,
+        "chain": "main"
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "audio_effect",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001",
+        "family": "prov:0002"
+      },
+      "availability": {}
+    },
+    {
+      "id": "ableton:device-15",
+      "entity_type": "PROCESSOR",
+      "name": "EQ Eight",
+      "semantic_roles": [],
+      "properties": {
+        "family": "EQ",
+        "kind": "audio_effect",
+        "enabled": true,
+        "chain": "main"
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "audio_effect",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001",
+        "family": "prov:0002"
+      },
+      "availability": {}
+    },
+    {
+      "id": "ableton:device-15-param-1",
+      "entity_type": "PARAMETER",
+      "name": "High Pass Freq",
+      "semantic_roles": [],
+      "properties": {
+        "value": 90.0,
+        "unit": "Hz",
+        "is_automated": false,
+        "is_visible_to_host": true
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "parameter",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001"
+      },
+      "availability": {}
+    },
+    {
+      "id": "ableton:device-16",
+      "entity_type": "PROCESSOR",
+      "name": "Compressor",
+      "semantic_roles": [],
+      "properties": {
+        "family": "Dynamics",
+        "kind": "audio_effect",
+        "enabled": true,
+        "chain": "main"
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "audio_effect",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001",
+        "family": "prov:0002"
+      },
+      "availability": {}
+    },
+    {
+      "id": "ableton:device-16-param-1",
+      "entity_type": "PARAMETER",
+      "name": "Ratio",
+      "semantic_roles": [],
+      "properties": {
+        "value": 4.0,
+        "unit": ":1",
+        "is_automated": false,
+        "is_visible_to_host": true
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "parameter",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001"
+      },
+      "availability": {}
+    },
+    {
+      "id": "ableton:device-17",
+      "entity_type": "PROCESSOR",
+      "name": "Reverb",
+      "semantic_roles": [],
+      "properties": {
+        "family": "Ambience",
+        "kind": "audio_effect",
+        "enabled": true,
+        "chain": "main"
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "audio_effect",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001",
+        "family": "prov:0002"
+      },
+      "availability": {}
+    },
+    {
+      "id": "ableton:device-17-param-1",
+      "entity_type": "PARAMETER",
+      "name": "Decay Time",
+      "semantic_roles": [],
+      "properties": {
+        "value": 2.1,
+        "unit": "s",
+        "is_automated": false,
+        "is_visible_to_host": true
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "parameter",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001"
+      },
+      "availability": {}
+    },
+    {
+      "id": "ableton:device-18",
+      "entity_type": "PROCESSOR",
+      "name": "Reverb",
+      "semantic_roles": [],
+      "properties": {
+        "family": "Ambience",
+        "kind": "audio_effect",
+        "enabled": true,
+        "chain": "main"
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "audio_effect",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001",
+        "family": "prov:0002"
+      },
+      "availability": {}
+    },
+    {
+      "id": "ableton:device-18-param-1",
+      "entity_type": "PARAMETER",
+      "name": "Decay Time",
+      "semantic_roles": [],
+      "properties": {
+        "value": 3.4,
+        "unit": "s",
+        "is_automated": false,
+        "is_visible_to_host": true
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "parameter",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001"
+      },
+      "availability": {}
+    },
+    {
+      "id": "ableton:device-19",
+      "entity_type": "PROCESSOR",
+      "name": "Reverb",
+      "semantic_roles": [],
+      "properties": {
+        "family": "Ambience",
+        "kind": "audio_effect",
+        "enabled": true,
+        "chain": "main"
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "audio_effect",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001",
+        "family": "prov:0002"
+      },
+      "availability": {}
+    },
+    {
+      "id": "ableton:device-19-param-1",
+      "entity_type": "PARAMETER",
+      "name": "Decay Time",
+      "semantic_roles": [],
+      "properties": {
+        "value": 2.8,
+        "unit": "s",
+        "is_automated": false,
+        "is_visible_to_host": true
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "parameter",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001"
+      },
+      "availability": {}
+    },
+    {
+      "id": "ableton:device-20",
+      "entity_type": "PROCESSOR",
+      "name": "Echo",
+      "semantic_roles": [],
+      "properties": {
+        "family": "Ambience",
+        "kind": "audio_effect",
+        "enabled": true,
+        "chain": "main"
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "audio_effect",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001",
+        "family": "prov:0002"
+      },
+      "availability": {}
+    },
+    {
+      "id": "ableton:device-20-param-1",
+      "entity_type": "PARAMETER",
+      "name": "Sync Rate",
+      "semantic_roles": [],
+      "properties": {
+        "value": 0.375,
+        "unit": "beats",
+        "is_automated": false,
+        "is_visible_to_host": true
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "parameter",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001"
+      },
+      "availability": {}
+    },
+    {
+      "id": "ableton:device-21",
+      "entity_type": "PROCESSOR",
+      "name": "Glue Compressor",
+      "semantic_roles": [],
+      "properties": {
+        "family": "Dynamics",
+        "kind": "audio_effect",
+        "enabled": true,
+        "chain": "main"
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "audio_effect",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001",
+        "family": "prov:0002"
+      },
+      "availability": {}
+    },
+    {
+      "id": "ableton:device-21-param-1",
+      "entity_type": "PARAMETER",
+      "name": "Makeup",
+      "semantic_roles": [],
+      "properties": {
+        "value": 1.0,
+        "unit": "dB",
+        "is_automated": false,
+        "is_visible_to_host": true
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "parameter",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001"
+      },
+      "availability": {}
+    },
+    {
+      "id": "ableton:device-22",
+      "entity_type": "PROCESSOR",
+      "name": "Limiter",
+      "semantic_roles": [],
+      "properties": {
+        "family": "Dynamics",
+        "kind": "audio_effect",
+        "enabled": true,
+        "chain": "main"
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "audio_effect",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001",
+        "family": "prov:0002"
+      },
+      "availability": {}
+    },
+    {
+      "id": "ableton:device-22-param-1",
+      "entity_type": "PARAMETER",
+      "name": "Ceiling",
+      "semantic_roles": [],
+      "properties": {
+        "value": -0.3,
+        "unit": "dB",
+        "is_automated": false,
+        "is_visible_to_host": true
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "parameter",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001"
+      },
+      "availability": {}
+    },
+    {
+      "id": "ableton:scene-1",
+      "entity_type": "STRUCTURAL_CONTAINER",
+      "name": "Intro",
+      "semantic_roles": [],
+      "properties": {
+        "index": 0
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "scene",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001"
+      },
+      "availability": {}
+    },
+    {
+      "id": "ableton:scene-2",
+      "entity_type": "STRUCTURAL_CONTAINER",
+      "name": "Verse",
+      "semantic_roles": [],
+      "properties": {
+        "index": 1
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "scene",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001"
+      },
+      "availability": {}
+    },
+    {
+      "id": "ableton:scene-3",
+      "entity_type": "STRUCTURAL_CONTAINER",
+      "name": "Chorus",
+      "semantic_roles": [],
+      "properties": {
+        "index": 2
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "scene",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001"
+      },
+      "availability": {}
+    },
+    {
+      "id": "ableton:clip-1",
+      "entity_type": "TEMPORAL_OBJECT",
+      "name": "Drums Intro",
+      "semantic_roles": [],
+      "properties": {
+        "clip_type": "audio",
+        "length_beats": 16.0,
+        "warp_enabled": true,
+        "audio_file": "audio/drums_intro.wav"
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "audio",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001"
+      },
+      "availability": {}
+    },
+    {
+      "id": "asset:audio_drums_intro_wav",
+      "entity_type": "MEDIA_ASSET",
+      "name": "drums_intro.wav",
+      "semantic_roles": [],
+      "properties": {
+        "path": "audio/drums_intro.wav"
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "audio_file",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001"
+      },
+      "availability": {}
+    },
+    {
+      "id": "ableton:clip-2",
+      "entity_type": "TEMPORAL_OBJECT",
+      "name": "Drums Verse",
+      "semantic_roles": [],
+      "properties": {
+        "clip_type": "audio",
+        "length_beats": 32.0,
+        "warp_enabled": true,
+        "audio_file": "audio/drums_verse.wav"
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "audio",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001"
+      },
+      "availability": {}
+    },
+    {
+      "id": "asset:audio_drums_verse_wav",
+      "entity_type": "MEDIA_ASSET",
+      "name": "drums_verse.wav",
+      "semantic_roles": [],
+      "properties": {
+        "path": "audio/drums_verse.wav"
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "audio_file",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001"
+      },
+      "availability": {}
+    },
+    {
+      "id": "ableton:clip-3",
+      "entity_type": "TEMPORAL_OBJECT",
+      "name": "Drums Chorus",
+      "semantic_roles": [],
+      "properties": {
+        "clip_type": "audio",
+        "length_beats": 32.0,
+        "warp_enabled": true,
+        "audio_file": "audio/drums_chorus.wav"
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "audio",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001"
+      },
+      "availability": {}
+    },
+    {
+      "id": "asset:audio_drums_chorus_wav",
+      "entity_type": "MEDIA_ASSET",
+      "name": "drums_chorus.wav",
+      "semantic_roles": [],
+      "properties": {
+        "path": "audio/drums_chorus.wav"
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "audio_file",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001"
+      },
+      "availability": {}
+    },
+    {
+      "id": "ableton:clip-4",
+      "entity_type": "TEMPORAL_OBJECT",
+      "name": "Bass Verse",
+      "semantic_roles": [],
+      "properties": {
+        "clip_type": "audio",
+        "length_beats": 32.0,
+        "warp_enabled": true,
+        "audio_file": "audio/bass_verse.wav"
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "audio",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001"
+      },
+      "availability": {}
+    },
+    {
+      "id": "asset:audio_bass_verse_wav",
+      "entity_type": "MEDIA_ASSET",
+      "name": "bass_verse.wav",
+      "semantic_roles": [],
+      "properties": {
+        "path": "audio/bass_verse.wav"
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "audio_file",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001"
+      },
+      "availability": {}
+    },
+    {
+      "id": "ableton:clip-5",
+      "entity_type": "TEMPORAL_OBJECT",
+      "name": "Bass Chorus",
+      "semantic_roles": [],
+      "properties": {
+        "clip_type": "audio",
+        "length_beats": 32.0,
+        "warp_enabled": true,
+        "audio_file": "audio/bass_chorus.wav"
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "audio",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001"
+      },
+      "availability": {}
+    },
+    {
+      "id": "asset:audio_bass_chorus_wav",
+      "entity_type": "MEDIA_ASSET",
+      "name": "bass_chorus.wav",
+      "semantic_roles": [],
+      "properties": {
+        "path": "audio/bass_chorus.wav"
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "audio_file",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001"
+      },
+      "availability": {}
+    },
+    {
+      "id": "ableton:clip-6",
+      "entity_type": "TEMPORAL_OBJECT",
+      "name": "Guitar Verse",
+      "semantic_roles": [],
+      "properties": {
+        "clip_type": "audio",
+        "length_beats": 32.0,
+        "warp_enabled": false,
+        "audio_file": "audio/guitar_verse.wav"
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "audio",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001"
+      },
+      "availability": {}
+    },
+    {
+      "id": "asset:audio_guitar_verse_wav",
+      "entity_type": "MEDIA_ASSET",
+      "name": "guitar_verse.wav",
+      "semantic_roles": [],
+      "properties": {
+        "path": "audio/guitar_verse.wav"
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "audio_file",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001"
+      },
+      "availability": {}
+    },
+    {
+      "id": "ableton:clip-7",
+      "entity_type": "TEMPORAL_OBJECT",
+      "name": "Guitar Chorus",
+      "semantic_roles": [],
+      "properties": {
+        "clip_type": "audio",
+        "length_beats": 32.0,
+        "warp_enabled": false,
+        "audio_file": "audio/guitar_chorus.wav"
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "audio",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001"
+      },
+      "availability": {}
+    },
+    {
+      "id": "asset:audio_guitar_chorus_wav",
+      "entity_type": "MEDIA_ASSET",
+      "name": "guitar_chorus.wav",
+      "semantic_roles": [],
+      "properties": {
+        "path": "audio/guitar_chorus.wav"
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "audio_file",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001"
+      },
+      "availability": {}
+    },
+    {
+      "id": "ableton:clip-8",
+      "entity_type": "TEMPORAL_OBJECT",
+      "name": "Keys Intro Pad",
+      "semantic_roles": [],
+      "properties": {
+        "clip_type": "midi",
+        "length_beats": 16.0,
+        "midi_note_count": 24
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "midi",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001"
+      },
+      "availability": {}
+    },
+    {
+      "id": "ableton:clip-9",
+      "entity_type": "TEMPORAL_OBJECT",
+      "name": "Keys Chorus Stabs",
+      "semantic_roles": [],
+      "properties": {
+        "clip_type": "midi",
+        "length_beats": 32.0,
+        "midi_note_count": 64
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "midi",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001"
+      },
+      "availability": {}
+    },
+    {
+      "id": "ableton:clip-10",
+      "entity_type": "TEMPORAL_OBJECT",
+      "name": "Lead Vox Verse",
+      "semantic_roles": [],
+      "properties": {
+        "clip_type": "audio",
+        "length_beats": 32.0,
+        "warp_enabled": true,
+        "audio_file": "audio/lead_vox_verse.wav"
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "audio",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001"
+      },
+      "availability": {}
+    },
+    {
+      "id": "asset:audio_lead_vox_verse_wav",
+      "entity_type": "MEDIA_ASSET",
+      "name": "lead_vox_verse.wav",
+      "semantic_roles": [],
+      "properties": {
+        "path": "audio/lead_vox_verse.wav"
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "audio_file",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001"
+      },
+      "availability": {}
+    },
+    {
+      "id": "ableton:clip-11",
+      "entity_type": "TEMPORAL_OBJECT",
+      "name": "Lead Vox Chorus",
+      "semantic_roles": [],
+      "properties": {
+        "clip_type": "audio",
+        "length_beats": 32.0,
+        "warp_enabled": true,
+        "audio_file": "audio/lead_vox_chorus.wav"
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "audio",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001"
+      },
+      "availability": {}
+    },
+    {
+      "id": "asset:audio_lead_vox_chorus_wav",
+      "entity_type": "MEDIA_ASSET",
+      "name": "lead_vox_chorus.wav",
+      "semantic_roles": [],
+      "properties": {
+        "path": "audio/lead_vox_chorus.wav"
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "audio_file",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001"
+      },
+      "availability": {}
+    },
+    {
+      "id": "ableton:clip-12",
+      "entity_type": "TEMPORAL_OBJECT",
+      "name": "BGV Chorus",
+      "semantic_roles": [],
+      "properties": {
+        "clip_type": "audio",
+        "length_beats": 32.0,
+        "warp_enabled": true,
+        "audio_file": "audio/bgv_chorus.wav"
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "audio",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001"
+      },
+      "availability": {}
+    },
+    {
+      "id": "asset:audio_bgv_chorus_wav",
+      "entity_type": "MEDIA_ASSET",
+      "name": "bgv_chorus.wav",
+      "semantic_roles": [],
+      "properties": {
+        "path": "audio/bgv_chorus.wav"
+      },
+      "native": {
+        "daw": "ableton_live",
+        "native_type": "audio_file",
+        "properties": {}
+      },
+      "prov": {
+        "*": "prov:0001"
+      },
+      "availability": {}
+    }
+  ],
+  "relationships": [
+    {
+      "id": "rel:0001",
+      "rel_type": "TRACK_USES_CHANNEL",
+      "source": "ableton:track-1",
+      "target": "ableton:track-1:channel",
+      "properties": {},
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0002",
+      "rel_type": "TRACK_USES_CHANNEL",
+      "source": "ableton:track-2",
+      "target": "ableton:track-2:channel",
+      "properties": {},
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0003",
+      "rel_type": "TRACK_USES_CHANNEL",
+      "source": "ableton:track-3",
+      "target": "ableton:track-3:channel",
+      "properties": {},
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0004",
+      "rel_type": "TRACK_USES_CHANNEL",
+      "source": "ableton:track-4",
+      "target": "ableton:track-4:channel",
+      "properties": {},
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0005",
+      "rel_type": "TRACK_USES_CHANNEL",
+      "source": "ableton:track-5",
+      "target": "ableton:track-5:channel",
+      "properties": {},
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0006",
+      "rel_type": "TRACK_USES_CHANNEL",
+      "source": "ableton:track-6",
+      "target": "ableton:track-6:channel",
+      "properties": {},
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0007",
+      "rel_type": "CHANNEL_PROCESSED_BY",
+      "source": "ableton:track-1:channel",
+      "target": "ableton:device-1",
+      "properties": {
+        "index": 0
+      },
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0008",
+      "rel_type": "CONTAINS",
+      "source": "ableton:device-1",
+      "target": "ableton:device-1-param-1",
+      "properties": {
+        "kind": "parameter"
+      },
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0009",
+      "rel_type": "CHANNEL_PROCESSED_BY",
+      "source": "ableton:track-1:channel",
+      "target": "ableton:device-2",
+      "properties": {
+        "index": 1
+      },
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0010",
+      "rel_type": "CONTAINS",
+      "source": "ableton:device-2",
+      "target": "ableton:device-2-param-1",
+      "properties": {
+        "kind": "parameter"
+      },
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0011",
+      "rel_type": "CONTAINS",
+      "source": "ableton:device-2",
+      "target": "ableton:device-2-param-2",
+      "properties": {
+        "kind": "parameter"
+      },
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0012",
+      "rel_type": "CHANNEL_PROCESSED_BY",
+      "source": "ableton:track-1:channel",
+      "target": "ableton:device-3",
+      "properties": {
+        "index": 2
+      },
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0013",
+      "rel_type": "CONTAINS",
+      "source": "ableton:device-3",
+      "target": "ableton:device-3-param-1",
+      "properties": {
+        "kind": "parameter"
+      },
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0014",
+      "rel_type": "CHANNEL_PROCESSED_BY",
+      "source": "ableton:track-1:channel",
+      "target": "ableton:device-4",
+      "properties": {
+        "index": 3
+      },
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0015",
+      "rel_type": "CONTAINS",
+      "source": "ableton:device-4",
+      "target": "ableton:device-4-param-1",
+      "properties": {
+        "kind": "parameter"
+      },
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0016",
+      "rel_type": "CHANNEL_PROCESSED_BY",
+      "source": "ableton:track-1:channel",
+      "target": "ableton:device-5",
+      "properties": {
+        "index": 4
+      },
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0017",
+      "rel_type": "CHANNEL_PROCESSED_BY",
+      "source": "ableton:track-1:channel",
+      "target": "ableton:device-6",
+      "properties": {
+        "index": 5
+      },
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0018",
+      "rel_type": "CONTAINS",
+      "source": "ableton:device-6",
+      "target": "ableton:device-6-param-1",
+      "properties": {
+        "kind": "parameter"
+      },
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0019",
+      "rel_type": "CHANNEL_PROCESSED_BY",
+      "source": "ableton:track-1:channel",
+      "target": "ableton:device-7",
+      "properties": {
+        "index": 6
+      },
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0020",
+      "rel_type": "CHANNEL_PROCESSED_BY",
+      "source": "ableton:track-2:channel",
+      "target": "ableton:device-8",
+      "properties": {
+        "index": 0
+      },
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0021",
+      "rel_type": "CHANNEL_PROCESSED_BY",
+      "source": "ableton:track-2:channel",
+      "target": "ableton:device-9",
+      "properties": {
+        "index": 1
+      },
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0022",
+      "rel_type": "CONTAINS",
+      "source": "ableton:device-9",
+      "target": "ableton:device-9-param-1",
+      "properties": {
+        "kind": "parameter"
+      },
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0023",
+      "rel_type": "CHANNEL_PROCESSED_BY",
+      "source": "ableton:track-2:channel",
+      "target": "ableton:device-10",
+      "properties": {
+        "index": 2
+      },
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0024",
+      "rel_type": "CHANNEL_PROCESSED_BY",
+      "source": "ableton:track-3:channel",
+      "target": "ableton:device-11",
+      "properties": {
+        "index": 0
+      },
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0025",
+      "rel_type": "CHANNEL_PROCESSED_BY",
+      "source": "ableton:track-3:channel",
+      "target": "ableton:device-12",
+      "properties": {
+        "index": 1
+      },
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0026",
+      "rel_type": "CONTAINS",
+      "source": "ableton:device-12",
+      "target": "ableton:device-12-param-1",
+      "properties": {
+        "kind": "parameter"
+      },
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0027",
+      "rel_type": "CHANNEL_PROCESSED_BY",
+      "source": "ableton:track-4:channel",
+      "target": "ableton:device-13",
+      "properties": {
+        "index": 0
+      },
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0028",
+      "rel_type": "CONTAINS",
+      "source": "ableton:device-13",
+      "target": "ableton:device-13-param-1",
+      "properties": {
+        "kind": "parameter"
+      },
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0029",
+      "rel_type": "CHANNEL_PROCESSED_BY",
+      "source": "ableton:track-4:channel",
+      "target": "ableton:device-14",
+      "properties": {
+        "index": 1
+      },
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0030",
+      "rel_type": "CHANNEL_PROCESSED_BY",
+      "source": "ableton:track-5:channel",
+      "target": "ableton:device-15",
+      "properties": {
+        "index": 0
+      },
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0031",
+      "rel_type": "CONTAINS",
+      "source": "ableton:device-15",
+      "target": "ableton:device-15-param-1",
+      "properties": {
+        "kind": "parameter"
+      },
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0032",
+      "rel_type": "CHANNEL_PROCESSED_BY",
+      "source": "ableton:track-5:channel",
+      "target": "ableton:device-16",
+      "properties": {
+        "index": 1
+      },
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0033",
+      "rel_type": "CONTAINS",
+      "source": "ableton:device-16",
+      "target": "ableton:device-16-param-1",
+      "properties": {
+        "kind": "parameter"
+      },
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0034",
+      "rel_type": "CHANNEL_PROCESSED_BY",
+      "source": "ableton:track-5:channel",
+      "target": "ableton:device-17",
+      "properties": {
+        "index": 2
+      },
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0035",
+      "rel_type": "CONTAINS",
+      "source": "ableton:device-17",
+      "target": "ableton:device-17-param-1",
+      "properties": {
+        "kind": "parameter"
+      },
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0036",
+      "rel_type": "CHANNEL_PROCESSED_BY",
+      "source": "ableton:track-6:channel",
+      "target": "ableton:device-18",
+      "properties": {
+        "index": 0
+      },
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0037",
+      "rel_type": "CONTAINS",
+      "source": "ableton:device-18",
+      "target": "ableton:device-18-param-1",
+      "properties": {
+        "kind": "parameter"
+      },
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0038",
+      "rel_type": "CHANNEL_PROCESSED_BY",
+      "source": "ableton:return-1",
+      "target": "ableton:device-19",
+      "properties": {
+        "index": 0
+      },
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0039",
+      "rel_type": "CONTAINS",
+      "source": "ableton:device-19",
+      "target": "ableton:device-19-param-1",
+      "properties": {
+        "kind": "parameter"
+      },
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0040",
+      "rel_type": "CHANNEL_PROCESSED_BY",
+      "source": "ableton:return-2",
+      "target": "ableton:device-20",
+      "properties": {
+        "index": 0
+      },
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0041",
+      "rel_type": "CONTAINS",
+      "source": "ableton:device-20",
+      "target": "ableton:device-20-param-1",
+      "properties": {
+        "kind": "parameter"
+      },
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0042",
+      "rel_type": "CHANNEL_PROCESSED_BY",
+      "source": "ableton:master-1",
+      "target": "ableton:device-21",
+      "properties": {
+        "index": 0
+      },
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0043",
+      "rel_type": "CONTAINS",
+      "source": "ableton:device-21",
+      "target": "ableton:device-21-param-1",
+      "properties": {
+        "kind": "parameter"
+      },
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0044",
+      "rel_type": "CHANNEL_PROCESSED_BY",
+      "source": "ableton:master-1",
+      "target": "ableton:device-22",
+      "properties": {
+        "index": 1
+      },
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0045",
+      "rel_type": "CONTAINS",
+      "source": "ableton:device-22",
+      "target": "ableton:device-22-param-1",
+      "properties": {
+        "kind": "parameter"
+      },
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0046",
+      "rel_type": "CONTAINS",
+      "source": "ableton_live:project",
+      "target": "ableton:scene-1",
+      "properties": {
+        "kind": "scene"
+      },
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0047",
+      "rel_type": "CONTAINS",
+      "source": "ableton_live:project",
+      "target": "ableton:scene-2",
+      "properties": {
+        "kind": "scene"
+      },
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0048",
+      "rel_type": "CONTAINS",
+      "source": "ableton_live:project",
+      "target": "ableton:scene-3",
+      "properties": {
+        "kind": "scene"
+      },
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0049",
+      "rel_type": "TRACK_CONTAINS_TEMPORAL_OBJECT",
+      "source": "ableton:track-1",
+      "target": "ableton:clip-1",
+      "properties": {},
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0050",
+      "rel_type": "REFERENCES_ASSET",
+      "source": "ableton:clip-1",
+      "target": "asset:audio_drums_intro_wav",
+      "properties": {},
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0051",
+      "rel_type": "CONTAINS",
+      "source": "ableton:scene-1",
+      "target": "ableton:clip-1",
+      "properties": {
+        "kind": "scene_member"
+      },
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0052",
+      "rel_type": "TRACK_CONTAINS_TEMPORAL_OBJECT",
+      "source": "ableton:track-1",
+      "target": "ableton:clip-2",
+      "properties": {},
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0053",
+      "rel_type": "REFERENCES_ASSET",
+      "source": "ableton:clip-2",
+      "target": "asset:audio_drums_verse_wav",
+      "properties": {},
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0054",
+      "rel_type": "CONTAINS",
+      "source": "ableton:scene-2",
+      "target": "ableton:clip-2",
+      "properties": {
+        "kind": "scene_member"
+      },
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0055",
+      "rel_type": "TRACK_CONTAINS_TEMPORAL_OBJECT",
+      "source": "ableton:track-1",
+      "target": "ableton:clip-3",
+      "properties": {},
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0056",
+      "rel_type": "REFERENCES_ASSET",
+      "source": "ableton:clip-3",
+      "target": "asset:audio_drums_chorus_wav",
+      "properties": {},
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0057",
+      "rel_type": "CONTAINS",
+      "source": "ableton:scene-3",
+      "target": "ableton:clip-3",
+      "properties": {
+        "kind": "scene_member"
+      },
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0058",
+      "rel_type": "TRACK_CONTAINS_TEMPORAL_OBJECT",
+      "source": "ableton:track-2",
+      "target": "ableton:clip-4",
+      "properties": {},
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0059",
+      "rel_type": "REFERENCES_ASSET",
+      "source": "ableton:clip-4",
+      "target": "asset:audio_bass_verse_wav",
+      "properties": {},
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0060",
+      "rel_type": "CONTAINS",
+      "source": "ableton:scene-2",
+      "target": "ableton:clip-4",
+      "properties": {
+        "kind": "scene_member"
+      },
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0061",
+      "rel_type": "TRACK_CONTAINS_TEMPORAL_OBJECT",
+      "source": "ableton:track-2",
+      "target": "ableton:clip-5",
+      "properties": {},
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0062",
+      "rel_type": "REFERENCES_ASSET",
+      "source": "ableton:clip-5",
+      "target": "asset:audio_bass_chorus_wav",
+      "properties": {},
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0063",
+      "rel_type": "CONTAINS",
+      "source": "ableton:scene-3",
+      "target": "ableton:clip-5",
+      "properties": {
+        "kind": "scene_member"
+      },
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0064",
+      "rel_type": "TRACK_CONTAINS_TEMPORAL_OBJECT",
+      "source": "ableton:track-3",
+      "target": "ableton:clip-6",
+      "properties": {},
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0065",
+      "rel_type": "REFERENCES_ASSET",
+      "source": "ableton:clip-6",
+      "target": "asset:audio_guitar_verse_wav",
+      "properties": {},
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0066",
+      "rel_type": "CONTAINS",
+      "source": "ableton:scene-2",
+      "target": "ableton:clip-6",
+      "properties": {
+        "kind": "scene_member"
+      },
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0067",
+      "rel_type": "TRACK_CONTAINS_TEMPORAL_OBJECT",
+      "source": "ableton:track-3",
+      "target": "ableton:clip-7",
+      "properties": {},
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0068",
+      "rel_type": "REFERENCES_ASSET",
+      "source": "ableton:clip-7",
+      "target": "asset:audio_guitar_chorus_wav",
+      "properties": {},
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0069",
+      "rel_type": "CONTAINS",
+      "source": "ableton:scene-3",
+      "target": "ableton:clip-7",
+      "properties": {
+        "kind": "scene_member"
+      },
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0070",
+      "rel_type": "TRACK_CONTAINS_TEMPORAL_OBJECT",
+      "source": "ableton:track-4",
+      "target": "ableton:clip-8",
+      "properties": {},
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0071",
+      "rel_type": "CONTAINS",
+      "source": "ableton:scene-1",
+      "target": "ableton:clip-8",
+      "properties": {
+        "kind": "scene_member"
+      },
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0072",
+      "rel_type": "TRACK_CONTAINS_TEMPORAL_OBJECT",
+      "source": "ableton:track-4",
+      "target": "ableton:clip-9",
+      "properties": {},
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0073",
+      "rel_type": "CONTAINS",
+      "source": "ableton:scene-3",
+      "target": "ableton:clip-9",
+      "properties": {
+        "kind": "scene_member"
+      },
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0074",
+      "rel_type": "TRACK_CONTAINS_TEMPORAL_OBJECT",
+      "source": "ableton:track-5",
+      "target": "ableton:clip-10",
+      "properties": {},
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0075",
+      "rel_type": "REFERENCES_ASSET",
+      "source": "ableton:clip-10",
+      "target": "asset:audio_lead_vox_verse_wav",
+      "properties": {},
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0076",
+      "rel_type": "CONTAINS",
+      "source": "ableton:scene-2",
+      "target": "ableton:clip-10",
+      "properties": {
+        "kind": "scene_member"
+      },
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0077",
+      "rel_type": "TRACK_CONTAINS_TEMPORAL_OBJECT",
+      "source": "ableton:track-5",
+      "target": "ableton:clip-11",
+      "properties": {},
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0078",
+      "rel_type": "REFERENCES_ASSET",
+      "source": "ableton:clip-11",
+      "target": "asset:audio_lead_vox_chorus_wav",
+      "properties": {},
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0079",
+      "rel_type": "CONTAINS",
+      "source": "ableton:scene-3",
+      "target": "ableton:clip-11",
+      "properties": {
+        "kind": "scene_member"
+      },
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0080",
+      "rel_type": "TRACK_CONTAINS_TEMPORAL_OBJECT",
+      "source": "ableton:track-6",
+      "target": "ableton:clip-12",
+      "properties": {},
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0081",
+      "rel_type": "REFERENCES_ASSET",
+      "source": "ableton:clip-12",
+      "target": "asset:audio_bgv_chorus_wav",
+      "properties": {},
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0082",
+      "rel_type": "CONTAINS",
+      "source": "ableton:scene-3",
+      "target": "ableton:clip-12",
+      "properties": {
+        "kind": "scene_member"
+      },
+      "prov_ref": "prov:0001"
+    }
+  ],
+  "temporal_state": {},
+  "automation": [],
+  "modulation": [],
+  "capabilities": {
+    "read": {
+      "structure": {
+        "fields": {
+          "tracks": {
+            "applicability": "APPLICABLE",
+            "support": "FULL",
+            "capture_method": "extension_json",
+            "source_stability": "SUPPORTED_INTEGRATION",
+            "tested_daw_version": "12.4.5 beta",
+            "validation_status": "TESTED"
+          },
+          "scenes": {
+            "applicability": "APPLICABLE",
+            "support": "FULL",
+            "capture_method": "extension_json",
+            "source_stability": "SUPPORTED_INTEGRATION",
+            "tested_daw_version": "12.4.5 beta",
+            "validation_status": "TESTED"
+          },
+          "clips": {
+            "applicability": "APPLICABLE",
+            "support": "FULL",
+            "capture_method": "extension_json",
+            "source_stability": "SUPPORTED_INTEGRATION",
+            "tested_daw_version": "12.4.5 beta",
+            "validation_status": "TESTED"
+          },
+          "group_membership": {
+            "applicability": "APPLICABLE",
+            "support": "FULL",
+            "capture_method": "extension_json",
+            "source_stability": "SUPPORTED_INTEGRATION",
+            "tested_daw_version": "12.4.5 beta",
+            "validation_status": "TESTED"
+          },
+          "set_name": {
+            "applicability": "APPLICABLE",
+            "support": "NONE",
+            "capture_method": "extension_json",
+            "source_stability": "SUPPORTED_INTEGRATION",
+            "tested_daw_version": "12.4.5 beta",
+            "validation_status": "TESTED"
+          }
+        }
+      },
+      "channel": {
+        "fields": {
+          "mute": {
+            "applicability": "APPLICABLE",
+            "support": "FULL",
+            "capture_method": "extension_json",
+            "source_stability": "SUPPORTED_INTEGRATION",
+            "tested_daw_version": "12.4.5 beta",
+            "validation_status": "TESTED"
+          },
+          "solo": {
+            "applicability": "APPLICABLE",
+            "support": "FULL",
+            "capture_method": "extension_json",
+            "source_stability": "SUPPORTED_INTEGRATION",
+            "tested_daw_version": "12.4.5 beta",
+            "validation_status": "TESTED"
+          },
+          "armed": {
+            "applicability": "APPLICABLE",
+            "support": "FULL",
+            "capture_method": "extension_json",
+            "source_stability": "SUPPORTED_INTEGRATION",
+            "tested_daw_version": "12.4.5 beta",
+            "validation_status": "TESTED"
+          },
+          "volume_db": {
+            "applicability": "APPLICABLE",
+            "support": "NONE",
+            "capture_method": "extension_json",
+            "source_stability": "SUPPORTED_INTEGRATION",
+            "tested_daw_version": "12.4.5 beta",
+            "validation_status": "TESTED"
+          },
+          "pan": {
+            "applicability": "APPLICABLE",
+            "support": "NONE",
+            "capture_method": "extension_json",
+            "source_stability": "SUPPORTED_INTEGRATION",
+            "tested_daw_version": "12.4.5 beta",
+            "validation_status": "TESTED"
+          },
+          "color": {
+            "applicability": "APPLICABLE",
+            "support": "NONE",
+            "capture_method": "extension_json",
+            "source_stability": "SUPPORTED_INTEGRATION",
+            "tested_daw_version": "12.4.5 beta",
+            "validation_status": "TESTED"
+          }
+        }
+      },
+      "routing": {
+        "fields": {
+          "sends": {
+            "applicability": "APPLICABLE",
+            "support": "FULL",
+            "capture_method": "extension_json",
+            "source_stability": "SUPPORTED_INTEGRATION",
+            "tested_daw_version": "12.4.5 beta",
+            "validation_status": "TESTED"
+          },
+          "return_tracks": {
+            "applicability": "APPLICABLE",
+            "support": "FULL",
+            "capture_method": "extension_json",
+            "source_stability": "SUPPORTED_INTEGRATION",
+            "tested_daw_version": "12.4.5 beta",
+            "validation_status": "TESTED"
+          },
+          "main_chain": {
+            "applicability": "APPLICABLE",
+            "support": "FULL",
+            "capture_method": "extension_json",
+            "source_stability": "SUPPORTED_INTEGRATION",
+            "tested_daw_version": "12.4.5 beta",
+            "validation_status": "TESTED"
+          }
+        }
+      },
+      "processing": {
+        "fields": {
+          "device_chains": {
+            "applicability": "APPLICABLE",
+            "support": "FULL",
+            "capture_method": "extension_json",
+            "source_stability": "SUPPORTED_INTEGRATION",
+            "tested_daw_version": "12.4.5 beta",
+            "validation_status": "TESTED"
+          },
+          "rack_recursion": {
+            "applicability": "APPLICABLE",
+            "support": "FULL",
+            "capture_method": "extension_json",
+            "source_stability": "SUPPORTED_INTEGRATION",
+            "tested_daw_version": "12.4.5 beta",
+            "validation_status": "TESTED"
+          },
+          "device_enabled": {
+            "applicability": "APPLICABLE",
+            "support": "NONE",
+            "capture_method": "extension_json",
+            "source_stability": "SUPPORTED_INTEGRATION",
+            "tested_daw_version": "12.4.5 beta",
+            "validation_status": "TESTED"
+          }
+        }
+      },
+      "parameters": {
+        "fields": {
+          "parameter_names": {
+            "applicability": "APPLICABLE",
+            "support": "FULL",
+            "capture_method": "extension_json",
+            "source_stability": "SUPPORTED_INTEGRATION",
+            "tested_daw_version": "12.4.5 beta",
+            "validation_status": "TESTED"
+          },
+          "parameter_values": {
+            "applicability": "APPLICABLE",
+            "support": "PARTIAL",
+            "capture_method": "extension_json",
+            "source_stability": "SUPPORTED_INTEGRATION",
+            "tested_daw_version": "12.4.5 beta",
+            "validation_status": "TESTED"
+          }
+        }
+      },
+      "automation": {
+        "fields": {
+          "automation_state": {
+            "applicability": "APPLICABLE",
+            "support": "NONE",
+            "capture_method": "extension_json",
+            "source_stability": "SUPPORTED_INTEGRATION",
+            "tested_daw_version": "12.4.5 beta",
+            "validation_status": "TESTED"
+          }
+        }
+      }
+    },
+    "write": {},
+    "live_observation": {
+      "session": {
+        "fields": {
+          "current_set_snapshot": {
+            "applicability": "APPLICABLE",
+            "support": "PARTIAL",
+            "capture_method": "extension_json",
+            "source_stability": "SUPPORTED_INTEGRATION",
+            "tested_daw_version": "12.4.5 beta",
+            "validation_status": "TESTED"
+          },
+          "transport_state": {
+            "applicability": "APPLICABLE",
+            "support": "NONE",
+            "capture_method": "extension_json",
+            "source_stability": "SUPPORTED_INTEGRATION",
+            "tested_daw_version": "12.4.5 beta",
+            "validation_status": "TESTED"
+          }
+        }
+      }
+    },
+    "render": {},
+    "manifest_version": "0.2.0",
+    "daw": "ableton_live",
+    "daw_version": "12.4.5 beta",
+    "adapter": "ableton-session-state-explorer",
+    "adapter_version": "0.1.0",
+    "notes": [
+      "Read pathway: the Session State Exporter Live extension (official Extensions SDK 1.0.0-beta) — SUPPORTED_INTEGRATION.",
+      "Hand-authored session_json uploads use the same schema but are MANUAL-stability captures; the bundle's provenance records carry that distinction.",
+      "Write and render are NONE: no offline Live Set authoring path exists, and fabricating .als files would overstate compatibility."
+    ]
+  },
+  "coverage": {
+    "structure": {
+      "applicable": 9,
+      "observed": 9,
+      "inferred": 0,
+      "hidden": 0,
+      "unsupported": 0
+    },
+    "channel": {
+      "applicable": 9,
+      "observed": 9,
+      "inferred": 0,
+      "hidden": 0,
+      "unsupported": 0
+    },
+    "processing": {
+      "applicable": 22,
+      "observed": 22,
+      "inferred": 0,
+      "hidden": 0,
+      "unsupported": 0
+    },
+    "routing": {
+      "applicable": 0,
+      "observed": 0,
+      "inferred": 0,
+      "hidden": 0,
+      "unsupported": 0
+    }
+  },
+  "provenance": [
+    {
+      "id": "prov:0001",
+      "evidence": "OBSERVED",
+      "capture_method": "session_json",
+      "source_stability": "MANUAL",
+      "source_ref": null,
+      "confidence": null,
+      "explanation": null,
+      "warnings": []
+    },
+    {
+      "id": "prov:0002",
+      "evidence": "INFERRED",
+      "capture_method": "session_json",
+      "source_stability": "MANUAL",
+      "source_ref": null,
+      "confidence": 0.5,
+      "explanation": "keyword classifier",
+      "warnings": []
+    },
+    {
+      "id": "prov:0003",
+      "evidence": "INFERRED",
+      "capture_method": "session_json",
+      "source_stability": "MANUAL",
+      "source_ref": null,
+      "confidence": 0.5,
+      "explanation": "return tracks read as Bus by construction",
+      "warnings": []
+    }
+  ],
+  "extensions": {
+    "ableton_live": {
+      "metadata": {
+        "source_artifact": "session_json",
+        "native_metadata": {
+          "source": "built-in demo",
+          "daw_dialect": "ableton-style",
+          "intentional_heuristic_issues": [
+            "individual reverbs/echo on tracks instead of shared returns",
+            "return tracks defined but no sends assigned",
+            "backing vocal track has no corrective devices",
+            "lead vocal chain has no de-esser-like device",
+            "drum track has a dense (7-device) chain",
+            "master limiter present without loudness/mixdown context"
+          ]
+        }
+      },
+      "native_file": {
+        "path": "native.json",
+        "sha256": "a015dc52abab0df34916059999db6f23d753659519c12092ed9b546b4087c579"
+      }
+    }
+  },
+  "warnings": [
+    "This is a hand-authored demo session, not an imported Live Set.",
+    "Clip audio file paths are placeholders; no audio is bundled."
+  ],
+  "failures": []
+}
