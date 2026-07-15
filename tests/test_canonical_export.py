@@ -49,6 +49,9 @@ from ableton_session_state_explorer.canonical_export.manifest import (
 from ableton_session_state_explorer.models import validate_project_dict
 
 EXAMPLES_DIR = Path(__file__).resolve().parent.parent / "data" / "examples"
+COMMITTED_BUNDLE_DIR = (
+    Path(__file__).resolve().parent.parent / "exports" / "example_session"
+)
 
 
 def _load_example(name: str):
@@ -385,3 +388,43 @@ def test_als_bundle_capture_mode(als_bundle):
     assert snapshot["source"]["capture_modes"] == ["als_surface"]
     descriptor = json.loads(paths["adapter_descriptor.json"].read_text())
     assert descriptor["capture_modes"] == ["als_surface"]
+
+
+# ---------------------------------------------------------------------------
+# 4. Committed-bundle drift guard
+# ---------------------------------------------------------------------------
+
+
+def test_committed_example_bundle_is_not_stale(tmp_path):
+    """The checked-in ``exports/example_session/`` bundle must equal a fresh
+    regeneration from ``data/examples/example_session.json``.
+
+    The bundle is a committed reference artifact, but the mapper here and the
+    ``canonical_snapshot`` contract it depends on both evolve independently
+    (an editable install ignores the ``>=0.2,<0.3`` pin), so without this
+    guard the committed bundle silently drifts from what the code produces —
+    exactly what happened before this test existed (a stale project-id prefix
+    and 13 missing ``PRECEDES`` edges). The export is deterministic, so a
+    parsed-JSON equality check is stable. When it fails, regenerate with::
+
+        PYTHONPATH=src python -m ableton_session_state_explorer \\
+            export-canonical data/examples/example_session.json \\
+            --out exports/example_session --source session_json
+    """
+    fresh = export_bundle(
+        EXAMPLES_DIR / "example_session.json",
+        tmp_path / "regen",
+        source_kind="session_json",
+    )
+    for name in BUNDLE_FILES:
+        committed_path = COMMITTED_BUNDLE_DIR / name
+        assert committed_path.exists(), (
+            f"committed bundle is missing {name} — regenerate "
+            "exports/example_session/ (see this test's docstring)."
+        )
+        committed = json.loads(committed_path.read_text())
+        regenerated = json.loads(fresh[name].read_text())
+        assert committed == regenerated, (
+            f"exports/example_session/{name} is stale: it differs from a fresh "
+            "export. Regenerate the committed bundle (see this test's docstring)."
+        )
