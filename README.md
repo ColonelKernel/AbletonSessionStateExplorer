@@ -1,8 +1,11 @@
 # Session State Explorer v0
 
 [![tests](https://github.com/colonelkernel/AbletonSessionStateExplorer/actions/workflows/tests.yml/badge.svg)](https://github.com/colonelkernel/AbletonSessionStateExplorer/actions/workflows/tests.yml)
+[![Live workbench](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://session-state-analyzer-n2lj2kmjjijdzta7oarpyt.streamlit.app/)
 
 **Interpretable DAW-state graphs for human-centered AI-assisted music production.**
+
+**[Live demo](https://session-state-analyzer-n2lj2kmjjijdzta7oarpyt.streamlit.app/)** — this adapter's canonical bundles rendered in the Session State Analyzer workbench (no install).
 
 A research prototype built for a preliminary PhD application to the Music
 Technology Group (Universitat Pompeu Fabra), in collaboration with Steinberg.
