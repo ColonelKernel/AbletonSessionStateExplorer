@@ -404,8 +404,13 @@ def test_committed_example_bundle_is_not_stale(tmp_path):
     (an editable install ignores the ``>=0.2,<0.3`` pin), so without this
     guard the committed bundle silently drifts from what the code produces —
     exactly what happened before this test existed (a stale project-id prefix
-    and 13 missing ``PRECEDES`` edges). The export is deterministic, so a
-    parsed-JSON equality check is stable. When it fails, regenerate with::
+    and 13 missing ``PRECEDES`` edges). The comparison ignores the snapshot's
+    ``created_at``: it is the *source file's mtime* (see ``_created_at``), and
+    git does not preserve mtimes across checkouts, so a fresh clone (e.g. CI)
+    always regenerates it to the checkout time — comparing it would make this
+    guard fail on every machine but the one that last wrote the bundle. Every
+    other field is deterministic, so a parsed-JSON equality check is stable.
+    When it fails on real content, regenerate with::
 
         PYTHONPATH=src python -m ableton_session_state_explorer \\
             export-canonical data/examples/example_session.json \\
@@ -416,15 +421,23 @@ def test_committed_example_bundle_is_not_stale(tmp_path):
         tmp_path / "regen",
         source_kind="session_json",
     )
+
+    def _stable(name: str, payload: dict) -> dict:
+        # Drop the mtime-derived, checkout-dependent timestamp before comparing.
+        if name == "canonical.snapshot.json":
+            return {k: v for k, v in payload.items() if k != "created_at"}
+        return payload
+
     for name in BUNDLE_FILES:
         committed_path = COMMITTED_BUNDLE_DIR / name
         assert committed_path.exists(), (
             f"committed bundle is missing {name} — regenerate "
             "exports/example_session/ (see this test's docstring)."
         )
-        committed = json.loads(committed_path.read_text())
-        regenerated = json.loads(fresh[name].read_text())
+        committed = _stable(name, json.loads(committed_path.read_text()))
+        regenerated = _stable(name, json.loads(fresh[name].read_text()))
         assert committed == regenerated, (
             f"exports/example_session/{name} is stale: it differs from a fresh "
-            "export. Regenerate the committed bundle (see this test's docstring)."
+            "export (ignoring created_at). Regenerate the committed bundle "
+            "(see this test's docstring)."
         )
