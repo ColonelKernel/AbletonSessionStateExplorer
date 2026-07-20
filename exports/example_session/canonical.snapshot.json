@@ -11,10 +11,10 @@
       "session_json"
     ]
   },
-  "project": "ableton_live:project",
+  "project": "ableton:project",
   "entities": [
     {
-      "id": "ableton_live:project",
+      "id": "ableton:project",
       "entity_type": "PROJECT",
       "name": "Indie Vocal Production Sketch",
       "semantic_roles": [],
@@ -1750,6 +1750,16 @@
     },
     {
       "id": "rel:0010",
+      "rel_type": "PRECEDES",
+      "source": "ableton:device-1",
+      "target": "ableton:device-2",
+      "properties": {
+        "chain": "main"
+      },
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0011",
       "rel_type": "CONTAINS",
       "source": "ableton:device-2",
       "target": "ableton:device-2-param-1",
@@ -1759,7 +1769,7 @@
       "prov_ref": "prov:0001"
     },
     {
-      "id": "rel:0011",
+      "id": "rel:0012",
       "rel_type": "CONTAINS",
       "source": "ableton:device-2",
       "target": "ableton:device-2-param-2",
@@ -1769,7 +1779,7 @@
       "prov_ref": "prov:0001"
     },
     {
-      "id": "rel:0012",
+      "id": "rel:0013",
       "rel_type": "CHANNEL_PROCESSED_BY",
       "source": "ableton:track-1:channel",
       "target": "ableton:device-3",
@@ -1779,7 +1789,17 @@
       "prov_ref": "prov:0001"
     },
     {
-      "id": "rel:0013",
+      "id": "rel:0014",
+      "rel_type": "PRECEDES",
+      "source": "ableton:device-2",
+      "target": "ableton:device-3",
+      "properties": {
+        "chain": "main"
+      },
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0015",
       "rel_type": "CONTAINS",
       "source": "ableton:device-3",
       "target": "ableton:device-3-param-1",
@@ -1789,7 +1809,7 @@
       "prov_ref": "prov:0001"
     },
     {
-      "id": "rel:0014",
+      "id": "rel:0016",
       "rel_type": "CHANNEL_PROCESSED_BY",
       "source": "ableton:track-1:channel",
       "target": "ableton:device-4",
@@ -1799,7 +1819,17 @@
       "prov_ref": "prov:0001"
     },
     {
-      "id": "rel:0015",
+      "id": "rel:0017",
+      "rel_type": "PRECEDES",
+      "source": "ableton:device-3",
+      "target": "ableton:device-4",
+      "properties": {
+        "chain": "main"
+      },
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0018",
       "rel_type": "CONTAINS",
       "source": "ableton:device-4",
       "target": "ableton:device-4-param-1",
@@ -1809,7 +1839,7 @@
       "prov_ref": "prov:0001"
     },
     {
-      "id": "rel:0016",
+      "id": "rel:0019",
       "rel_type": "CHANNEL_PROCESSED_BY",
       "source": "ableton:track-1:channel",
       "target": "ableton:device-5",
@@ -1819,7 +1849,17 @@
       "prov_ref": "prov:0001"
     },
     {
-      "id": "rel:0017",
+      "id": "rel:0020",
+      "rel_type": "PRECEDES",
+      "source": "ableton:device-4",
+      "target": "ableton:device-5",
+      "properties": {
+        "chain": "main"
+      },
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0021",
       "rel_type": "CHANNEL_PROCESSED_BY",
       "source": "ableton:track-1:channel",
       "target": "ableton:device-6",
@@ -1829,7 +1869,17 @@
       "prov_ref": "prov:0001"
     },
     {
-      "id": "rel:0018",
+      "id": "rel:0022",
+      "rel_type": "PRECEDES",
+      "source": "ableton:device-5",
+      "target": "ableton:device-6",
+      "properties": {
+        "chain": "main"
+      },
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0023",
       "rel_type": "CONTAINS",
       "source": "ableton:device-6",
       "target": "ableton:device-6-param-1",
@@ -1839,7 +1889,7 @@
       "prov_ref": "prov:0001"
     },
     {
-      "id": "rel:0019",
+      "id": "rel:0024",
       "rel_type": "CHANNEL_PROCESSED_BY",
       "source": "ableton:track-1:channel",
       "target": "ableton:device-7",
@@ -1849,7 +1899,17 @@
       "prov_ref": "prov:0001"
     },
     {
-      "id": "rel:0020",
+      "id": "rel:0025",
+      "rel_type": "PRECEDES",
+      "source": "ableton:device-6",
+      "target": "ableton:device-7",
+      "properties": {
+        "chain": "main"
+      },
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0026",
       "rel_type": "CHANNEL_PROCESSED_BY",
       "source": "ableton:track-2:channel",
       "target": "ableton:device-8",
@@ -1859,7 +1919,7 @@
       "prov_ref": "prov:0001"
     },
     {
-      "id": "rel:0021",
+      "id": "rel:0027",
       "rel_type": "CHANNEL_PROCESSED_BY",
       "source": "ableton:track-2:channel",
       "target": "ableton:device-9",
@@ -1869,7 +1929,17 @@
       "prov_ref": "prov:0001"
     },
     {
-      "id": "rel:0022",
+      "id": "rel:0028",
+      "rel_type": "PRECEDES",
+      "source": "ableton:device-8",
+      "target": "ableton:device-9",
+      "properties": {
+        "chain": "main"
+      },
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0029",
       "rel_type": "CONTAINS",
       "source": "ableton:device-9",
       "target": "ableton:device-9-param-1",
@@ -1879,7 +1949,7 @@
       "prov_ref": "prov:0001"
     },
     {
-      "id": "rel:0023",
+      "id": "rel:0030",
       "rel_type": "CHANNEL_PROCESSED_BY",
       "source": "ableton:track-2:channel",
       "target": "ableton:device-10",
@@ -1889,7 +1959,17 @@
       "prov_ref": "prov:0001"
     },
     {
-      "id": "rel:0024",
+      "id": "rel:0031",
+      "rel_type": "PRECEDES",
+      "source": "ableton:device-9",
+      "target": "ableton:device-10",
+      "properties": {
+        "chain": "main"
+      },
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0032",
       "rel_type": "CHANNEL_PROCESSED_BY",
       "source": "ableton:track-3:channel",
       "target": "ableton:device-11",
@@ -1899,7 +1979,7 @@
       "prov_ref": "prov:0001"
     },
     {
-      "id": "rel:0025",
+      "id": "rel:0033",
       "rel_type": "CHANNEL_PROCESSED_BY",
       "source": "ableton:track-3:channel",
       "target": "ableton:device-12",
@@ -1909,7 +1989,17 @@
       "prov_ref": "prov:0001"
     },
     {
-      "id": "rel:0026",
+      "id": "rel:0034",
+      "rel_type": "PRECEDES",
+      "source": "ableton:device-11",
+      "target": "ableton:device-12",
+      "properties": {
+        "chain": "main"
+      },
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0035",
       "rel_type": "CONTAINS",
       "source": "ableton:device-12",
       "target": "ableton:device-12-param-1",
@@ -1919,7 +2009,7 @@
       "prov_ref": "prov:0001"
     },
     {
-      "id": "rel:0027",
+      "id": "rel:0036",
       "rel_type": "CHANNEL_PROCESSED_BY",
       "source": "ableton:track-4:channel",
       "target": "ableton:device-13",
@@ -1929,7 +2019,7 @@
       "prov_ref": "prov:0001"
     },
     {
-      "id": "rel:0028",
+      "id": "rel:0037",
       "rel_type": "CONTAINS",
       "source": "ableton:device-13",
       "target": "ableton:device-13-param-1",
@@ -1939,7 +2029,7 @@
       "prov_ref": "prov:0001"
     },
     {
-      "id": "rel:0029",
+      "id": "rel:0038",
       "rel_type": "CHANNEL_PROCESSED_BY",
       "source": "ableton:track-4:channel",
       "target": "ableton:device-14",
@@ -1949,7 +2039,17 @@
       "prov_ref": "prov:0001"
     },
     {
-      "id": "rel:0030",
+      "id": "rel:0039",
+      "rel_type": "PRECEDES",
+      "source": "ableton:device-13",
+      "target": "ableton:device-14",
+      "properties": {
+        "chain": "main"
+      },
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0040",
       "rel_type": "CHANNEL_PROCESSED_BY",
       "source": "ableton:track-5:channel",
       "target": "ableton:device-15",
@@ -1959,7 +2059,7 @@
       "prov_ref": "prov:0001"
     },
     {
-      "id": "rel:0031",
+      "id": "rel:0041",
       "rel_type": "CONTAINS",
       "source": "ableton:device-15",
       "target": "ableton:device-15-param-1",
@@ -1969,7 +2069,7 @@
       "prov_ref": "prov:0001"
     },
     {
-      "id": "rel:0032",
+      "id": "rel:0042",
       "rel_type": "CHANNEL_PROCESSED_BY",
       "source": "ableton:track-5:channel",
       "target": "ableton:device-16",
@@ -1979,7 +2079,17 @@
       "prov_ref": "prov:0001"
     },
     {
-      "id": "rel:0033",
+      "id": "rel:0043",
+      "rel_type": "PRECEDES",
+      "source": "ableton:device-15",
+      "target": "ableton:device-16",
+      "properties": {
+        "chain": "main"
+      },
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0044",
       "rel_type": "CONTAINS",
       "source": "ableton:device-16",
       "target": "ableton:device-16-param-1",
@@ -1989,7 +2099,7 @@
       "prov_ref": "prov:0001"
     },
     {
-      "id": "rel:0034",
+      "id": "rel:0045",
       "rel_type": "CHANNEL_PROCESSED_BY",
       "source": "ableton:track-5:channel",
       "target": "ableton:device-17",
@@ -1999,7 +2109,17 @@
       "prov_ref": "prov:0001"
     },
     {
-      "id": "rel:0035",
+      "id": "rel:0046",
+      "rel_type": "PRECEDES",
+      "source": "ableton:device-16",
+      "target": "ableton:device-17",
+      "properties": {
+        "chain": "main"
+      },
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0047",
       "rel_type": "CONTAINS",
       "source": "ableton:device-17",
       "target": "ableton:device-17-param-1",
@@ -2009,7 +2129,7 @@
       "prov_ref": "prov:0001"
     },
     {
-      "id": "rel:0036",
+      "id": "rel:0048",
       "rel_type": "CHANNEL_PROCESSED_BY",
       "source": "ableton:track-6:channel",
       "target": "ableton:device-18",
@@ -2019,7 +2139,7 @@
       "prov_ref": "prov:0001"
     },
     {
-      "id": "rel:0037",
+      "id": "rel:0049",
       "rel_type": "CONTAINS",
       "source": "ableton:device-18",
       "target": "ableton:device-18-param-1",
@@ -2029,7 +2149,7 @@
       "prov_ref": "prov:0001"
     },
     {
-      "id": "rel:0038",
+      "id": "rel:0050",
       "rel_type": "CHANNEL_PROCESSED_BY",
       "source": "ableton:return-1",
       "target": "ableton:device-19",
@@ -2039,7 +2159,7 @@
       "prov_ref": "prov:0001"
     },
     {
-      "id": "rel:0039",
+      "id": "rel:0051",
       "rel_type": "CONTAINS",
       "source": "ableton:device-19",
       "target": "ableton:device-19-param-1",
@@ -2049,7 +2169,7 @@
       "prov_ref": "prov:0001"
     },
     {
-      "id": "rel:0040",
+      "id": "rel:0052",
       "rel_type": "CHANNEL_PROCESSED_BY",
       "source": "ableton:return-2",
       "target": "ableton:device-20",
@@ -2059,7 +2179,7 @@
       "prov_ref": "prov:0001"
     },
     {
-      "id": "rel:0041",
+      "id": "rel:0053",
       "rel_type": "CONTAINS",
       "source": "ableton:device-20",
       "target": "ableton:device-20-param-1",
@@ -2069,7 +2189,7 @@
       "prov_ref": "prov:0001"
     },
     {
-      "id": "rel:0042",
+      "id": "rel:0054",
       "rel_type": "CHANNEL_PROCESSED_BY",
       "source": "ableton:master-1",
       "target": "ableton:device-21",
@@ -2079,7 +2199,7 @@
       "prov_ref": "prov:0001"
     },
     {
-      "id": "rel:0043",
+      "id": "rel:0055",
       "rel_type": "CONTAINS",
       "source": "ableton:device-21",
       "target": "ableton:device-21-param-1",
@@ -2089,7 +2209,7 @@
       "prov_ref": "prov:0001"
     },
     {
-      "id": "rel:0044",
+      "id": "rel:0056",
       "rel_type": "CHANNEL_PROCESSED_BY",
       "source": "ableton:master-1",
       "target": "ableton:device-22",
@@ -2099,7 +2219,17 @@
       "prov_ref": "prov:0001"
     },
     {
-      "id": "rel:0045",
+      "id": "rel:0057",
+      "rel_type": "PRECEDES",
+      "source": "ableton:device-21",
+      "target": "ableton:device-22",
+      "properties": {
+        "chain": "main"
+      },
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0058",
       "rel_type": "CONTAINS",
       "source": "ableton:device-22",
       "target": "ableton:device-22-param-1",
@@ -2109,9 +2239,9 @@
       "prov_ref": "prov:0001"
     },
     {
-      "id": "rel:0046",
+      "id": "rel:0059",
       "rel_type": "CONTAINS",
-      "source": "ableton_live:project",
+      "source": "ableton:project",
       "target": "ableton:scene-1",
       "properties": {
         "kind": "scene"
@@ -2119,9 +2249,9 @@
       "prov_ref": "prov:0001"
     },
     {
-      "id": "rel:0047",
+      "id": "rel:0060",
       "rel_type": "CONTAINS",
-      "source": "ableton_live:project",
+      "source": "ableton:project",
       "target": "ableton:scene-2",
       "properties": {
         "kind": "scene"
@@ -2129,9 +2259,9 @@
       "prov_ref": "prov:0001"
     },
     {
-      "id": "rel:0048",
+      "id": "rel:0061",
       "rel_type": "CONTAINS",
-      "source": "ableton_live:project",
+      "source": "ableton:project",
       "target": "ableton:scene-3",
       "properties": {
         "kind": "scene"
@@ -2139,7 +2269,7 @@
       "prov_ref": "prov:0001"
     },
     {
-      "id": "rel:0049",
+      "id": "rel:0062",
       "rel_type": "TRACK_CONTAINS_TEMPORAL_OBJECT",
       "source": "ableton:track-1",
       "target": "ableton:clip-1",
@@ -2147,7 +2277,7 @@
       "prov_ref": "prov:0001"
     },
     {
-      "id": "rel:0050",
+      "id": "rel:0063",
       "rel_type": "REFERENCES_ASSET",
       "source": "ableton:clip-1",
       "target": "asset:audio_drums_intro_wav",
@@ -2155,7 +2285,7 @@
       "prov_ref": "prov:0001"
     },
     {
-      "id": "rel:0051",
+      "id": "rel:0064",
       "rel_type": "CONTAINS",
       "source": "ableton:scene-1",
       "target": "ableton:clip-1",
@@ -2165,7 +2295,7 @@
       "prov_ref": "prov:0001"
     },
     {
-      "id": "rel:0052",
+      "id": "rel:0065",
       "rel_type": "TRACK_CONTAINS_TEMPORAL_OBJECT",
       "source": "ableton:track-1",
       "target": "ableton:clip-2",
@@ -2173,7 +2303,7 @@
       "prov_ref": "prov:0001"
     },
     {
-      "id": "rel:0053",
+      "id": "rel:0066",
       "rel_type": "REFERENCES_ASSET",
       "source": "ableton:clip-2",
       "target": "asset:audio_drums_verse_wav",
@@ -2181,7 +2311,7 @@
       "prov_ref": "prov:0001"
     },
     {
-      "id": "rel:0054",
+      "id": "rel:0067",
       "rel_type": "CONTAINS",
       "source": "ableton:scene-2",
       "target": "ableton:clip-2",
@@ -2191,7 +2321,7 @@
       "prov_ref": "prov:0001"
     },
     {
-      "id": "rel:0055",
+      "id": "rel:0068",
       "rel_type": "TRACK_CONTAINS_TEMPORAL_OBJECT",
       "source": "ableton:track-1",
       "target": "ableton:clip-3",
@@ -2199,7 +2329,7 @@
       "prov_ref": "prov:0001"
     },
     {
-      "id": "rel:0056",
+      "id": "rel:0069",
       "rel_type": "REFERENCES_ASSET",
       "source": "ableton:clip-3",
       "target": "asset:audio_drums_chorus_wav",
@@ -2207,7 +2337,7 @@
       "prov_ref": "prov:0001"
     },
     {
-      "id": "rel:0057",
+      "id": "rel:0070",
       "rel_type": "CONTAINS",
       "source": "ableton:scene-3",
       "target": "ableton:clip-3",
@@ -2217,7 +2347,7 @@
       "prov_ref": "prov:0001"
     },
     {
-      "id": "rel:0058",
+      "id": "rel:0071",
       "rel_type": "TRACK_CONTAINS_TEMPORAL_OBJECT",
       "source": "ableton:track-2",
       "target": "ableton:clip-4",
@@ -2225,7 +2355,7 @@
       "prov_ref": "prov:0001"
     },
     {
-      "id": "rel:0059",
+      "id": "rel:0072",
       "rel_type": "REFERENCES_ASSET",
       "source": "ableton:clip-4",
       "target": "asset:audio_bass_verse_wav",
@@ -2233,124 +2363,10 @@
       "prov_ref": "prov:0001"
     },
     {
-      "id": "rel:0060",
+      "id": "rel:0073",
       "rel_type": "CONTAINS",
       "source": "ableton:scene-2",
       "target": "ableton:clip-4",
-      "properties": {
-        "kind": "scene_member"
-      },
-      "prov_ref": "prov:0001"
-    },
-    {
-      "id": "rel:0061",
-      "rel_type": "TRACK_CONTAINS_TEMPORAL_OBJECT",
-      "source": "ableton:track-2",
-      "target": "ableton:clip-5",
-      "properties": {},
-      "prov_ref": "prov:0001"
-    },
-    {
-      "id": "rel:0062",
-      "rel_type": "REFERENCES_ASSET",
-      "source": "ableton:clip-5",
-      "target": "asset:audio_bass_chorus_wav",
-      "properties": {},
-      "prov_ref": "prov:0001"
-    },
-    {
-      "id": "rel:0063",
-      "rel_type": "CONTAINS",
-      "source": "ableton:scene-3",
-      "target": "ableton:clip-5",
-      "properties": {
-        "kind": "scene_member"
-      },
-      "prov_ref": "prov:0001"
-    },
-    {
-      "id": "rel:0064",
-      "rel_type": "TRACK_CONTAINS_TEMPORAL_OBJECT",
-      "source": "ableton:track-3",
-      "target": "ableton:clip-6",
-      "properties": {},
-      "prov_ref": "prov:0001"
-    },
-    {
-      "id": "rel:0065",
-      "rel_type": "REFERENCES_ASSET",
-      "source": "ableton:clip-6",
-      "target": "asset:audio_guitar_verse_wav",
-      "properties": {},
-      "prov_ref": "prov:0001"
-    },
-    {
-      "id": "rel:0066",
-      "rel_type": "CONTAINS",
-      "source": "ableton:scene-2",
-      "target": "ableton:clip-6",
-      "properties": {
-        "kind": "scene_member"
-      },
-      "prov_ref": "prov:0001"
-    },
-    {
-      "id": "rel:0067",
-      "rel_type": "TRACK_CONTAINS_TEMPORAL_OBJECT",
-      "source": "ableton:track-3",
-      "target": "ableton:clip-7",
-      "properties": {},
-      "prov_ref": "prov:0001"
-    },
-    {
-      "id": "rel:0068",
-      "rel_type": "REFERENCES_ASSET",
-      "source": "ableton:clip-7",
-      "target": "asset:audio_guitar_chorus_wav",
-      "properties": {},
-      "prov_ref": "prov:0001"
-    },
-    {
-      "id": "rel:0069",
-      "rel_type": "CONTAINS",
-      "source": "ableton:scene-3",
-      "target": "ableton:clip-7",
-      "properties": {
-        "kind": "scene_member"
-      },
-      "prov_ref": "prov:0001"
-    },
-    {
-      "id": "rel:0070",
-      "rel_type": "TRACK_CONTAINS_TEMPORAL_OBJECT",
-      "source": "ableton:track-4",
-      "target": "ableton:clip-8",
-      "properties": {},
-      "prov_ref": "prov:0001"
-    },
-    {
-      "id": "rel:0071",
-      "rel_type": "CONTAINS",
-      "source": "ableton:scene-1",
-      "target": "ableton:clip-8",
-      "properties": {
-        "kind": "scene_member"
-      },
-      "prov_ref": "prov:0001"
-    },
-    {
-      "id": "rel:0072",
-      "rel_type": "TRACK_CONTAINS_TEMPORAL_OBJECT",
-      "source": "ableton:track-4",
-      "target": "ableton:clip-9",
-      "properties": {},
-      "prov_ref": "prov:0001"
-    },
-    {
-      "id": "rel:0073",
-      "rel_type": "CONTAINS",
-      "source": "ableton:scene-3",
-      "target": "ableton:clip-9",
       "properties": {
         "kind": "scene_member"
       },
@@ -2359,13 +2375,127 @@
     {
       "id": "rel:0074",
       "rel_type": "TRACK_CONTAINS_TEMPORAL_OBJECT",
+      "source": "ableton:track-2",
+      "target": "ableton:clip-5",
+      "properties": {},
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0075",
+      "rel_type": "REFERENCES_ASSET",
+      "source": "ableton:clip-5",
+      "target": "asset:audio_bass_chorus_wav",
+      "properties": {},
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0076",
+      "rel_type": "CONTAINS",
+      "source": "ableton:scene-3",
+      "target": "ableton:clip-5",
+      "properties": {
+        "kind": "scene_member"
+      },
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0077",
+      "rel_type": "TRACK_CONTAINS_TEMPORAL_OBJECT",
+      "source": "ableton:track-3",
+      "target": "ableton:clip-6",
+      "properties": {},
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0078",
+      "rel_type": "REFERENCES_ASSET",
+      "source": "ableton:clip-6",
+      "target": "asset:audio_guitar_verse_wav",
+      "properties": {},
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0079",
+      "rel_type": "CONTAINS",
+      "source": "ableton:scene-2",
+      "target": "ableton:clip-6",
+      "properties": {
+        "kind": "scene_member"
+      },
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0080",
+      "rel_type": "TRACK_CONTAINS_TEMPORAL_OBJECT",
+      "source": "ableton:track-3",
+      "target": "ableton:clip-7",
+      "properties": {},
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0081",
+      "rel_type": "REFERENCES_ASSET",
+      "source": "ableton:clip-7",
+      "target": "asset:audio_guitar_chorus_wav",
+      "properties": {},
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0082",
+      "rel_type": "CONTAINS",
+      "source": "ableton:scene-3",
+      "target": "ableton:clip-7",
+      "properties": {
+        "kind": "scene_member"
+      },
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0083",
+      "rel_type": "TRACK_CONTAINS_TEMPORAL_OBJECT",
+      "source": "ableton:track-4",
+      "target": "ableton:clip-8",
+      "properties": {},
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0084",
+      "rel_type": "CONTAINS",
+      "source": "ableton:scene-1",
+      "target": "ableton:clip-8",
+      "properties": {
+        "kind": "scene_member"
+      },
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0085",
+      "rel_type": "TRACK_CONTAINS_TEMPORAL_OBJECT",
+      "source": "ableton:track-4",
+      "target": "ableton:clip-9",
+      "properties": {},
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0086",
+      "rel_type": "CONTAINS",
+      "source": "ableton:scene-3",
+      "target": "ableton:clip-9",
+      "properties": {
+        "kind": "scene_member"
+      },
+      "prov_ref": "prov:0001"
+    },
+    {
+      "id": "rel:0087",
+      "rel_type": "TRACK_CONTAINS_TEMPORAL_OBJECT",
       "source": "ableton:track-5",
       "target": "ableton:clip-10",
       "properties": {},
       "prov_ref": "prov:0001"
     },
     {
-      "id": "rel:0075",
+      "id": "rel:0088",
       "rel_type": "REFERENCES_ASSET",
       "source": "ableton:clip-10",
       "target": "asset:audio_lead_vox_verse_wav",
@@ -2373,7 +2503,7 @@
       "prov_ref": "prov:0001"
     },
     {
-      "id": "rel:0076",
+      "id": "rel:0089",
       "rel_type": "CONTAINS",
       "source": "ableton:scene-2",
       "target": "ableton:clip-10",
@@ -2383,7 +2513,7 @@
       "prov_ref": "prov:0001"
     },
     {
-      "id": "rel:0077",
+      "id": "rel:0090",
       "rel_type": "TRACK_CONTAINS_TEMPORAL_OBJECT",
       "source": "ableton:track-5",
       "target": "ableton:clip-11",
@@ -2391,7 +2521,7 @@
       "prov_ref": "prov:0001"
     },
     {
-      "id": "rel:0078",
+      "id": "rel:0091",
       "rel_type": "REFERENCES_ASSET",
       "source": "ableton:clip-11",
       "target": "asset:audio_lead_vox_chorus_wav",
@@ -2399,7 +2529,7 @@
       "prov_ref": "prov:0001"
     },
     {
-      "id": "rel:0079",
+      "id": "rel:0092",
       "rel_type": "CONTAINS",
       "source": "ableton:scene-3",
       "target": "ableton:clip-11",
@@ -2409,7 +2539,7 @@
       "prov_ref": "prov:0001"
     },
     {
-      "id": "rel:0080",
+      "id": "rel:0093",
       "rel_type": "TRACK_CONTAINS_TEMPORAL_OBJECT",
       "source": "ableton:track-6",
       "target": "ableton:clip-12",
@@ -2417,7 +2547,7 @@
       "prov_ref": "prov:0001"
     },
     {
-      "id": "rel:0081",
+      "id": "rel:0094",
       "rel_type": "REFERENCES_ASSET",
       "source": "ableton:clip-12",
       "target": "asset:audio_bgv_chorus_wav",
@@ -2425,7 +2555,7 @@
       "prov_ref": "prov:0001"
     },
     {
-      "id": "rel:0082",
+      "id": "rel:0095",
       "rel_type": "CONTAINS",
       "source": "ableton:scene-3",
       "target": "ableton:clip-12",
@@ -2683,6 +2813,13 @@
       "unsupported": 0
     },
     "routing": {
+      "applicable": 0,
+      "observed": 0,
+      "inferred": 0,
+      "hidden": 0,
+      "unsupported": 0
+    },
+    "automation": {
       "applicable": 0,
       "observed": 0,
       "inferred": 0,

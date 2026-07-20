@@ -58,7 +58,23 @@ def _cmd_export_demo(out_dir: Path, dialect: str) -> int:
 
 
 def _cmd_export_canonical(input_path: Path, out_dir: Path, source_kind: str) -> int:
-    from .canonical_export import export_als_surface, export_bundle
+    try:
+        from .canonical_export import export_als_surface, export_bundle
+    except ImportError as exc:
+        # The adapter needs the shared canonical-snapshot contract, which is
+        # not on PyPI. Turn the bare ModuleNotFoundError into guidance.
+        print(
+            f"export-canonical needs the 'canonical-snapshot' contract package "
+            f"({exc}).\n"
+            "Install it from the session-state-analyzer repo, e.g.:\n"
+            "  pip install -e <session-state-analyzer>/packages/canonical_snapshot\n"
+            "or:  pip install "
+            '"canonical-snapshot @ '
+            "git+https://github.com/ColonelKernel/session-state-analyzer"
+            '@main#subdirectory=packages/canonical_snapshot"',
+            file=sys.stderr,
+        )
+        return 1
 
     if not input_path.exists():
         print(f"File not found: {input_path}", file=sys.stderr)
