@@ -66,12 +66,12 @@ def _cmd_export_canonical(input_path: Path, out_dir: Path, source_kind: str) -> 
         print(
             f"export-canonical needs the 'canonical-snapshot' contract package "
             f"({exc}).\n"
-            "Install it from the SessionStateExplorer repo, e.g.:\n"
-            "  pip install -e <SessionStateExplorer>/packages/canonical_snapshot\n"
+            "Install it from the session-state-analyzer repo, e.g.:\n"
+            "  pip install -e <session-state-analyzer>/packages/canonical_snapshot\n"
             "or:  pip install "
             '"canonical-snapshot @ '
-            "git+https://github.com/ColonelKernel/SessionStateExplorer"
-            '@schema-v0.2.0#subdirectory=packages/canonical_snapshot"',
+            "git+https://github.com/ColonelKernel/session-state-analyzer"
+            '@main#subdirectory=packages/canonical_snapshot"',
             file=sys.stderr,
         )
         return 1

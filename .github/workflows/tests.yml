@@ -22,14 +22,14 @@ jobs:
           pip install -r requirements.txt
       - name: Install canonical-snapshot contract (best-effort)
         # Enables the canonical-export tests + the committed-bundle drift
-        # guard. The contract lives in the separate SessionStateExplorer repo
-        # and is not on PyPI; until that repo is published with the
-        # schema-v0.2.0 tag this step is a no-op and the canonical-export
-        # tests importorskip (CI stays green). Once published, the drift
-        # guard runs for real and fails CI if exports/example_session/ is
-        # stale.
+        # guard. The contract lives in the separate (public) session-state-
+        # analyzer repo, not on PyPI, so install it straight from git, pinned
+        # to main. continue-on-error keeps CI green if that git install is
+        # transiently unavailable — the canonical-export tests importorskip
+        # when the contract is absent; when present, the drift guard runs for
+        # real and fails CI if exports/example_session/ is stale.
         continue-on-error: true
         run: |
-          pip install "canonical-snapshot @ git+https://github.com/ColonelKernel/SessionStateExplorer@schema-v0.2.0#subdirectory=packages/canonical_snapshot"
+          pip install "canonical-snapshot @ git+https://github.com/ColonelKernel/session-state-analyzer@main#subdirectory=packages/canonical_snapshot"
       - name: Run tests
         run: python -m pytest -q
